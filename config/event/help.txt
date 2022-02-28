@@ -1,0 +1,30 @@
+Available fields for email text
+
+email
+location
+type
+venue_name
+venue_address
+date
+start_time
+finish_time
+setup_time
+primary_contact
+secondary_contact
+client_address
+client_telephone
+numbers
+status
+contract_status
+dj
+
+*add notes
+*date format
+
+All lines in the following arrays can have the above field names substituted for %% syntax.
+For example %email% would be subsitued with the customers email.
+
+title
+body
+  direct - these lines are only postfixed for the customer email if it is a direct booking
+  package - these lines are only postfixed for the customer email if it is a package booking
