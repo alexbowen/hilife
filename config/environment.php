@@ -14,4 +14,6 @@ if ($_SERVER['HTTP_HOST'] === constant('STAGING_HOST')) {
 if ($_SERVER['HTTP_HOST'] === constant('DEVELOPMENT_HOST')) {
   include ($_SERVER['DOCUMENT_ROOT'] . '/config/environment/dev.php');
 }
+
+include ($_SERVER['DOCUMENT_ROOT'] . '/secrets.php');
 ?>
