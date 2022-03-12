@@ -1,8 +1,8 @@
 <?php
-// session_start();
+session_start();
 
 include($_SERVER['DOCUMENT_ROOT'] . '/lib/common.php');
-
+include ($_SERVER['DOCUMENT_ROOT'] . '/lib/notify.php');
 include ($_SERVER['DOCUMENT_ROOT'].'/lib/mailer.php');
 
 if ($_POST['action'] == 'register') {
@@ -19,10 +19,7 @@ if ($_POST['action'] == 'register') {
         "Click this link to activate your account\n\n" . $url
       );
 
-      array_push($_SESSION['notifications'], array(
-        'type' => 'message',
-        'message' => 'Check your email to verify your account'
-      ));
+      Notify::add('message', 'Check your email to verify your account');
   
       header('Location: /');
     });
@@ -34,10 +31,8 @@ if ($_POST['action'] == 'register') {
       die('Invalid password');
   }
   catch (\Delight\Auth\UserAlreadyExistsException $e) {
-      array_push($_SESSION['notifications'], array(
-        'type' => 'error',
-        'message' => 'User already exists'
-      ));
+      Notify::add('error', 'User already exists');
+
       header('Location: /register');
   }
   catch (\Delight\Auth\TooManyRequestsException $e) {

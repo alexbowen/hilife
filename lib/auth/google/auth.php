@@ -1,5 +1,4 @@
 <?php
-include($_SERVER['DOCUMENT_ROOT'] . '/lib/common.php');
 require $_SERVER['DOCUMENT_ROOT'].'/vendor/autoload.php';
 
 $clientID = constant('GOOGLE_ID');

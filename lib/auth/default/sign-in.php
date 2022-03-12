@@ -1,5 +1,6 @@
 <?php
 include($_SERVER['DOCUMENT_ROOT'] . '/lib/common.php');
+include_once ($_SERVER['DOCUMENT_ROOT'] . '/lib/notify.php');
 
 if ($_POST['action'] == 'sign-in') {
 
@@ -18,10 +19,7 @@ if ($_POST['action'] == 'sign-in') {
 
     $_SESSION['auth_provider'] = "default";
 
-    array_push($_SESSION['notifications'], array(
-      'type' => 'message',
-      'message' => 'You are now signed in'
-    ));
+    Notify::add('message', 'You are now signed in');
 
     if ($_POST['remember'] == 'on') {
       setcookie("hilife-remember-user", '1', time() + 2630000, "/", "thehi-life.co.uk");
@@ -37,27 +35,20 @@ if ($_POST['action'] == 'sign-in') {
     } else {
       header('Location: /');
     }
-
   }
   catch (\Delight\Auth\InvalidEmailException $e) {
-    array_push($_SESSION['notifications'], array(
-      'type' => 'error',
-      'message' => 'No email address registered for ' . $_POST['email']
-    ));
+    Notify::add('error', 'No email address registered for ' . $_POST['email']);
+
     header('Location: /sign-in');
   }
   catch (\Delight\Auth\InvalidPasswordException $e) {
-    array_push($_SESSION['notifications'], array(
-      'type' => 'error',
-      'message' => 'Incorrect password'
-    ));
+    Notify::add('error', 'Incorrect password');
+
     header('Location: /sign-in');
   }
   catch (\Delight\Auth\EmailNotVerifiedException $e) {
-    array_push($_SESSION['notifications'], array(
-      'type' => 'error',
-      'message' => 'Email not verified'
-    ));
+    Notify::add('error', 'Email not verified');
+
     header('Location: /sign-in');
   }
   catch (\Delight\Auth\TooManyRequestsException $e) {

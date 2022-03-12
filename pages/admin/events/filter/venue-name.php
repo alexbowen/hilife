@@ -1,6 +1,4 @@
 <?php
-include($_SERVER['DOCUMENT_ROOT'] . '/lib/common.php');
-
 $query = "SELECT venue_name FROM package_clients";
 $venues = $database->query($query)->fetchAll(PDO::FETCH_COLUMN);
 ?>
