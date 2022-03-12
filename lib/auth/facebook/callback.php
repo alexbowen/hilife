@@ -61,6 +61,7 @@ if (! $accessToken->isLongLived()) {
   echo '<h3>Long-lived</h3>';
   var_dump($accessToken->getValue());
 }
+
 $_SESSION['auth_roles'] = 0;
 $_SESSION['fb_access_token'] = (string) $accessToken;
 header('Location: /');

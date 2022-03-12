@@ -1,20 +1,23 @@
 <?php
 class User {
-
   public function isAdmin() {
-    return $this->signedIn() && $_SESSION['auth_roles'] === 9;
+    return $this->signedIn() && $this->authRoles() === 9;
   }
 
   public function isCustomer() {
-    return $this->signedIn() && $_SESSION['auth_roles'] === 0;
+    return $this->signedIn() && $this->authRoles() === 0;
   }
 
   public function isInternal() {
-    return $this->signedIn() && $_SESSION['auth_roles'] > 0;
+    return $this->signedIn() && $this->authRoles() > 0;
   }
 
   public function signedIn() {
     return isset($_SESSION['auth_email']);
+  }
+
+  private function authRoles() {
+    return isset($_SESSION['auth_roles']) ? $_SESSION['auth_roles'] : null;
   }
 }
 
@@ -35,5 +38,4 @@ if(!$user->isInternal() && requestedAuth() == 'user' && isset($_GET['eid'])) {
 if(!$user->isAdmin() && requestedAuth() == 'admin') {
   header('Location: /');
 }
-
 ?>

@@ -1,9 +1,7 @@
 <?php
-
 include_once ($_SERVER['DOCUMENT_ROOT'] . '/lib/utils.php');
 
 class Event {
-
   public $id;
   public $created;
   public $last_updated;
@@ -77,15 +75,14 @@ class Event {
     return $utils->field($this->$property);
   }
 
-  function prettyDate() {
+  public function prettyDate() {
     global $utils;
     return $utils->prettyDateFormat($this->date);
   }
 
-  function prettyTime($when) {
+  public function prettyTime($when) {
     global $utils;
     return $utils->prettyTimeFormat($this->{$when . '_time'});
   }
 }
-
 ?>
