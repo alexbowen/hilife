@@ -47,7 +47,6 @@ class Event {
   public $setupMinute;
   public $setupHour;
 
-
   public $top_25;
   public $categories;
   public $decades;
