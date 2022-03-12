@@ -1,5 +1,5 @@
 <?php
-if ($_POST['action'] == 'update') {
+if (isset($_POST['action']) && $_POST['action'] == 'update') {
   $query = "UPDATE events SET ";
   $query .= "location = \"" . $_POST['location'] . "\", ";
   $query .= "venue_name = \"" . $_POST['venue_name'] . "\", ";

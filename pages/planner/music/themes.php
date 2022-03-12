@@ -1,20 +1,15 @@
 <?php
-include_once ($_SERVER['DOCUMENT_ROOT'] . '/lib/utils.php');
-
-// $query = "SELECT * FROM events WHERE email=\"" . $_SESSION['auth_email'] . "\" AND id=\"" . $_GET['id'] . "\"";
-// $event = $database->query($query)->fetch();
-
-if ($_POST['action'] == 'update') {
+if (isset($_POST['action']) && $_POST['action'] == 'update') {
 
   $query = "INSERT INTO events_music (event_id, additional, first_dance, last_dance)";
   $query .= " VALUES (\"" . $_GET['id'] . "\", \"" . $_POST['additional'] . "\", \"" . $_POST['first_dance'] . "\", \"" . $_POST['last_dance'] . "\")";
   $query .= " ON DUPLICATE KEY UPDATE additional=VALUES(additional), first_dance=VALUES(first_dance), last_dance=VALUES(last_dance)";
   $database->query($query);
 
-  $utils->setPlannerUpdated($event->id, $_SESSION['auth_roles']);
+  $utils->setPlannerUpdated($_POST['id'], $_SESSION['auth_roles']);
 }
 
-if ($_POST['action'] == 'update-auto') {
+if (isset($_POST['action']) && $_POST['action'] == 'update-auto') {
 
   $query = "DELETE FROM event_music_categories WHERE event_id = \"" . $_GET['id'] . "\"";
   $database->query($query);
@@ -61,20 +56,6 @@ $event = EventFactory::create(array(
   'events.id' => $_GET['id'],
   'email' => $_SESSION['auth_email']
 ), true);
-
-// echo '<pre>';
-// var_dump($event);
-
-$query = "SELECT * FROM events_music WHERE event_id = \"" . $event->id . "\"";
-$event_music = $database->query($query)->fetch();
-
-// $query="SELECT category_id, favourite FROM event_music_categories WHERE event_id = \"" . $event->id . "\"";
-// $categories = $database->query($query)->fetchAll(PDO::FETCH_NAMED);
-
-// var_dump($categories);
-
-// $query="SELECT decade_id, favourite FROM event_music_decades WHERE event_id = \"" . $event->id . "\"";
-// $event->decades = $database->query($query)->fetchAll(PDO::FETCH_NAMED);
 
 $query = "SELECT * FROM music_categories";
 $categories = $database->query($query);
@@ -152,7 +133,7 @@ $section = 'themes';
       
       <div class="row my-3">
           <div class="col">
-            <textarea name="additional" class="form-control" rows="6"><?php echo $event_music['additional']; ?></textarea>
+            <textarea name="additional" class="form-control" rows="6"><?php echo $event->additional; ?></textarea>
           </div>
         </div>
         <div class="row">
@@ -160,7 +141,7 @@ $section = 'themes';
             <div class="row my-2">
               <label for="event-first-dance" class="col-form-label col-4">First dance</label>
               <div class="col-8">
-                <input type="text" name="first_dance" id="event-first-dance" value="<?php echo $event_music['first_dance']; ?>" class="form-control" />
+                <input type="text" name="first_dance" id="event-first-dance" value="<?php echo $event->first_dance; ?>" class="form-control" />
               </div>
             </div>
           </div>
@@ -168,7 +149,7 @@ $section = 'themes';
             <div class="row my-2">
               <label for="event-last-dance" class="col-form-label col-4">Last dance</label>
               <div class="col-8">
-                <input type="text" name="last_dance" id="event-last-dance" value="<?php echo $event_music['last_dance']; ?>" class="form-control" />
+                <input type="text" name="last_dance" id="event-last-dance" value="<?php echo $event->last_dance; ?>" class="form-control" />
               </div>
             </div>
           </div>

@@ -1,5 +1,8 @@
 <?php
-$query="SELECT *, EXTRACT(DAY FROM date) AS day, EXTRACT(MONTH FROM date) AS month, EXTRACT(YEAR FROM date) AS year FROM events INNER JOIN events_admin ON events_admin.event_id = events.id WHERE events.date >= CURDATE() AND events.email=\"" . $_SESSION['auth_email'] . "\" OR events.id=\"" . $_GET['id'] . "\"";
+$query = "SELECT *, EXTRACT(DAY FROM date) AS day, EXTRACT(MONTH FROM date) AS month, EXTRACT(YEAR FROM date) AS year FROM events INNER JOIN events_admin ON events_admin.event_id = events.id WHERE events.date >= CURDATE() AND events.email=\"" . $_SESSION['auth_email'] . "\"";
+if (isset($_GET['id'])) {
+  $query .= " OR events.id=\"" . $_GET['id'] . "\"";
+}
 $events = $database->query($query)->fetchAll();
 ?>
 

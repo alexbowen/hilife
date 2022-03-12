@@ -4,7 +4,7 @@ include($_SERVER['DOCUMENT_ROOT'] . '/lib/auth/session.php');
 include($_SERVER['DOCUMENT_ROOT'] . '/lib/common.php');
 include ($_SERVER['DOCUMENT_ROOT'] . '/lib/validations/event.php');
 include_once ($_SERVER['DOCUMENT_ROOT'] . '/config/event.php');
-include ($_SERVER['DOCUMENT_ROOT'] . '/lib/actions/email.php');
+include ($_SERVER['DOCUMENT_ROOT'] . '/lib/email.php');
 include ($_SERVER['DOCUMENT_ROOT'] . '/lib/notify.php');
 
 $event_timings = array();
