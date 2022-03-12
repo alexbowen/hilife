@@ -2,7 +2,7 @@
 session_start();
 
 include($_SERVER['DOCUMENT_ROOT'] . '/lib/common.php');
-
+include ($_SERVER['DOCUMENT_ROOT'] . '/lib/notify.php');
 include ($_SERVER['DOCUMENT_ROOT'].'/lib/mailer.php');
 
 require $_SERVER['DOCUMENT_ROOT'].'/vendor/autoload.php';
@@ -20,26 +20,19 @@ if ($_POST['action'] == 'forgot') {
         "Click this link to reset your password\n\n" . $url
       );
 
-      array_push($_SESSION['notifications'], array(
-        'type' => 'message',
-        'message' => 'Check your email for reset password link'
-      ));
+      Notify::add('message', 'Check your email for reset password link');
 
       header('Location: /');
     });
   }
   catch (\Delight\Auth\InvalidEmailException $e) {
-    array_push($_SESSION['notifications'], array(
-      'type' => 'error',
-      'message' => 'No email address registered for ' . $_POST['email']
-    ));
+    Notify::add('error', 'No email address registered for ' . $_POST['email']);
+
     header('Location: /');
   }
   catch (\Delight\Auth\EmailNotVerifiedException $e) {
-    array_push($_SESSION['notifications'], array(
-      'type' => 'error',
-      'message' => 'Email not verified ' . $_POST['email']
-    ));
+    Notify::add('error', 'Email not verified ' . $_POST['email']);
+
     header('Location: /');
   }
   catch (\Delight\Auth\TooManyRequestsException $e) {
@@ -57,25 +50,17 @@ if ($_POST['action'] == 'new') {
   try {
     $auth->resetPassword($_POST['selector'], $_POST['token'], $_POST['password']);
 
-    array_push($_SESSION['notifications'], array(
-      'type' => 'message',
-      'message' => 'Password successfully reset'
-    ));
+    Notify::add('message', 'Password successfully reset');
+
     header('Location: /');
-}
-catch (\Delight\Auth\InvalidSelectorTokenPairException $e) {
-    array_push($_SESSION['notifications'], array(
-      'type' => 'error',
-      'message' => 'Invalid reset link'
-    ));
+  }
+  catch (\Delight\Auth\InvalidSelectorTokenPairException $e) {
+      Notify::add('error', 'Invalid reset link');
+
+      header('Location: /');
+  }
+  catch (\Delight\Auth\TokenExpiredException $e) {
     header('Location: /');
-}
-catch (\Delight\Auth\TokenExpiredException $e) {
-  array_push($_SESSION['notifications'], array(
-    'type' => 'error',
-    'message' => 'Reset link expired'
-  ));
-  header('Location: /');
-}
+  }
 }
 ?>

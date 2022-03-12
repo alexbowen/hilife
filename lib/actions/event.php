@@ -1,9 +1,11 @@
 <?php
+session_start();
 include($_SERVER['DOCUMENT_ROOT'] . '/lib/auth/session.php');
 include($_SERVER['DOCUMENT_ROOT'] . '/lib/common.php');
 include ($_SERVER['DOCUMENT_ROOT'] . '/lib/validations/event.php');
+include_once ($_SERVER['DOCUMENT_ROOT'] . '/config/event.php');
 include ($_SERVER['DOCUMENT_ROOT'] . '/lib/actions/email.php');
-include ($_SERVER['DOCUMENT_ROOT'] . '/lib/actions/notify.php');
+include ($_SERVER['DOCUMENT_ROOT'] . '/lib/notify.php');
 
 $event_timings = array();
 
@@ -47,10 +49,7 @@ $event_orig_status = $database->query($query)->fetchColumn();
 if ($_POST['action'] == 'create') {
   $invalid = eventInvalid(array('primary_contact' => $_POST['event']['primary_contact'], 'email' => $_POST['event']['email'], 'date' => $event_timings['date'], 'status' => $_POST['admin']['status']));
   if ($invalid) {
-    array_push($_SESSION['notifications'], array(
-      'type' => 'error',
-      'message' => 'Event cannot be created - ' . $invalid
-    ));
+    Notify::add('error', 'Event cannot be created - ' . $invalid);
 
     header('Location: ' . $_SERVER['HTTP_REFERER']);
   } else {
@@ -84,8 +83,8 @@ if ($_POST['action'] == 'create') {
     Email::send('admin', $event_updated);
     Email::send('customer', $event_updated);
 
-    $notification_target = $user->isAdmin() ? 'admin' : 'customer';
-    Notify::queue($notification_target, $event_updated);
+    $config = $event_config[$user->isAdmin() ? 'admin' : 'customer'][$event_updated['status']];
+    Notify::add($config['notification']['type'], $utils->templateString($config['notification']['text'], $event_updated));
 
     $redirect = $user->isAdmin() ? '/admin/events': '/';
 
@@ -99,10 +98,7 @@ if ($_POST['action'] == 'update') {
 
   $invalid = eventInvalid(array_merge(...$to_validate));
   if ($invalid) {
-    array_push($_SESSION['notifications'], array(
-      'type' => 'error',
-      'message' => 'Event cannot be updated - ' . $invalid
-    ));
+    Notify::add('error', 'Event cannot be updated - ' . $invalid);
 
     header('Location: ' . $_SERVER['HTTP_REFERER']);
   } else {
@@ -147,14 +143,11 @@ if ($_POST['action'] == 'update') {
       Email::send('admin', $event_updated);
       Email::send('customer', $event_updated);
 
-      $notification_target = $user->isAdmin() ? 'admin' : 'customer';
-      Notify::queue($notification_target, $event_updated);
+      $config = $event_config[$user->isAdmin() ? 'admin' : 'customer'][$event_updated['status']];
+      Notify::add($config['notification']['type'], $utils->templateString($config['notification']['text'], $event_updated));
       
     } else {
-      array_push($_SESSION['notifications'], array(
-        'type' => 'message',
-        'message' => 'Event updated'
-      ));
+      Notify::add('message', 'Event updated');
     }
 
     header('Location: ' . $_SERVER['HTTP_REFERER']);
@@ -173,8 +166,8 @@ if ($_POST['action'] == 'cancel') {
   Email::send('admin', $event_updated);
   Email::send('customer', $event_updated);
 
-  $notification_target = $user->isAdmin() ? 'admin' : 'customer';
-  Notify::queue($notification_target, $event_updated);
+  $config = $event_config[$user->isAdmin() ? 'admin' : 'customer'][$event_updated['status']];
+  Notify::add($config['notification']['type'], $utils->templateString($config['notification']['text'], $event_updated));
 
   header('Location: /admin/events');
 }

@@ -1,6 +1,4 @@
 <?php
-include($_SERVER['DOCUMENT_ROOT'] . '/lib/common.php');
-
 $query = "SELECT * FROM users WHERE roles_mask >= 2";
 $djs = $database->query($query)->fetchAll();
 ?>

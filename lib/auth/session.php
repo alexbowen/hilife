@@ -1,6 +1,4 @@
 <?php
-session_start();
-
 class User {
 
   public function isAdmin() {
@@ -16,21 +14,25 @@ class User {
   }
 
   public function signedIn() {
-    return $_SESSION['auth_email'];
+    return isset($_SESSION['auth_email']);
   }
 }
 
 $user = new User();
 
-if(!$user->signedIn() && $_GET['auth'] == 'user') {
+function requestedAuth() {
+  return isset($_GET['auth']) ? $_GET['auth'] : null;
+}
+
+if(!$user->signedIn() && requestedAuth() == 'user') {
   header('Location: /');
 }
 
-if(!$user->isInternal() && $_GET['auth'] == 'user' && isset($_GET['eid'])) {
+if(!$user->isInternal() && requestedAuth() == 'user' && isset($_GET['eid'])) {
   header('Location: /');
 }
 
-if(!$user->isAdmin() && $_GET['auth'] == 'admin') {
+if(!$user->isAdmin() && requestedAuth() == 'admin') {
   header('Location: /');
 }
 

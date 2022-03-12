@@ -1,9 +1,15 @@
-<?php if (count($_SESSION['notifications']) > 0) { ?>
-  <?php foreach ($_SESSION['notifications'] as $notification) { ?>
-    <div class="notification <?php echo $notification['type']; ?>">
-      <p><?php echo $notification['message']; ?></p>
-    </div>
-  <?php } ?>
-<?php } ?>
+<?php
+include_once ($_SERVER['DOCUMENT_ROOT'] . '/lib/notify.php');
+?>
 
-<?php $_SESSION['notifications'] = array(); ?>
+<?php
+foreach (Notify::queue() as $notification) {
+?>
+  <div class="notification <?php echo $notification['type']; ?>">
+    <p><?php echo $notification['message']; ?></p>
+  </div>
+<?php
+}
+
+Notify::flush()
+?>

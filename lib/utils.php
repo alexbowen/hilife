@@ -1,6 +1,4 @@
 <?php
-include($_SERVER['DOCUMENT_ROOT'] . '/lib/common.php');
-
 class Utils {
   public function field($value) {
     return !empty($value) ? $value : '<span class="field-empty">not specified</span>';

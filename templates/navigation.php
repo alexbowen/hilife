@@ -5,11 +5,11 @@
   <div class="navbar-title">
     <h2 class="palette-light-shade">Hi-life Entertainment</h2>
     <span class="authenticated-status">
-      <?php if ($_SESSION['auth_username']) { ?>Hello <?php echo $_SESSION['auth_username']; } ?>
-      <?php if ($_SESSION['auth_provider'] == "facebook") { ?>
+      <?php if (isset($_SESSION['auth_username'])) { ?>Hello <?php echo $_SESSION['auth_username']; } ?>
+      <?php if (isset($_SESSION['auth_provider']) && $_SESSION['auth_provider'] == "facebook") { ?>
         <i class="fab fa-facebook-f facebook-btn authentication-logo"></i><?php } ?>
 
-      <?php if ($_SESSION['auth_provider'] == "google") { ?>
+      <?php if (isset($_SESSION['auth_provider']) && $_SESSION['auth_provider'] == "google") { ?>
         <i class="fab fa-google google-btn authentication-logo"></i>
       <?php } ?>
     </span>
