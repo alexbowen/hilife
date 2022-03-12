@@ -13,6 +13,6 @@ try {
   header('Location: /');
 }
 catch (\Delight\Auth\InvalidEmailException $e) {
-  Notify::add('error', "Account could not be deleted for " . $_POST['email'] . "\r\nPlease contact Mark");
+  Notify::add('error', "Account could not be deleted for " . $_POST['email'] . "\r\nPlease contact us");
 }
 ?>

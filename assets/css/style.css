@@ -705,8 +705,8 @@ footer span {
 .authentication-logo {
   margin-left:4px;
   color: #fff;
-  padding: 4px;
-  border-radius: 5px;
+  padding: 6px 4px 4px;
+  border-radius: 4px;
 }
 
 .facebook-btn {
