@@ -72,17 +72,12 @@ $pagination = new \yidas\data\Pagination([
 
 $query = "SELECT *, events_planner.last_updated AS planner_updated, EXTRACT(MINUTE FROM start_time) AS startMinute, EXTRACT(HOUR FROM start_time) AS startHour, EXTRACT(MINUTE FROM finish_time) AS finishMinute, EXTRACT(HOUR FROM finish_time) AS finishHour, EXTRACT(MINUTE FROM setup_time) AS setupMinute, EXTRACT(HOUR FROM setup_time) AS setupHour, EXTRACT(DAY FROM date) AS day, EXTRACT(MONTH FROM date) AS month, EXTRACT(YEAR FROM date) AS year FROM events INNER JOIN events_admin ON events_admin.event_id = events.id LEFT JOIN events_planner ON events_planner.event_id = events.id" . $filters . $sort . " LIMIT {$pagination->offset}, {$pagination->limit}"; 
 $result = $database->query($query);
+
+$adminPage = "events";
 ?>
 
 <section class="content-section">
-  <ul class="nav nav-tabs">
-    <li class="nav-item">
-      <a class="nav-link active" aria-current="page" href="/admin/events">Events</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="/admin/create">Create</a>
-    </li>
-  </ul>
+  <?php include ($_SERVER['DOCUMENT_ROOT'].'/pages/admin/navigation.php'); ?>
 
   <div class="content-tabs__container admin">
     <div class="filter-panel">
@@ -171,7 +166,6 @@ $result = $database->query($query);
             <input type="hidden" name="admin[status]" value="<?php echo $event->status; ?>" />
 
             <?php include ($_SERVER['DOCUMENT_ROOT'].'/templates/event/admin/form.php'); ?>
-
             <?php include ($_SERVER['DOCUMENT_ROOT'].'/templates/event/form.php'); ?>
 
             <div class="row text-end">

@@ -1,12 +1,7 @@
+<?php $adminPage = "create"; ?>
+
 <section class="content-section">
-  <ul class="nav nav-tabs">
-    <li class="nav-item">
-      <a class="nav-link" href="/admin/events">Events</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link active" aria-current="page" href="/admin/create">Create</a>
-    </li>
-  </ul>
+  <?php include ($_SERVER['DOCUMENT_ROOT'].'/pages/admin/navigation.php'); ?>
   <div class="content-tabs__container admin">
     <h4 class="text-center">Choose booking type</h4>
 
