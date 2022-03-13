@@ -163,95 +163,94 @@ $result = $database->query($query);
         </div>
       </div>
 
-        <div class="card-body toggle-content toggle-content--hidden" id="toggle-content-<?php echo $key; ?>">
+      <div class="card-body toggle-content toggle-content--hidden" id="toggle-content-<?php echo $key; ?>">
         <form name="event-update-<?php echo $key; ?>" action="/actions/event" method="post" class="admin-form needs-validation needs-validation-time" novalidate>
           <div class="container">
-              <input type="hidden" name="event_id" value="<?php echo $event->id; ?>" />
-              <input type="hidden" name="admin[booking_type]" value="<?php echo $event->booking_type; ?>" />
-              <input type="hidden" name="admin[status]" value="<?php echo $event->status; ?>" />
+            <input type="hidden" name="id" value="<?php echo $event->id; ?>" />
+            <input type="hidden" name="admin[booking_type]" value="<?php echo $event->booking_type; ?>" />
+            <input type="hidden" name="admin[status]" value="<?php echo $event->status; ?>" />
 
-              <?php include ($_SERVER['DOCUMENT_ROOT'].'/templates/event/admin/form.php'); ?>
+            <?php include ($_SERVER['DOCUMENT_ROOT'].'/templates/event/admin/form.php'); ?>
 
-              <?php include ($_SERVER['DOCUMENT_ROOT'].'/templates/event/form.php'); ?>
+            <?php include ($_SERVER['DOCUMENT_ROOT'].'/templates/event/form.php'); ?>
 
-              <div class="row text-end">
-                <div class="d-grid gap-2 d-md-block mt-2">
-                  <span class="float-start form-info">* required field</span>
-                  <button type="submit" name="action" value="update" class="btn btn-secondary btn-sm">update event</button>
-                </div>
+            <div class="row text-end">
+              <div class="d-grid gap-2 d-md-block mt-2">
+                <span class="float-start form-info">* required field</span>
+                <button type="submit" name="action" value="update" class="btn btn-secondary btn-sm">update event</button>
               </div>
-          </div>
-            </form>
-        </div>
-
-        <div class="card-footer">
-          <div class="row">
-            <div class="col-12 col-md-3">
-              <dl class="mb-0">
-                <dt>Email</dt>
-                <dd class="mb-0"><?php echo $event->email; ?></dd>
-              </dl>
-              <dl class="mb-0">
-                <dt>Telephone</dt>
-                <dd class="mb-0"><?php echo $event->client_telephone; ?></dd>
-              </dl>
             </div>
+          </div>
+        </form>
+      </div>
 
-            <div class="col-6 col-md-3">
-              <dl class="mb-0">
-                <dt>DJ</dt>
-                <dd class="mb-0"><?php echo $utils->field($event->dj); ?></dd>
-              </dl>
-              <dl class="mb-0">
-                <dt>Booking</dt>
-                <?php if ($event->booking_type == 'package') { ?>
-                  <?php $key = array_search($event->package_client_id, array_column($package_clients, 'id')); ?>
-                  <dd class="mb-0"><a href="/admin/view/client?id=<?php echo $event->package_client_id; ?>"><?php echo $package_clients[$key]['venue_name']; ?></a></dd>
-                <?php } else { ?>
-                  <dd class="mb-0"><?php echo $event->booking_type; ?></dd>
+      <div class="card-footer">
+        <div class="row">
+          <div class="col-12 col-md-3">
+            <dl class="mb-0">
+              <dt>Email</dt>
+              <dd class="mb-0"><?php echo $event->email; ?></dd>
+            </dl>
+            <dl class="mb-0">
+              <dt>Telephone</dt>
+              <dd class="mb-0"><?php echo $event->client_telephone; ?></dd>
+            </dl>
+          </div>
+
+          <div class="col-6 col-md-3">
+            <dl class="mb-0">
+              <dt>DJ</dt>
+              <dd class="mb-0"><?php echo $utils->field($event->dj); ?></dd>
+            </dl>
+            <dl class="mb-0">
+              <dt>Booking</dt>
+              <?php if ($event->booking_type == 'package') { ?>
+                <?php $key = array_search($event->package_client_id, array_column($package_clients, 'id')); ?>
+                <dd class="mb-0"><a href="/admin/view/client?id=<?php echo $event->package_client_id; ?>"><?php echo $package_clients[$key]['venue_name']; ?></a></dd>
+              <?php } else { ?>
+                <dd class="mb-0"><?php echo $event->booking_type; ?></dd>
+              <?php } ?>
+            </dl>
+          </div>
+
+          <div class="col-6 col-md-3">
+            <dl class="mb-0">
+              <dt>Contract</dt>
+              <dd class="mb-0"><?php echo $event->contract_status; ?></dd>
+            </dl>
+            <dl class="mb-0">
+              <dt>Status</dt>
+              <dd class="mb-0"><?php echo $event->status; ?></dd>
+            </dl>
+          </div>
+
+          <?php if ($event->status != 'cancelled') { ?>
+          <div class="col-12 col-md-3 admin-actions mt-1">
+            <form name="event-update" action="/actions/event" method="post" class="admin-form mb-0">
+              <input type="hidden" name="id" value="<?php echo $event->id; ?>" />
+              <input type="hidden" name="admin[contract_status]" value="<?php echo $event->contract_status; ?>" />
+              <input type="hidden" name="admin[booking_type]" value="<?php echo $event->booking_type; ?>" />
+              <input type="hidden" name="event[email]" value="<?php echo $event->email; ?>" />
+              <input type="hidden" name="event[primary_contact]" value="<?php echo $event->primary_contact; ?>" />
+              <div class="d-grid gap-2 d-md-flex my-2 my-md-0">
+                <?php if ($event->status == 'pending') { ?>
+                  <input type="hidden" name="admin[status]" value="confirmed" />
+                  <button type="submit" name="action" value="update" class="btn btn-success btn-sm flex-fill">confirm</button>
                 <?php } ?>
-              </dl>
-            </div>
 
-            <div class="col-6 col-md-3">
-              <dl class="mb-0">
-                <dt>Contract</dt>
-                <dd class="mb-0"><?php echo $event->contract_status; ?></dd>
-              </dl>
-              <dl class="mb-0">
-                <dt>Status</dt>
-                <dd class="mb-0"><?php echo $event->status; ?></dd>
-              </dl>
-            </div>
+                <?php if ($event->status == 'enquiry') { ?>
+                  <input type="hidden" name="admin[status]" value="pending" />
+                  <button type="submit" name="action" value="update" class="btn btn-success btn-sm flex-fill">accept</button>
+                <?php } ?>
 
-            <?php if ($event->status != 'cancelled') { ?>
-            <div class="col-12 col-md-3 admin-actions mt-1">
-              <form name="event-update" action="/actions/event" method="post" class="admin-form mb-0">
-              <input type="hidden" name="event_id" value="<?php echo $event->id; ?>" />
-                <input type="hidden" name="admin[contract_status]" value="<?php echo $event->contract_status; ?>" />
-                <input type="hidden" name="admin[booking_type]" value="<?php echo $event->booking_type; ?>" />
-                <input type="hidden" name="event[email]" value="<?php echo $event->email; ?>" />
-                <input type="hidden" name="event[primary_contact]" value="<?php echo $event->primary_contact; ?>" />
-                <div class="d-grid gap-2 d-md-flex my-2 my-md-0">
-
-                  <?php if ($event->status == 'pending') { ?>
-                    <input type="hidden" name="admin[status]" value="confirmed" />
-                    <button type="submit" name="action" value="update" class="btn btn-success btn-sm flex-fill">confirm</button>
-                  <?php } ?>
-
-                  <?php if ($event->status == 'enquiry') { ?>
-                    <input type="hidden" name="admin[status]" value="pending" />
-                    <button type="submit" name="action" value="update" class="btn btn-success btn-sm flex-fill">accept</button>
-                  <?php } ?>
-
-                  <a href="/planner/view/summary?id=<?php echo $event->id; ?>" class="btn btn-secondary btn-sm flex-fill">planner</a>
-                  <button type="submit" name="action" value="cancel" class="btn btn-danger btn-sm confirm-action flex-fill">cancel</button>
-                </div>
-              </form>
-            </div>
-            <?php } ?>
+                <a href="/planner/view/summary?id=<?php echo $event->id; ?>" class="btn btn-secondary btn-sm flex-fill">planner</a>
+                <button type="submit" name="action" value="cancel" class="btn btn-danger btn-sm confirm-action flex-fill">cancel</button>
+              </div>
+            </form>
           </div>
+          <?php } ?>
         </div>
+      </div>
     </div>
     <?php } ?>
 

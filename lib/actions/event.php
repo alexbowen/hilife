@@ -43,7 +43,7 @@ if (isset($_POST['setupTimeInput'])) {
   }
 }
 
-$query = "SELECT status FROM events_admin WHERE event_id=\"" . $_POST['event_id']  . "\"";
+$query = "SELECT status FROM events_admin WHERE event_id=\"" . $_POST['id']  . "\"";
 $event_orig_status = $database->query($query)->fetchColumn();
 
 if ($_POST['action'] == 'create') {
@@ -117,7 +117,7 @@ if ($_POST['action'] == 'update') {
       
       $sql = "UPDATE events SET " . rtrim($updateFields, ", ") . " WHERE id = :event_id";
       $query = $database->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
-      $query->execute(array_merge(array(':event_id' => $_POST['event_id']), $_POST['event'], $event_timings));
+      $query->execute(array_merge(array(':event_id' => $_POST['id']), $_POST['event'], $event_timings));
     }
 
     if (isset($_POST['admin']) && count($_POST['admin']) > 0) {
@@ -130,10 +130,10 @@ if ($_POST['action'] == 'update') {
 
       $sql = "UPDATE events_admin SET " . rtrim($updateFields, ", ") . " WHERE event_id = :event_id";
       $query = $database->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
-      $query->execute(array_merge(array(':event_id' => $_POST['event_id']), $_POST['admin']));
+      $query->execute(array_merge(array(':event_id' => $_POST['id']), $_POST['admin']));
     }
 
-    $query = "SELECT * FROM events INNER JOIN events_admin ON events_admin.event_id = events.id WHERE events.id=\"" . $_POST['event_id']  . "\"";
+    $query = "SELECT * FROM events INNER JOIN events_admin ON events_admin.event_id = events.id WHERE events.id=\"" . $_POST['id']  . "\"";
     $event_updated = $database->query($query)->fetch();
 
     if ($event_updated["status"] != $event_orig_status) {
@@ -155,10 +155,10 @@ if ($_POST['action'] == 'update') {
 }
 
 if ($_POST['action'] == 'cancel') {
-  $query = "UPDATE events_admin SET status='cancelled' WHERE event_id=\"" . $_POST['event_id'] . "\"";
+  $query = "UPDATE events_admin SET status='cancelled' WHERE event_id=\"" . $_POST['id'] . "\"";
   $database->query($query);
 
-  $query = "SELECT * FROM events INNER JOIN events_admin ON events_admin.event_id = events.id WHERE events.id=\"" . $_POST['event_id']  . "\"";
+  $query = "SELECT * FROM events INNER JOIN events_admin ON events_admin.event_id = events.id WHERE events.id=\"" . $_POST['id']  . "\"";
   $event_updated = $database->query($query)->fetch();
 
   $event_updated['date'] = $utils->prettyDateFormat($event_updated['date']);

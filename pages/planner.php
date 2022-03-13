@@ -14,7 +14,7 @@ $events = $database->query($query)->fetchAll();
 <section class="introduction content-section">
   <p class="lead">Event planner<?php if ($event && !empty($event['venue_name'])) { ?> for <b><?php echo $event['venue_name']; ?></b><?php } ?><?php if ($event && !empty($event['date'])) { ?> on <b><?php echo date('l', mktime(0, 0, 0, $event['month'], $event['day'], $event['year'])) . ' ' . $event['day'] . ' ' . date('F', mktime(0, 0, 0, $event['month'], $event['day'], $event['year'])) . ' ' . $event['year']; ?></b><?php } ?></p>
   <?php if ($event && $event['status'] !== 'confirmed') { ?>
-  <p>Please note this event is not yet confirmed.</p>
+  <p class="text-danger">Please note this event is not yet confirmed.</p>
   <?php } ?>
 </section>
 
