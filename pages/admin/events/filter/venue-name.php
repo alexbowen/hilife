@@ -9,7 +9,7 @@ $venues = $database->query($query)->fetchAll(PDO::FETCH_COLUMN);
     <select name="venue" id="filter-venue" class="form-select form-select-sm col-sm-8" data-auto-submit="true">
     <option value="" <?php if(!isset($_GET['venue'])) { ?>selected<?php } ?>>show all</option>
     <?php foreach ($venues as $key => $venue) { ?>
-      <option value="<?php echo $venue; ?>" <?php if($_GET['venue'] == $venue) { ?>selected<?php } ?>><?php echo $venue; ?></option>
+      <option value="<?php echo $venue; ?>" <?php if(isset($_GET['venue']) && $_GET['venue'] == $venue) { ?>selected<?php } ?>><?php echo $venue; ?></option>
       <?php } ?>
     </select>
   </div>

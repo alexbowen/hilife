@@ -62,7 +62,7 @@ if ($session->getAccessToken()) {
 
 <section class="content-section admin">
   <h2>Music</h2>
-  <?php if (count($event->top_25) > 0) { ?>
+  <?php if (is_array($event->top_25) && count($event->top_25) > 0) { ?>
   <div class="content-border__container admin">
     <div class="row">
     <?php for ($x = 1; $x <= count($event->top_25); $x++) { ?>
