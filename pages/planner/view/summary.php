@@ -1,13 +1,9 @@
 <?php
-
 include $_SERVER['DOCUMENT_ROOT'].'/lib/event.php';
 
 $event = EventFactory::create(array(
   'events.id' => $_GET['id']
 ), true);
-
-// $query = "SELECT *, EXTRACT(DAY FROM date) AS day, EXTRACT(MONTH FROM date) AS month, EXTRACT(YEAR FROM date) AS year FROM events INNER JOIN events_admin ON events_admin.event_id = events.id LEFT JOIN events_music ON events.id = events_music.event_id WHERE events.id=\"" . $_GET['id'] . "\"";
-// $event = $database->query($query)->fetchObject("Event", array(true));
 
 require $_SERVER['DOCUMENT_ROOT'].'/vendor/autoload.php';
 
@@ -16,10 +12,10 @@ $session = new SpotifyWebAPI\Session(
   'b1d42b4a222e4e34a63ce7c70b12f43e'
 );
 
-if ($_SESSION['accessToken']) {
+if (isset($_SESSION['accessToken'])) {
   $session->setAccessToken($_SESSION['accessToken']);
   $session->setRefreshToken($_SESSION['refreshToken']);
-} elseif ($_SESSION['refreshToken']) {
+} elseif (isset($_SESSION['refreshToken'])) {
   $session->refreshAccessToken($_SESSION['refreshToken']);
 }
 
@@ -39,6 +35,7 @@ if ($session->getAccessToken()) {
 ?>
 
 <section class="introduction content-section admin">
+  <?php echo $utils->backlink($_SERVER['HTTP_REFERER'], 'back to admin dashboard'); ?>
   <div class="content-intro">
     <h1>Music Planner Summary</h1>
     <p><?php if ($event && !empty($event->venue_name)) { ?> at <b><?php echo $event->venue_name; ?></b><?php } ?><?php if ($event && !empty($event->date)) { ?> on <b><?php echo $event->prettyDate(); ?></b><?php } ?></p>
@@ -58,8 +55,8 @@ if ($session->getAccessToken()) {
 <section class="content-section admin">
   <h5>Notes</h5>
   <div class="content-border__container admin">
-  <p><?php echo $event->notes; ?></p>
-</div>
+    <p><?php echo $event->notes; ?></p>
+  </div>
 </section>
 <?php } ?>
 
@@ -78,10 +75,9 @@ if ($session->getAccessToken()) {
     <?php } ?>
     </div>
   </div>
-    <?php } else { ?>
-      <span class="field-empty">nothing added yet</span>
-
-    <?php } ?>
+  <?php } else { ?>
+    <span class="field-empty">nothing added yet</span>
+  <?php } ?>
 </section>
 
 <section class="content-section admin">
@@ -92,7 +88,7 @@ if ($session->getAccessToken()) {
 
   <?php if (!empty($event->additional)) { ?>
   <div class="content-border__container admin">
-  <dl><dt>Notes: </dt><dd><?php echo $utils->field($event->additional); ?></dd></dl>
+    <dl><dt>Notes: </dt><dd><?php echo $utils->field($event->additional); ?></dd></dl>
   </div>
   <?php } ?>
 </section>

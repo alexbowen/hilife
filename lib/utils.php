@@ -13,6 +13,10 @@ class Utils {
   }
 
   public function normaliseTime($parts) {
+    if (!isset($parts['minutes'])) {
+      $parts['minutes'] = "00";
+    }
+
     return implode(':', array($parts['hours'], $parts['minutes'], "00"));
   }
 
