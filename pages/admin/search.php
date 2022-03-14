@@ -13,12 +13,11 @@ $adminPage = "search";
   <?php include ($_SERVER['DOCUMENT_ROOT'].'/pages/admin/navigation.php'); ?>
 
   <div class="content-tabs__container admin">
-
     <div class="filter-panel">
       <form name="events-sort" action="<?php echo $_SERVER['REQUEST_URI'] ?>" method="post">
         <div class="row mb-1 mb-md-3">
           <div class="col-md-6">
-            <input type="text" name="search-term" class="form-control form-control-sm" placeholder="enter email address"<?php if(isset($_POST['search-term'])) { ?> value="<?php echo $_POST['search-term']; ?>"<?php } ?> />
+            <input type="text" name="search-term" class="form-control" placeholder="enter email address"<?php if(isset($_POST['search-term'])) { ?> value="<?php echo $_POST['search-term']; ?>"<?php } ?> />
           </div>
           <div class="col-md-3">
             <button type="submit" class="btn btn-primary btn-sm">search events</button>
