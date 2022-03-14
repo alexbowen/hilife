@@ -1,0 +1,27 @@
+{
+  "name": "hilife",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexbowen/hilife.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alexbowen/hilife/issues"
+  },
+  "homepage": "https://github.com/alexbowen/hilife#readme",
+  "scripts": {
+    "minify:css": "$(npm bin)/minify assets/css/style.css > assets/production/hilife.min.css",
+    "minify:js": "$(npm bin)/minify assets/javascript/*.js > assets/production/hilife.min.js",
+    "build": "npm run minify:css && npm run minify:js"
+  },
+  "devDependencies": {
+    "minify": "^8.0.4"
+  }
+}
