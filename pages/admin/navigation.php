@@ -9,6 +9,6 @@
     <a class="nav-link<?php if ($adminPage === "create") { echo " active"; } ?>"<?php if ($adminPage === "create") { echo " aria-current=\"page\""; } ?> href="/admin/create">Create</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link<?php if ($adminPage === "archive") { echo " active"; } ?>"<?php if ($adminPage === "archive") { echo " aria-current=\"page\""; } ?> href="/admin/archive">Archive</a>
+    <a class="nav-link<?php if ($adminPage === "archive") { echo " active"; } ?>"<?php if ($adminPage === "archive") { echo " aria-current=\"page\""; } ?> href="/admin/archive">Archive <?php if ($adminPage === "archive") { ?>(<?php echo $count; ?>)<?php } ?></a>
   </li>
 </ul>

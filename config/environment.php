@@ -20,5 +20,5 @@ if ($_SERVER['HTTP_HOST'] === constant('LOCAL_HOST')) {
   include ($_SERVER['DOCUMENT_ROOT'] . '/config/environment/local.php');
 }
 
-include ($_SERVER['DOCUMENT_ROOT'] . '/secrets/test.php');
+include ($_SERVER['DOCUMENT_ROOT'] . '/secrets/constants.php');
 ?>

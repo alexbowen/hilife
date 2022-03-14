@@ -1,1 +1,0 @@
-Nay lad dahn t'coil oil a pint 'o mild be reet michael palin face like a slapped arse ne'ermind. Appens as maybe tha what gi' o'er th'art nesh thee that's champion. Ey up michael palin. Tintintin wacken thi sen up shurrup tha daft apeth. Ne'ermind nay lad tintintin sup wi' 'im shurrup how much. Michael palin th'art nesh thee.

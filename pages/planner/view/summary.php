@@ -121,7 +121,7 @@ if ($session->getAccessToken()) {
   <div class="content-border__container">
   <?php if (count($event->categories) > 0) { ?>
   <?php foreach ($event->categories as $category) { ?>
-    <span class="badge rounded-pill bg-pill mb-1 mb-md-0"><?php echo $category['title']; ?><?php if ($category['favourite'] === '1') { ?><span class="ms-1"><img src="/assets/images/icons/heart.svg" height="14" width="14" /></span><?php } ?></span>
+    <span class="badge rounded-pill bg-pill mb-2"><?php echo $category['title']; ?><?php if ($category['favourite'] === '1') { ?><span class="ms-1"><img src="/assets/images/icons/heart.svg" height="14" width="14" /></span><?php } ?></span>
   <?php } ?>
   <?php } else { ?>
     <span class="field-empty">nothing added yet</span>
@@ -134,7 +134,7 @@ if ($session->getAccessToken()) {
   <div class="content-border__container">
   <?php if (count($event->decades) > 0) { ?>
   <?php foreach ($event->decades as $decade) { ?>
-    <span class="badge rounded-pill bg-pill mb-1 mb-md-0"><?php echo $decade['title']; ?><?php if ($decade['favourite'] === '1') { ?><span class="ms-1"><img src="/assets/images/icons/heart.svg" height="14" width="14" /></span><?php } ?></span>
+    <span class="badge rounded-pill bg-pill mb-2"><?php echo $decade['title']; ?><?php if ($decade['favourite'] === '1') { ?><span class="ms-1"><img src="/assets/images/icons/heart.svg" height="14" width="14" /></span><?php } ?></span>
   <?php } ?>
   <?php } else { ?>
     <span class="field-empty">nothing added yet</span>

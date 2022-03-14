@@ -39,21 +39,20 @@ if ($_POST['action'] == 'sign-in') {
   catch (\Delight\Auth\InvalidEmailException $e) {
     Notify::add('error', 'No email address registered for ' . $_POST['email']);
 
-    header('Location: /sign-in');
+    header('Location: /account/sign-in');
   }
   catch (\Delight\Auth\InvalidPasswordException $e) {
     Notify::add('error', 'Incorrect password');
 
-    header('Location: /sign-in');
+    header('Location: /account/sign-in');
   }
   catch (\Delight\Auth\EmailNotVerifiedException $e) {
-    Notify::add('error', 'Email not verified');
+    Notify::add('error', 'Account not verified - please check your email inbox');
 
-    header('Location: /sign-in');
+    header('Location: /account/sign-in');
   }
   catch (\Delight\Auth\TooManyRequestsException $e) {
     die('Too many requests');
   }
 }
-
 ?>

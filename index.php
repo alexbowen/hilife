@@ -14,7 +14,7 @@ require ($_SERVER['DOCUMENT_ROOT'].'/lib/auth/google/auth.php');
 
 include ($_SERVER['DOCUMENT_ROOT'].'/config/regions.php');
 $region = $regions[$_GET['region']]["db_key"];
-$region_url_prefix = $_GET['region'] != "leeds" ? "/" . $_GET['region'] : "";
+$region_url_prefix = isset($_GET['region']) && $_GET['region'] != "leeds" ? "/" . $_GET['region'] : "";
 
 include ($_SERVER['DOCUMENT_ROOT'].'/config/djs.php');
 ?>
