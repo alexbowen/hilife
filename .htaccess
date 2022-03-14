@@ -1,6 +1,9 @@
 RewriteEngine On 
 
 ErrorDocument 404 /index.php?page_name=error-404
+
+# RewriteRule ^/?$ /maintenance.php [L]
+
 RewriteRule ^migrate$ /dev/scripts/migrate_event_additional.php [L]
 RewriteRule ^bookings/csv$ /lib/csv.php [L]
 RewriteRule ^/?$ /index.php?region=leeds&page_name=home [L]
@@ -17,7 +20,7 @@ RewriteRule ^planner/(.*)?$ /index.php?auth=user&region=leeds&page_name=planner/
 RewriteRule ^account/(.*)?$ /index.php?region=leeds&page_name=account/$1 [L,QSA]
 RewriteRule ^admin/(.*)?$ /index.php?auth=admin&region=leeds&page_name=admin/$1 [L,QSA]
 RewriteRule ^actions/(.*?)/?$ /lib/actions/$1.php [L]
-RewriteRule ^(cookies|privacy|djs|music|maintenance|bar-and-corporate|contact|weddings|admin|templates+?)/?$ /index.php?region=leeds&page_name=$1 [L,QSA]
+RewriteRule ^(cookies|privacy|djs|music|bar-and-corporate|contact|weddings|admin|templates+?)/?$ /index.php?region=leeds&page_name=$1 [L,QSA]
 RewriteRule ^(sheffield-derbyshire|manchester-cheshire|liverpool-lancashire|newcastle-north-east|edinburgh-scotland?)/?$ /index.php?region=$1&page_name=home [L]
 RewriteRule ^(.*?)/(djs|music|bar-and-corporate|contact|weddings+?)/?$ /index.php?region=$1&page_name=$2 [L]
 
