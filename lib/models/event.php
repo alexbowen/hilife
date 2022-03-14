@@ -84,5 +84,12 @@ class Event {
     global $utils;
     return $utils->prettyTimeFormat($this->{$when . '_time'});
   }
+
+  public function inFuture() {
+    $event_date = new DateTime($this->date);
+    $current_date = new DateTime('now');
+
+    return $event_date > $current_date ? true : false;
+  }
 }
 ?>
