@@ -41,7 +41,7 @@ include ($_SERVER['DOCUMENT_ROOT'].'/config/djs.php');
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
     
     <!-- Custom styles -->
-    <link href="/assets/css/style.css" rel="stylesheet" />
+    <link href="/assets/production/hilife.min.css" rel="stylesheet" />
     <link href="/assets/css/gallery/gallery-minified.css" rel="stylesheet" />
 
     <script src="https://kit.fontawesome.com/51da9c5fc0.js" crossorigin="anonymous"></script>
@@ -51,7 +51,7 @@ include ($_SERVER['DOCUMENT_ROOT'].'/config/djs.php');
     <script defer src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 
     <script defer src="/assets/javascript/lib/photoswipe.js"></script>
-    <script defer src="/assets/javascript/minified.js"></script>
+    <script defer src="/assets/production/hilife.min.js"></script>
 
     <?php if (isset($_COOKIE['cookie-consent']) && $_COOKIE['cookie-consent'] == 'accepted') { ?>
     <!-- Global site tag (gtag.js) - Google Analytics -->
