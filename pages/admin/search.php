@@ -124,14 +124,14 @@ $adminPage = "search";
               <dd class="mb-0"><?php echo $utils->field($event->type); ?></dd>
             </dl>
             <dl class="mb-0">
-              <dt>Guests</dt>
-              <dd class="mb-0"><?php echo $utils->field($event->numbers); ?></dd>
+              <dt>Status</dt>
+              <dd class="mb-0"><?php echo $event->status; ?></dd>
             </dl>
           </div>
 
           <?php if ($event->status != 'cancelled') { ?>
           <div class="col-12 col-md-3 admin-actions mt-1">
-          <form name="event-update" action="/actions/event" method="post" class="admin-form mb-0">
+            <form name="event-update" action="/actions/event" method="post" class="admin-form mb-0">
               <input type="hidden" name="id" value="<?php echo $event->id; ?>" />
               <input type="hidden" name="admin[contract_status]" value="<?php echo $event->contract_status; ?>" />
               <input type="hidden" name="admin[booking_type]" value="<?php echo $event->booking_type; ?>" />
