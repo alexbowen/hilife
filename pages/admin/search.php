@@ -1,47 +1,12 @@
 <?php
-require $_SERVER['DOCUMENT_ROOT'].'/vendor/autoload.php';
 include $_SERVER['DOCUMENT_ROOT'].'/lib/event.php';
 
-$filter_parts = array();
-
-array_push($filter_parts, "events.date < CURDATE()");
-
-if (!empty($_GET['booking_type'])) array_push($filter_parts, "events_admin.booking_type=\"" . $_GET['booking_type'] . "\"");
-if (!empty($_GET['venue'])) array_push($filter_parts, "events.venue_name=\"" . $_GET['venue'] . "\"");
-if (!empty($_GET['dj'])) array_push($filter_parts, "events_admin.dj=\"" . $_GET['dj'] . "\"");
-if (!empty($_GET['sort'])) {
-  switch ($_GET['sort']) {
-    case "asc":
-      $sort = " ORDER BY CONVERT(DATE, date) DESC";
-      break;
-
-    case "desc":
-      $sort = " ORDER BY CONVERT(DATE, date) ASC";
-      break;
-  }
-} else {
-  $sort = " ORDER BY CONVERT(DATE, date) DESC";
+if (isset($_POST['search-term'])) {
+  $query = "SELECT id, date FROM events WHERE email = \"" . $_POST['search-term'] . "\"";
+  $result = $database->query($query);
 }
 
-if (count($filter_parts) > 0) {
-  $filters = " WHERE " . implode(" AND ", $filter_parts);
-}
-
-$query = "SELECT count(*) FROM events INNER JOIN events_admin ON events_admin.event_id = events.id" . $filters;
-$count = $database->query($query)->fetchColumn();
-
-$query = "SELECT * FROM package_clients";
-$package_clients = $database->query($query)->fetchAll(PDO::FETCH_ASSOC);
-
-$pagination = new \yidas\data\Pagination([
-    'totalCount' => $count,
-    'perPage' => 5
-]);
-
-$query = "SELECT id, date FROM events INNER JOIN events_admin ON events_admin.event_id = events.id LEFT JOIN events_planner ON events_planner.event_id = events.id " . $filters . $sort . " LIMIT {$pagination->offset}, {$pagination->limit}";
-$result = $database->query($query);
-
-$adminPage = "archive";
+$adminPage = "search";
 ?>
 
 <section class="content-section">
@@ -49,41 +14,19 @@ $adminPage = "archive";
 
   <div class="content-tabs__container admin">
     <div class="filter-panel">
-      <form name="events-sort" action="<?php echo $_SERVER['REQUEST_URI'] ?>" method="get">
-        <div class="row">
-          <div class="col-md-3 my-0">
-            <label for="admin-sort" class="col-form-label">Sort by</label>
-            <div class="col">
-              <div class="input-group mb-1">
-                <select name="sort" id="admin-sort" class="form-select form-select-sm col-sm-8" data-auto-submit="true">
-                  <option value="desc" <?php if((isset($_GET['sort']) && $_GET['sort'] == 'desc')) { ?>selected<?php } ?>>event date - oldest first</option>
-                  <option value="asc" <?php if(isset($_GET['sort']) && $_GET['sort'] == 'asc' || !isset($_GET['sort'])) { ?>selected<?php } ?>>event created - newest first</option>
-                </select>
-              </div>
-              <noscript>
-                <div class="col">
-                  <button type="submit" class="btn btn-secondary btn-sm">sort</button>
-                </div>
-              </noscript>
-            </div>
+      <form name="events-sort" action="<?php echo $_SERVER['REQUEST_URI'] ?>" method="post">
+        <div class="row mb-1 mb-md-3">
+          <div class="col-md-6">
+            <input type="text" name="search-term" class="form-control" placeholder="enter email address"<?php if(isset($_POST['search-term'])) { ?> value="<?php echo $_POST['search-term']; ?>"<?php } ?> />
           </div>
-
-          <div class="col-md-3 my-0">
-            <?php include ($_SERVER['DOCUMENT_ROOT'].'/pages/admin/events/filter/booking-type.php'); ?>
-          </div>
-
-          <div class="col-md-3 my-0">
-          <?php include ($_SERVER['DOCUMENT_ROOT'].'/pages/admin/events/filter/venue-name.php'); ?>
-          </div>
-
-          <div class="col-md-3 my-0">
-          <?php include ($_SERVER['DOCUMENT_ROOT'].'/pages/admin/events/filter/dj.php'); ?>
+          <div class="col-md-3">
+            <button type="submit" class="btn btn-primary btn-sm">search events</button>
           </div>
         </div>
       </form>
     </div>
 
-    <?php if($result->rowCount() > 0) { ?>  
+    <?php if(isset($result) && $result->rowCount() > 0) { ?>  
     <?php foreach ($result as $key => $eventp) { ?>
     <?php
       $event = EventFactory::create(array(
@@ -122,12 +65,28 @@ $adminPage = "archive";
       </div>
 
       <div class="card-body toggle-content toggle-content--hidden" id="toggle-content-<?php echo $key; ?>">
-        <form name="" action="" method="post" class="admin-form needs-validation needs-validation-time" novalidate>
+      <?php if ($event->inFuture()) { ?>
+        <form name="event-update-<?php echo $key; ?>" action="/actions/event" method="post" class="admin-form needs-validation needs-validation-time" novalidate>
           <div class="container">
+            <input type="hidden" name="id" value="<?php echo $event->id; ?>" />
+            <input type="hidden" name="admin[booking_type]" value="<?php echo $event->booking_type; ?>" />
+            <input type="hidden" name="admin[status]" value="<?php echo $event->status; ?>" />
+
             <?php include ($_SERVER['DOCUMENT_ROOT'].'/templates/event/admin/form.php'); ?>
             <?php include ($_SERVER['DOCUMENT_ROOT'].'/templates/event/form.php'); ?>
+
+            <div class="row text-end">
+              <div class="d-grid gap-2 d-md-block mt-2">
+                <span class="float-start form-info">* required field</span>
+                <button type="submit" name="action" value="update" class="btn btn-secondary btn-sm">update event</button>
+              </div>
+            </div>
           </div>
         </form>
+      <?php } else { ?>
+        <?php include ($_SERVER['DOCUMENT_ROOT'].'/templates/event/admin/form.php'); ?>
+        <?php include ($_SERVER['DOCUMENT_ROOT'].'/templates/event/form.php'); ?>
+      <?php } ?>
       </div>
 
       <div class="card-footer">
@@ -172,9 +131,29 @@ $adminPage = "archive";
 
           <?php if ($event->status != 'cancelled') { ?>
           <div class="col-12 col-md-3 admin-actions mt-1">
-            <div class="d-grid gap-2 d-md-flex my-2 my-md-0">
-              <a href="/planner/view/summary?id=<?php echo $event->id; ?>" class="btn btn-secondary btn-sm flex-fill">planner</a>
-            </div>
+          <form name="event-update" action="/actions/event" method="post" class="admin-form mb-0">
+              <input type="hidden" name="id" value="<?php echo $event->id; ?>" />
+              <input type="hidden" name="admin[contract_status]" value="<?php echo $event->contract_status; ?>" />
+              <input type="hidden" name="admin[booking_type]" value="<?php echo $event->booking_type; ?>" />
+              <input type="hidden" name="event[email]" value="<?php echo $event->email; ?>" />
+              <input type="hidden" name="event[primary_contact]" value="<?php echo $event->primary_contact; ?>" />
+              <div class="d-grid gap-2 d-md-flex my-2 my-md-0">
+                <?php if ($event->status == 'pending' && $event->inFuture()) { ?>
+                  <input type="hidden" name="admin[status]" value="confirmed" />
+                  <button type="submit" name="action" value="update" class="btn btn-success btn-sm flex-fill">confirm</button>
+                <?php } ?>
+
+                <?php if ($event->status == 'enquiry' && $event->inFuture()) { ?>
+                  <input type="hidden" name="admin[status]" value="pending" />
+                  <button type="submit" name="action" value="update" class="btn btn-success btn-sm flex-fill">accept</button>
+                <?php } ?>
+
+                <a href="/planner/view/summary?id=<?php echo $event->id; ?>" class="btn btn-secondary btn-sm flex-fill">planner</a>
+                <?php if ($event->inFuture()) { ?>
+                <button type="submit" name="action" value="cancel" class="btn btn-danger btn-sm confirm-action flex-fill">cancel</button>
+                <?php } ?>
+              </div>
+            </form>
           </div>
           <?php } ?>
         </div>
@@ -182,14 +161,8 @@ $adminPage = "archive";
     </div>
     <?php } ?>
 
-    <?php if ($pagination->limit < $count) { ?>
-    <div>
-    <?=\yidas\widgets\Pagination::widget(['pagination' => $pagination])?>
-    </div>
-    <?php } ?>
-
-    <?php } else { ?>
-    <p class="lead mt-4">No events</p>
+    <?php } elseif (isset($_POST['search-term'])) { ?>
+    <p class="lead mt-4">No events for this search</p>
   <?php } ?>
   </div>
 </section>
