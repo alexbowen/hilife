@@ -58,7 +58,7 @@ main a:hover, .nav-tabs .nav-link:hover {
 }
 
 .content-section {
-  margin: 0.4em 0 0.8em;
+  margin: 0.4em 0 1.5em;
 }
 
 .content-section h2, .content-section h3, .content-section h5, .content-section p {
@@ -121,7 +121,7 @@ h1, .content h2 {
 
 .card-full-width {
   display: block;
-  padding: 0.5em 1em;
+  padding: 1em;
 }
 
 .card {
@@ -317,7 +317,7 @@ form .form-radio label {
 
 .profile-text h3 {
   margin: 0;
-  font-size: 3.2rem;
+  font-size: 2.6rem;
 }
 
 .profile-text p {

@@ -88,34 +88,33 @@
     <div class="col-sm">
       <p>Since 2006, when we started DJing under the name Hi-Life Entertainment from Mark's record shop (Soul Alley Records, Grand Arcade, Leeds), we have covered pretty much the whole of the UK. I think the most northern gig was Elgin and the most southern would be either Port Eliot in Devon, or West Hill Hall, Brighton. Of course being largely a northern company we mainly do gigs in a radius around Leeds, Manchester, Sheffield and York, but we do have DJs in London and Glasgow, and specialists we can call on from many places, if required. All of our regular DJs are on our DJs page, but that is not the limit of our contacts.</p>
       <p>We know how to DJ to a crowd and are not "too cool for school" in what we play, but that said in the modern world everyone likes different types of music and many of our clients come from different countries and cultures. Also there are differnt age groups to consider when DJing to a wedding or birthday party.</p>
-</div>
-</div>
+    </div>
+  </div>
 
+  <div class="content-border__container clearfix">
+    <img
+      src="/assets/images/home/Tuscany_S2.jpg"
+      alt="Tuscan castle Wedding DJ Set"
+      class="float-end img-fluid ms-3"
+    />
+    <h3>Recent Highlights</h3>
+    <p class="lead">One of the highlights of recent years was playing a wedding in a castle in Tuscany</p>
+    <p>This was one of a few overseas trips that we have been asked to do. We are always willing to travel, if the client requests us and many large agencies use us for our reliability and expertise.</p>
+    <p>If you have any kind of event, large or small, we are here to help.</p>
+    <p>Contact Mark on our <a href="contact">contact page</a> for more information.</p>
+  </div>
 
-<div class="content-border__container clearfix">
-              <img
-                src="/assets/images/home/Tuscany_S2.jpg"
-                alt="Tuscan castle Wedding DJ Set"
-                class="float-end img-fluid ms-3"
-              />
-<h3>Recent Highlights</h3>
-            <p class="lead">One of the highlights of recent years was playing a wedding in a castle in Tuscany</p>
-            <p>This was one of a few overseas trips that we have been asked to do. We are always willing to travel, if the client requests us and many large agencies use us for our reliability and expertise.</p>
-            <p>If you have any kind of event, large or small, we are here to help.</p>
-<p>Contact Mark on our <a href="contact">contact page</a> for more information.</p>
-            </div>
-            <div class="content-border__container clearfix">
-            <img
-                src="/assets/images/home/marquee-weddings.jpg"
-                alt="Tuscan castle Wedding DJ Set"
-                class="float-start img-fluid me-3"
-              />
-              <h3>Outdoor events</h3>
-            <p class="lead">We do many outdoor events in marquees, teepees, barns, glamping sites for weddings these days.</p>
-            <p>The relaxed atmosphere and the beautiful countryside of the nearby Yorkshire Dales, Peak District and North Yorkshire Moors make these events really special. We offer all day packages for music, speeches and wedding services.</p>
-            <a href="contact">Drop Mark a line here for a quote</a>
-
-            </div>
+  <div class="content-border__container clearfix">
+    <img
+        src="/assets/images/home/marquee-weddings.jpg"
+        alt="Tuscan castle Wedding DJ Set"
+        class="float-start img-fluid me-3"
+      />
+      <h3>Outdoor events</h3>
+    <p class="lead">We do many outdoor events in marquees, teepees, barns, glamping sites for weddings these days.</p>
+    <p>The relaxed atmosphere and the beautiful countryside of the nearby Yorkshire Dales, Peak District and North Yorkshire Moors make these events really special. We offer all day packages for music, speeches and wedding services.</p>
+    <a href="contact">Drop Mark a line here for a quote</a>
+  </div>
 
   <div class="content-border__container content-section-link">
     <p>You can see more photos of our events and what we are up to on our <a href="https://www.facebook.com/hilifeentertainmentleeds/" target="_blank">Facebook page</a></p>
@@ -123,7 +122,7 @@
 </section>
 
 <section class="content-section">
-  <h2>Hi-life DJs</h2>
+  <h2>Hi-Life DJs</h2>
   <p>
     Mobile DJs, playing the best in soul, funk, motown, disco, hip-hop,
     house, indie, rock, metal, punk, reggae, urban, jazz, electro, techno,
@@ -138,8 +137,8 @@
         <img src="/assets/images/blank.png" height="210px" width="150px" />
       </div>
       <div class="profile-text palette-dark-accent">
-          <h3>Hi-life DJs</h3>
-          <p>See here some of the mobile DJs that are available for booking for weddings, parties, club, bar and corporate events in <?php echo $regions[$_GET['region']]["associated_areas"]; ?> area and also for silent disco hire</p>
+        <h3>Hi-Life DJs</h3>
+        <p>See here some of the mobile DJs that are available for booking for weddings, parties, club, bar and corporate events in <?php echo $regions[$_GET['region']]["associated_areas"]; ?> area and also for silent disco hire</p>
       </div>
     </div>
   </div>
@@ -152,7 +151,7 @@
 <?php include ($_SERVER['DOCUMENT_ROOT'].'/templates/dj-mix.php'); ?>
 
 <section class="content-section">
-  <h3>Watch Hi-life entertainment on YouTube</h3>
+  <h3>Watch Hi-Life entertainment on YouTube</h3>
   <div class="row">
     <div class="col-sm">
       <iframe

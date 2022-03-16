@@ -17,7 +17,7 @@
         foreach ($dj['about'] as $about) {
           echo "<p>" .$about . "</p>";
         }
-        if ($dj['link']) {
+        if (isset($dj['link'])) {
           echo "<a href=\"" . $dj['link']['url'] . "\" target=\"_blank\" class=\"card-link\">" . $dj['link']['text'] . "</a>";
         }
       ?>
