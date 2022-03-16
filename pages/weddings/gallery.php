@@ -1,7 +1,7 @@
 <section class="content-section">
   <div class="row">
     <h2>Hi-life weddings photo gallery</h2>
-    <p>Click on image to enlarge</p>
+    <p>Click on image to view</p>
 
     <div class="my-gallery" itemscope itemtype="http://schema.org/ImageGallery">
       <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">

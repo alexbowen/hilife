@@ -1,8 +1,6 @@
-<section class="content-section">
-  <div class="content-intro">
-    <h1>Cookies</h1>
-    <p class="lead">How cookies are used on this website</p>
-  </div>
+<section class="content-section content-center">
+  <h1>Cookies</h1>
+  <p class="lead">How cookies are used on this website</p>
 </section>
 
 <section class="content-section">

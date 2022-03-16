@@ -1,10 +1,8 @@
 <?php include ($_SERVER['DOCUMENT_ROOT'].'/config/event.php'); ?>
 
-<section class="introduction content-section">
-  <div class="content-intro">
-    <h1>Contact Us</h1>
-    <p class="lead">For all booking enquiries, general enquiries and accounts</p>
-  </div>
+<section class="introduction content-section content-center">
+  <h1>Contact Us</h1>
+  <p class="lead">For all booking enquiries, general enquiries and accounts</p>
 </section>
 
 <section class="content-section">
@@ -34,7 +32,7 @@
   <div class="card card-full-width">
     <form name="enquiry-form" action="/actions/event" method="post" class="needs-validation needs-validation-time" novalidate>
       <div class="form-floating mb-3">
-        <input type="text" name="event[primary_contact]" id="enquiry-contact" class="form-control form-control-sm" placeholder="your name" required <?php if ($_SESSION['auth_username']) { ?>value="<?php echo $_SESSION['auth_username']; ?>"<?php } ?> />
+        <input type="text" name="event[primary_contact]" id="enquiry-contact" class="form-control form-control-sm" placeholder="your name" required />
         <label for="enquiry-contact">Contact name</label>
         <div class="invalid-feedback">
           This field is required
@@ -42,7 +40,7 @@
       </div>
 
       <div class="form-floating mb-3">
-        <input type="email" id="enquiry-email" name="event[email]" class="form-control form-control-sm" placeholder="name@example.com" required <?php if ($_SESSION['auth_email']) { ?>value="<?php echo $_SESSION['auth_email']; ?>"<?php } ?> />
+        <input type="email" id="enquiry-email" name="event[email]" class="form-control form-control-sm" placeholder="name@example.com" required />
         <label for="enquiry-email">Email address</label>  
         <div class="invalid-feedback">
           Invalid email address

@@ -1,14 +1,9 @@
 <section class="introduction content-section">
-  <div class="content-intro">
-    <h1>Hi-life mobile wedding DJ hire in <?php echo $regions[$_GET['region']]["db_key"]; ?> and <?php echo $regions[$_GET['region']]["county"]; ?></h1>
-    <p class="lead">Bespoke mobile DJ services and equipment hire for weddings, parties and corporate events.</p>
-    <p class="lead">We are friendly, professional and knowledgeable about music and music technology.</p>
-    <p class="lead">We can supply DJs of all styles for bar and club events.</p>
-  </div>
+  <h1>Hi-life mobile wedding DJ hire in <?php echo $regions[$_GET['region']]["db_key"]; ?> and <?php echo $regions[$_GET['region']]["county"]; ?></h1>
+  <p class="lead">Bespoke mobile DJ services and equipment hire for weddings, parties and corporate events. We are friendly, professional and knowledgeable about music and music technology. We can supply DJs of all styles for bar and club events.</p>
 </section>
 
 <section class="events content-section">
-  <h2>Event services</h2>
   <div class="row">
     <div class="col-sm">
       <div class="card event">

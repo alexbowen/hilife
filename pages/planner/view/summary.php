@@ -36,10 +36,8 @@ if ($session->getAccessToken()) {
 
 <section class="introduction content-section admin">
   <?php echo $utils->backlink($_SERVER['HTTP_REFERER'], 'back to admin dashboard'); ?>
-  <div class="content-intro">
-    <h1>Music Planner Summary</h1>
-    <p><?php if ($event && !empty($event->venue_name)) { ?> at <b><?php echo $event->venue_name; ?></b><?php } ?><?php if ($event && !empty($event->date)) { ?> on <b><?php echo $event->prettyDate(); ?></b><?php } ?></p>
-  </div>
+  <h1>Music Planner Summary</h1>
+  <p><?php if ($event && !empty($event->venue_name)) { ?> at <b><?php echo $event->venue_name; ?></b><?php } ?><?php if ($event && !empty($event->date)) { ?> on <b><?php echo $event->prettyDate(); ?></b><?php } ?></p>
 </section>
 
 <section class="content-section admin">

@@ -1,8 +1,6 @@
-<section class="content-section">
-  <div class="content-intro">
-    <h1>Privacy Policy</h1>
-    <p class="lead">How data is used on this website</p>
-  </div>
+<section class="content-section content-center">
+  <h1>Privacy Policy</h1>
+  <p class="lead">How your data is used on this website</p>
 </section>
 
 <section class="content-section">

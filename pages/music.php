@@ -1,9 +1,7 @@
 <section class="introduction content-section">
-  <div class="content-intro">
-    <h1>Hi-life Music</h1>
-    <p class="lead">Our unique music planner allows our DJs to play the music that you want at your wedding, birthday party, or other event</p>
-    <img src="/assets/images/music/intro.jpg" width="100%" alt="Hilife music" />
-  </div>
+  <h1>Hi-life Music</h1>
+  <p class="lead">Our unique music planner allows you make sure you hear the music that you want at your event</p>
+  <img src="/assets/images/music/intro.jpg" width="100%" alt="Hilife music" />
 </section>
 
 <section class="content-section">

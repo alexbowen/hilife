@@ -1,9 +1,6 @@
 <section class="introduction content-section">
-  <div class="content-intro">
-    <h1>Meet the DJs</h1>
-    <p class="lead">See below mobile and club DJs available for hire via Hi-Life in <?php echo $regions[$_GET['region']]["db_key"]; ?> and <?php echo $regions[$_GET['region']]["county"]; ?>.</p>
-    <p>In most circumstances your mobile DJ will be selected based primarily upon the music that you are looking for, as well as the location of the event and availability. You can of course request a quote to book a specific DJ.</p>
-  </div>
+  <h1>Meet the DJs</h1>
+  <p class="lead">Hi-Life mobile and club DJs available for hire from Hi-Life in <?php echo $regions[$_GET['region']]["db_key"]; ?> and <?php echo $regions[$_GET['region']]["county"]; ?>. Your mobile DJ will be selected based primarily upon the music that you are looking for, as well as the location of the event and availability. You can of course request a quote to book a specific DJ.</p>
 </section>
 
 <section class="content-section">

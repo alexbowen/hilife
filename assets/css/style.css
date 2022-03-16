@@ -111,7 +111,7 @@ main a:hover, .nav-tabs .nav-link:hover {
   margin: 0;
 }
 
-.content-intro {
+.content-center {
   text-align: center;
 }
 
@@ -394,6 +394,10 @@ header .notification p {
 
 .navbar-title {
   flex-grow: 1;
+}
+
+.navbar-title a {
+  text-decoration: none;
 }
 
 .navbar-title h2 {

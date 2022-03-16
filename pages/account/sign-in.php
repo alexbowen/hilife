@@ -1,7 +1,5 @@
-<section class="introduction content-section">
-  <div class="content-intro">
-    <h1>Music Planner Sign In</h1>
-  </div>
+<section class="introduction content-section content-center">
+  <h1>Music Planner Sign In</h1>
 </section>
 
 <div class="row authentication-form">

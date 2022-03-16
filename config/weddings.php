@@ -25,13 +25,12 @@ $weddings = array(
     array(
         "image" => array(
             "file" => "wedding_dj_sam_tim.png",
-            "alt" => "DJ Ziggy playing wedding DJ set at KP Club, York"
+            "alt" => "Wedding at KP Club, York"
         ),
         "venue" => "the KP Club, Near York",
-        "dj" => "DJ Ziggy",
         "genres" => "funk, soul, old skool hip hop, house",
         "tracks" => " Launceston Male Voice Choir \"Trelawney\" (traditional Cornish song), Teddy Pendergrass \"Close the Door\" (first dance) & Eric B & Rakim \"I Know I Got Soul\"",
-        "caption" => "Thank you to Ziggy & yourself for organising the music for the wedding. Ziggy's DJing was amazing, especially the scratching for the breakdance routine. Dance floor was packed all night.",
+        "caption" => "Thank you for organising the music for the wedding. DJing was amazing, especially the scratching for the breakdance routine. Dance floor was packed all night.",
     ),
     array(
         "image" => array(
@@ -116,10 +115,9 @@ $weddings = array(
             "alt" => "DJ Charlie C wedding DJ playing funk, soul and dance"
         ),
         "venue" => "Waterside Hotel, Didsbury, Manchester",
-        "dj" => "DJ Ziggy",
         "genres" => "afrobeat, highlife, reggae, funk and soul",
         "tracks" => "Al Green \"Let's Stay Together\"",
-        "caption" => "Hi Mark, well it's done now!  Thank you so much for supplying the DJ, (DJ Ziggy), he was wonderful and think he quite enjoyed the evening himself.",
+        "caption" => "Hi Mark, well it's done now!  Thank you so much for supplying the DJ, he was wonderful and think he quite enjoyed the evening himself.",
     ),
     array(
         "image" => array(
@@ -138,10 +136,9 @@ $weddings = array(
             "alt" => "wedding DJ in Yorkshire Dales, near Skipton"
         ),
         "venue" => "East Keswick Village Hall, North Yorkshire",
-        "dj" => "DJ Ziggy",
         "genres" => "soul, disco, 80's, dance and indie",
         "tracks" => "Lucy Pearl \"Don't Mess With My Man\"",
-        "caption" => "Mark, just wanted to say thank you for a great DJ - Ziggy. He got it just right and the dance floor was full from the first song he played! Everyone commented on how good the DJ was.",
+        "caption" => "Mark, just wanted to say thank you for a great DJ. He got it just right and the dance floor was full from the first song he played! Everyone commented on how good the DJ was.",
     ),
     array(
         "image" => array(
@@ -168,13 +165,12 @@ $weddings = array(
     array(
         "image" => array(
             "file" => "wedding_dj_faye_russ.png",
-            "alt" => "DJ Ziggy wedding DJ in Leeds"
+            "alt" => "Wedding in Leeds"
         ),
         "venue" => "the Roast, Leeds",
-        "dj" => "DJ Ziggy",
         "genres" => "soul, motown, ska, funk, reggae, old skool hip hop, indie rock and punk",
         "tracks" => "Elvis - \"Viva Las Vegas\" (as we were married in Vegas, by the big man).",
-        "caption" => "All I can say is wow! Last night was amazing for both Russ and I and all our guests; everyone has commented on how amazing Ziggy was and how different his set was from your normal wedding DJ. The service you offer is second to none, completely stress free and whatever you are doing works like magic. ",
+        "caption" => "All I can say is wow! Last night was amazing for both Russ and I and all our guests; everyone has commented on how amazing DJ was and how different his set was from your normal wedding DJ. The service you offer is second to none, completely stress free and whatever you are doing works like magic.",
     ),
     array(
         "image" => array(

@@ -3,7 +3,9 @@
     <img src="/assets/images/logo-light-bg-sm.png" height="40" width="40" alt="Hi-life Entertainment" />
   </a>
   <div class="navbar-title">
-    <h2 class="palette-light-shade">Hi-life Entertainment</h2>
+    <a href="/">
+      <h2 class="palette-light-shade">Hi-life Entertainment</h2>
+    </a>
     <span class="authenticated-status">
       <?php if (isset($_SESSION['auth_username'])) { ?>Hello <?php echo $_SESSION['auth_username']; } ?>
       <?php if (isset($_SESSION['auth_provider']) && $_SESSION['auth_provider'] == "facebook") { ?>
