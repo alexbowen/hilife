@@ -49,15 +49,6 @@ if ($session->getAccessToken()) {
   <?php include ($_SERVER['DOCUMENT_ROOT'].'/templates/event/show.php'); ?>
 </section>
 
-<?php if (!empty($event->notes)) { ?>
-<section class="content-section admin">
-  <h5>Notes</h5>
-  <div class="content-border__container admin">
-    <p><?php echo $event->notes; ?></p>
-  </div>
-</section>
-<?php } ?>
-
 <section class="content-section admin">
   <h2>Music</h2>
   <?php if (is_array($event->top_25) && count($event->top_25) > 0) { ?>

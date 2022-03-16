@@ -125,6 +125,8 @@ $section = 'playlists';
         <button type="submit" value="link" name="action" class="btn btn-sm btn-secondary">link with event</button>
       </div>
     </form>
+    <?php } else { ?>
+      <p>Sign in to link Spotify playlists with your event</p>
     <?php } ?>
 
     <?php
