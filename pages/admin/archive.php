@@ -57,7 +57,7 @@ $adminPage = "archive";
               <div class="input-group mb-1">
                 <select name="sort" id="admin-sort" class="form-select form-select-sm col-sm-8" data-auto-submit="true">
                   <option value="desc" <?php if((isset($_GET['sort']) && $_GET['sort'] == 'desc')) { ?>selected<?php } ?>>event date - oldest first</option>
-                  <option value="asc" <?php if(isset($_GET['sort']) && $_GET['sort'] == 'asc' || !isset($_GET['sort'])) { ?>selected<?php } ?>>event created - newest first</option>
+                  <option value="asc" <?php if(isset($_GET['sort']) && $_GET['sort'] == 'asc' || !isset($_GET['sort'])) { ?>selected<?php } ?>>event date - newest first</option>
                 </select>
               </div>
               <noscript>

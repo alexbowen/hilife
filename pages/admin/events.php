@@ -32,7 +32,7 @@ if (!empty($_GET['sort'])) {
       break;
 
     case "music":
-      $sort = " ORDER BY planner_updated DESC";
+      $sort = " ORDER BY events_planner.last_updated DESC";
       break;
   }
 } else {
@@ -70,7 +70,7 @@ $pagination = new \yidas\data\Pagination([
     'perPage' => 5
 ]);
 
-$query = "SELECT id, date FROM events INNER JOIN events_admin ON events_admin.event_id = events.id LEFT JOIN events_planner ON events_planner.event_id = events.id" . $filters . $sort . " LIMIT {$pagination->offset}, {$pagination->limit}";
+$query = "SELECT id, date, events_planner.last_updated FROM events INNER JOIN events_admin ON events_admin.event_id = events.id LEFT JOIN events_planner ON events_planner.event_id = events.id" . $filters . $sort . " LIMIT {$pagination->offset}, {$pagination->limit}";
 $result = $database->query($query);
 
 $adminPage = "events";

@@ -32,9 +32,7 @@ $result = $database->query($query);
     </div>
   <?php } ?>
 <?php } else { ?>
-  <div class="content-border__container content-section-link">
-    <p class="lead">There are currently no events you are booked for</p>
-  </div>
+  <p class="lead mb-0">Currently no upcoming events</p>
 <?php } ?>
 </div>
 </section>

@@ -74,7 +74,9 @@ if ($session->getAccessToken()) {
     </div>
   </div>
   <?php } else { ?>
-    <span class="field-empty">nothing added yet</span>
+    <div class="content-border__container admin">
+      <span class="field-empty">no top 25 tracks added yet</span>
+    </div>
   <?php } ?>
 </section>
 
@@ -122,7 +124,7 @@ if ($session->getAccessToken()) {
     <span class="badge rounded-pill bg-pill mb-2"><?php echo $category['title']; ?><?php if ($category['favourite'] === '1') { ?><span class="ms-1"><img src="/assets/images/icons/heart.svg" height="14" width="14" /></span><?php } ?></span>
   <?php } ?>
   <?php } else { ?>
-    <span class="field-empty">nothing added yet</span>
+    <span class="field-empty">no categories added yet</span>
     <?php } ?>
   </div>
 </section>
@@ -135,7 +137,7 @@ if ($session->getAccessToken()) {
     <span class="badge rounded-pill bg-pill mb-2"><?php echo $decade['title']; ?><?php if ($decade['favourite'] === '1') { ?><span class="ms-1"><img src="/assets/images/icons/heart.svg" height="14" width="14" /></span><?php } ?></span>
   <?php } ?>
   <?php } else { ?>
-    <span class="field-empty">nothing added yet</span>
+    <span class="field-empty">no decades added yet</span>
     <?php } ?>
   </div>
 </section>
