@@ -58,7 +58,7 @@ main a:hover, .nav-tabs .nav-link:hover {
 }
 
 .content-section {
-  margin: 0.4em 0 1.5em;
+  margin: 0.4em 0 1.8em;
 }
 
 .content-section h2, .content-section h3, .content-section h5, .content-section p {
@@ -315,15 +315,16 @@ form .form-radio label {
   flex-basis: auto;
 }
 
-.profile-text h3 {
+.profile-text h4 {
+  color: #555555;
   margin: 0;
-  font-size: 2.6rem;
+  font-size: 2rem;
 }
 
 .profile-text p {
   width: 85%;
-  margin: 0 auto;
-  font-size: 1.8rem;
+  margin: 5px auto 0;
+  font-size: 1.2rem;
 }
 
 
@@ -447,15 +448,15 @@ header .notification p {
 .content-border__container {
   border: 1px solid rgba(0,0,0,.125);
   border-radius: .25rem;
-  background-color: #FFFFFF;
-  padding: 1.2em;
+  background-color: #FEFEFE;
+  padding: 0.4em 0.8em;
   margin: 1em 0;
 }
 
 .content-tabs__container {
   border: 1px solid rgba(0,0,0,.125);
   border-top: none;
-  background-color: #FFFFFF;
+  background-color: #FEFEFE;
   padding: 1.5em;
 }
 

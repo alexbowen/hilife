@@ -3,9 +3,9 @@
   <p class="lead">Bespoke mobile DJ services and equipment hire for weddings, parties and corporate events. We are friendly, professional and knowledgeable about music and music technology. We can supply DJs of all styles for bar and club events.</p>
 </section>
 
-<section class="events content-section">
+<section class="content-section">
   <div class="row">
-    <div class="col-sm">
+    <div class="col-sm" style="display:flex">
       <div class="card event">
         <img class="card-img-top" src="/assets/images/home/wedding_djs.jpg" alt="Wedding DJ services in Leeds, West Yorkshire, North Yorkshire, Bradford and York" />
         <div class="card-body">
@@ -86,7 +86,8 @@
   <h2>There ain't no party like a Hi-Life party!</h2>
   <div class="row">
     <div class="col-sm">
-      <p>Since 2006, when we started DJing under the name Hi-Life Entertainment from Mark's record shop (Soul Alley Records, Grand Arcade, Leeds), we have covered pretty much the whole of the UK. I think the most northern gig was Elgin and the most southern would be either Port Eliot in Devon, or West Hill Hall, Brighton. Of course being largely a northern company we mainly do gigs in a radius around Leeds, Manchester, Sheffield and York, but we do have DJs in London and Glasgow, and specialists we can call on from many places, if required. All of our regular DJs are on our DJs page, but that is not the limit of our contacts.</p>
+      <p>Since 2006, when we started DJing under the name Hi-Life Entertainment from Mark's record shop (Soul Alley Records, Grand Arcade, Leeds), we have covered pretty much the whole of the UK. I think the most northern gig was Elgin and the most southern would be either Port Eliot in Devon, or West Hill Hall, Brighton.</p>
+      <p>Of course being largely a northern company we mainly do gigs in a radius around Leeds, Manchester, Sheffield and York, but we do have DJs in London and Glasgow, and specialists we can call on from many places, if required. All of our regular DJs are on our DJs page, but that is not the limit of our contacts.</p>
       <p>We know how to DJ to a crowd and are not "too cool for school" in what we play, but that said in the modern world everyone likes different types of music and many of our clients come from different countries and cultures. Also there are differnt age groups to consider when DJing to a wedding or birthday party.</p>
     </div>
   </div>
@@ -134,17 +135,17 @@
   <div id="dj-carousel" class="dj-carousel">
     <div class="gradient">
       <div class="profile-photo d-md-block">
-        <img src="/assets/images/blank.png" height="210px" width="150px" />
+        <img src="/assets/images/blank.png" height="150px" width="100px" class="rounded" />
       </div>
       <div class="profile-text palette-dark-accent">
-        <h3>Hi-Life DJs</h3>
+        <h4>Hi-Life DJs</h4>
         <p>See here some of the mobile DJs that are available for booking for weddings, parties, club, bar and corporate events in <?php echo $regions[$_GET['region']]["associated_areas"]; ?> area and also for silent disco hire</p>
       </div>
     </div>
   </div>
 
   <div class="content-border__container content-section-link">
-    <p>You can read more detailed profiles of all Hi-life DJs <a href="djs">here</a></p>
+    <p>You can read more detailed profiles of all Hi-life DJs on our <a href="djs">DJ page</a></p>
   </div>
 </section>
 
@@ -156,7 +157,7 @@
     <div class="col-sm">
       <iframe
         width="100%"
-        height="300"
+        height="240"
         src="https://www.youtube.com/embed/X0zJNF7xtEI"
         frameborder="0"
         allowfullscreen=""
@@ -167,9 +168,9 @@
       <p>
         Our most recent video, shot recently by ourselves of our mobile
         DJs at weddings and other events around <?php echo $regions[$_GET['region']]["associated_areas"]; ?> and beyond. 
-        Check out more videos and up to date feeds of what we are doing on our Facebook page and other social media links below. We also have a blog that you can find on the link above.
-        Anything from a small party to a festival we can supply DJs for. Leeds City Council have used us in the past for events in Millenium Square and we are suppliers to large festivals.
-        Whatever the event, we treat it with professionalism. About the only thing we don't do are children's parties.
+        Check out more videos and up to date feeds of what we are doing on our Facebook page and other social media links below. We also have a blog that you can find on the link above.</p>
+        <p>Anything from a small party to a festival we can supply DJs for. Leeds City Council have used us in the past for events in Millenium Square and we are suppliers to large festivals.
+        Whatever the event, we treat it with professionalism. About the only thing we don't do are children's parties.</p>
       </p>
     </div>
   </div>
