@@ -9,7 +9,7 @@ $auth = new \Delight\Auth\Auth($database, null);
 include ('lib/auth/session.php');
 include ('lib/utils.php');
 
-include ('lib/auth/facebook/auth.php');
+require ($_SERVER['DOCUMENT_ROOT'].'/lib/auth/facebook/auth.php');
 require ($_SERVER['DOCUMENT_ROOT'].'/lib/auth/google/auth.php');
 
 include ($_SERVER['DOCUMENT_ROOT'].'/config/regions.php');

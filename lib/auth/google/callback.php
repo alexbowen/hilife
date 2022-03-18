@@ -27,6 +27,7 @@ if (isset($_GET['code'])) {
   $_SESSION['auth_username'] = $google_account_info->name;
   $_SESSION['auth_email'] = $google_account_info->email;
   $_SESSION['auth_provider'] = "google";
+  $_SESSION['auth_roles'] = 0;
 
   header('Location: /');
 }

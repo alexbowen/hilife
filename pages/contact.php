@@ -40,7 +40,7 @@
       </div>
 
       <div class="form-floating mb-3">
-        <input type="email" id="enquiry-email" name="event[email]" class="form-control form-control-sm" placeholder="name@example.com" required />
+        <input type="email" id="enquiry-email" name="event[email]" class="form-control form-control-sm" placeholder="name@example.com" required <?php if ($_SESSION['auth_email']) { ?>value="<?php echo $_SESSION['auth_email']; ?>" disabled<?php } ?> />
         <label for="enquiry-email">Email address</label>  
         <div class="invalid-feedback">
           Invalid email address
