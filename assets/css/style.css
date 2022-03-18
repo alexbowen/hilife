@@ -385,25 +385,23 @@ header .notification p {
   color: #FDEF58;
 }
 
-.navbar-brand {
-  flex-basis: 40px;
-}
-
 .navbar-collapse {
-  flex-grow: 0;
+  flex-basis: 100%;
+    flex-grow: unset;
+    align-items: flex-end;
 }
 
-.navbar-title {
-  flex-grow: 1;
-}
-
-.navbar-title a {
-  text-decoration: none;
-}
-
-.navbar-title h2 {
+.navbar-brand  {
+  display: inline;
   font-family: 'Lekton';
-  margin: 0;
+  font-size: 1.8em;
+  margin-left: 5px;
+  padding-bottom: 0;
+  vertical-align: middle;
+}
+
+.navbar-brand img {
+  margin-right: 10px;
 }
 
 .navbar-button {
@@ -425,6 +423,7 @@ header .notification p {
 .authenticated-status {
   color: #CCCCCC;
   font-size: 0.8em;
+  margin-left: 55px;
 }
 
 .authenticated-signout {

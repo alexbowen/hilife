@@ -1,11 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="/">
-    <img src="/assets/images/logo-light-bg-sm.png" height="40" width="40" alt="Hi-life Entertainment" />
-  </a>
-  <div class="navbar-title">
-    <a href="/">
-      <h2 class="palette-light-shade">Hi-life Entertainment</h2>
-    </a>
+  <div class="container-fluid">
+    <div style="display:flex;flex-direction: column;">
+    <a class="navbar-brand palette-light-shade" href="/"><img src="/assets/images/logo-light-bg-sm.png" height="40" width="40" alt="Hi-life Entertainment" />Hi-life Entertainment</a>
     <span class="authenticated-status">
       <?php if (isset($_SESSION['auth_username'])) { ?>Hello <?php echo $_SESSION['auth_username']; } ?>
       <?php if (isset($_SESSION['auth_provider']) && $_SESSION['auth_provider'] == "facebook") { ?>
@@ -16,21 +12,12 @@
         <i class="fa-brands fa-google google-btn authentication-logo"></i>
       <?php } ?>
     </span>
-  </div>
-  <button
-    class="navbar-toggler"
-    type="button"
-    data-toggle="collapse"
-    data-target="#navbarsExampleDefault"
-    aria-controls="navbarsExampleDefault"
-    aria-expanded="false"
-    aria-label="Toggle navigation"
-  >
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse justify-content-right" id="navbarsExampleDefault">
-    <ul class="navbar-nav">
+      </div>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
       <li class="nav-item<?php if ($_SERVER['REQUEST_URI'] === '/') { ?> active<?php } ?>">
         <a class="nav-link" href="<?php echo $region_url_prefix; ?>/">Home</a>
       </li>
@@ -76,6 +63,7 @@
         <a class="nav-link" href="/account/sign-in">Sign In</a>
       </li>
       <?php } ?>
-    </ul>
+      </ul>
+    </div>
   </div>
 </nav>
