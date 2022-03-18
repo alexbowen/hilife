@@ -19,7 +19,7 @@
     <div class="d-grid gap-2 my-4">
       <input type="hidden" name="selector" value="<?php echo $_GET['selector']; ?>" />
       <input type="hidden" name="token" value="<?php echo $_GET['token']; ?>" />
-      <button type="submit" name="action" value="new" class="btn btn-success"><i class="fas fa-sign-in-alt"></i> Reset password</button>
+      <button type="submit" name="action" value="new" class="btn btn-success">Reset password</button>
     </div>
   </form>
 </div>

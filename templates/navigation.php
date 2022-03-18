@@ -9,10 +9,11 @@
     <span class="authenticated-status">
       <?php if (isset($_SESSION['auth_username'])) { ?>Hello <?php echo $_SESSION['auth_username']; } ?>
       <?php if (isset($_SESSION['auth_provider']) && $_SESSION['auth_provider'] == "facebook") { ?>
-        <i class="fab fa-facebook-f facebook-btn authentication-logo"></i><?php } ?>
+        <i class="fa-brands fa-facebook facebook-btn authentication-logo"></i>
+      <?php } ?>
 
       <?php if (isset($_SESSION['auth_provider']) && $_SESSION['auth_provider'] == "google") { ?>
-        <i class="fab fa-google google-btn authentication-logo"></i>
+        <i class="fa-brands fa-google google-btn authentication-logo"></i>
       <?php } ?>
     </span>
   </div>

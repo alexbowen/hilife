@@ -9,7 +9,7 @@
       You must enter a valid email address.
     </div>
     <div class="d-grid gap-2 my-4">
-      <button type="submit" name="action" value="forgot" class="btn btn-success"><i class="fas fa-sign-in-alt"></i> Reset password</button>
+      <button type="submit" name="action" value="forgot" class="btn btn-success">Reset password</button>
     </div>
   </form>
 </div>

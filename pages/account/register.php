@@ -27,7 +27,7 @@
     </div>
 
     <div class="d-grid gap-2 my-4">
-      <button type="submit" name="action" value="register" class="btn btn-success"><i class="fas fa-sign-in-alt"></i> Register</button>
+      <button type="submit" name="action" value="register" class="btn btn-success">Register</button>
     </div>
   </form>
 </div>       
