@@ -78,7 +78,7 @@ $djs = array(
         "file" => "DJ_Jackson_Lee.png",
         "alt" => "mobile DJ Jackson Lee for funk and soul motown reggae and hip hop in the Manchester area"
     ),
-    "summary" => "Rock, metal, indie, punk, steampunk and more. Spike is a versatile DJ for all types of events.",
+    "summary" => "Rock, metal, indie, punk, steampunk and more. Spike is a versatile DJ for all types of events",
     "about" => array(
         "Tareck (his non DJ name), has been involved in music since his teens, DJing, managing bands, singing, writing reviews, promoting nights and radio. His most recent radio show 'Sticks and Stones' is a weekly Friday night show on BCB radio in Bradford, playing a range of funky dance, soul, jazz fusion, classic breaks, rare groove and funk.",
         "He has always been influenced by guitar crossover music such as bands like The Who, Jimi Hendrix, Funkadelic and Prince, although claims his number 1 influence is James Brown. ",
