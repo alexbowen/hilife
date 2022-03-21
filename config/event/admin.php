@@ -9,7 +9,7 @@ $admin_config = array(
           "primary contact name: %primary_contact%",
           "email: %email%",
           "telephone: %client_telephone%",
-		  "%notes%"
+		      "%notes%"
         ),
         "direct" => array(
 

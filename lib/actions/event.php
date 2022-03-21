@@ -53,10 +53,10 @@ if ($_POST['action'] == 'create') {
 
     header('Location: ' . $_SERVER['HTTP_REFERER']);
   } else {
-
     $database->beginTransaction();
     $query = $database->prepare("INSERT INTO events (type, email, location, venue_name, venue_address, client_address, client_telephone, primary_contact, secondary_contact, date, numbers, start_time, finish_time, setup_time) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
     $query->execute(array($_POST['event']["type"], $_POST['event']["email"], $_POST['event']["location"], $_POST['event']["venue_name"], $_POST['event']["venue_address"], $_POST['event']["client_address"], $_POST['event']["client_telephone"], $_POST['event']["primary_contact"], $_POST['event']["secondary_contact"], $event_timings['date'], $_POST['event']["numbers"], $event_timings['start_time'], $event_timings['finish_time'], $event_timings['setup_time']));
+
     $event_id = $database->lastInsertId();
     $database->commit();
 
@@ -100,7 +100,7 @@ if ($_POST['action'] == 'update') {
   if ($invalid) {
     Notify::add('error', 'Event cannot be updated - ' . $invalid);
 
-    header('Location: ' . $_SERVER['HTTP_REFERER']);
+    header('Location: /admin/edit?id=' . $_POST['id']);
   } else {
 
     if (isset($_POST['event']) && count($_POST['event']) > 0) {
@@ -147,7 +147,7 @@ if ($_POST['action'] == 'update') {
       Notify::add($config['notification']['type'], $utils->templateString($config['notification']['text'], $event_updated));
       
     } else {
-      Notify::add('message', 'Event updated');
+      Notify::add('message', 'Event updated for ' . $event_updated['email']);
     }
 
     header('Location: ' . $_SERVER['HTTP_REFERER']);
