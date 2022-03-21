@@ -135,7 +135,7 @@ $adminPage = "events";
             <dt class="mb-0"><?php echo $date->format('D M jS Y'); ?></dt>
           </dl>
           <dl class="col-6 col-md-3 mb-0">
-            <dt class="mb-0"><?php echo $event->primary_contact; ?></dt>
+            <dt class="mb-0"><?php echo $event->primary_contact; if (!empty($event->secondary_contact)) echo " / " . $event->secondary_contact; ?></dt>
           </dl>
 
           <dl class="col-6 col-md-3 mb-0">
@@ -149,33 +149,7 @@ $adminPage = "events";
             <?php echo $event->booking_type; ?> booking
             </dt>
           </dl>
-
-          <div class="d-grid gap-2 d-md-flex col-md-1 my-2 my-md-0">
-            <?php if ($event->status !== 'cancelled') { ?>  
-            <button class="toggle-control btn btn-sm btn-outline-secondary flex-fill" data-content-id="toggle-content-<?php echo $key; ?>">edit</button>
-            <?php } ?>
-          </div>
         </div>
-      </div>
-
-      <div class="card-body toggle-content toggle-content--hidden" id="toggle-content-<?php echo $key; ?>">
-        <form name="event-update-<?php echo $key; ?>" action="/actions/event" method="post" class="admin-form needs-validation needs-validation-time" novalidate>
-          <div class="container">
-            <input type="hidden" name="id" value="<?php echo $event->id; ?>" />
-            <input type="hidden" name="admin[booking_type]" value="<?php echo $event->booking_type; ?>" />
-            <input type="hidden" name="admin[status]" value="<?php echo $event->status; ?>" />
-
-            <?php include ($_SERVER['DOCUMENT_ROOT'].'/templates/event/admin/form.php'); ?>
-            <?php include ($_SERVER['DOCUMENT_ROOT'].'/templates/event/form.php'); ?>
-
-            <div class="row text-end">
-              <div class="d-grid gap-2 d-md-block mt-2">
-                <span class="float-start form-info">* required field</span>
-                <button type="submit" name="action" value="update" class="btn btn-secondary btn-sm">update event</button>
-              </div>
-            </div>
-          </div>
-        </form>
       </div>
 
       <div class="card-footer">
@@ -222,23 +196,12 @@ $adminPage = "events";
           <div class="col-12 col-md-3 admin-actions mt-1">
             <form name="event-update" action="/actions/event" method="post" class="admin-form mb-0">
               <input type="hidden" name="id" value="<?php echo $event->id; ?>" />
-              <input type="hidden" name="admin[contract_status]" value="<?php echo $event->contract_status; ?>" />
-              <input type="hidden" name="admin[booking_type]" value="<?php echo $event->booking_type; ?>" />
-              <input type="hidden" name="event[email]" value="<?php echo $event->email; ?>" />
-              <input type="hidden" name="event[primary_contact]" value="<?php echo $event->primary_contact; ?>" />
+
               <div class="d-grid gap-2 d-md-flex my-2 my-md-0">
-                <?php if ($event->status == 'pending') { ?>
-                  <input type="hidden" name="admin[status]" value="confirmed" />
-                  <button type="submit" name="action" value="update" class="btn btn-success btn-sm flex-fill">confirm</button>
-                <?php } ?>
-
-                <?php if ($event->status == 'enquiry') { ?>
-                  <input type="hidden" name="admin[status]" value="pending" />
-                  <button type="submit" name="action" value="update" class="btn btn-success btn-sm flex-fill">accept</button>
-                <?php } ?>
-
-                <a href="/planner/view/summary?id=<?php echo $event->id; ?>" class="btn btn-secondary btn-sm flex-fill">planner</a>
-                <button type="submit" name="action" value="cancel" class="btn btn-danger btn-sm confirm-action flex-fill">cancel</button>
+              <?php if ($event->status !== 'cancelled') { ?>
+                <a href="/admin/edit?id=<?php echo $event->id; ?>" class="btn btn-sm btn-primary flex-fill">Edit event</a>
+              <?php } ?>
+                <a href="/planner/view/summary?id=<?php echo $event->id; ?>" class="btn btn-secondary btn-sm flex-fill">Event planner</a>
               </div>
             </form>
           </div>

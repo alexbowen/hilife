@@ -98,7 +98,7 @@ $adminPage = "archive";
             <dt class="mb-0"><?php echo $date->format('D M jS Y'); ?></dt>
           </dl>
           <dl class="col-6 col-md-3 mb-0">
-            <dt class="mb-0"><?php echo $event->primary_contact; ?></dt>
+            <dt class="mb-0"><?php echo $event->primary_contact; if (!empty($event->secondary_contact)) echo " / " . $event->secondary_contact; ?></dt>
           </dl>
 
           <dl class="col-6 col-md-3 mb-0">
@@ -112,22 +112,7 @@ $adminPage = "archive";
             <?php echo $event->booking_type; ?> booking
             </dt>
           </dl>
-
-          <div class="d-grid gap-2 d-md-flex col-md-1 my-2 my-md-0">
-            <?php if ($event->status !== 'cancelled') { ?>  
-            <button class="toggle-control btn btn-sm btn-outline-secondary flex-fill" data-content-id="toggle-content-<?php echo $key; ?>">view</button>
-            <?php } ?>
-          </div>
         </div>
-      </div>
-
-      <div class="card-body toggle-content toggle-content--hidden" id="toggle-content-<?php echo $key; ?>">
-        <form name="" action="" method="post" class="admin-form needs-validation needs-validation-time" novalidate>
-          <div class="container">
-            <?php include ($_SERVER['DOCUMENT_ROOT'].'/templates/event/admin/form.php'); ?>
-            <?php include ($_SERVER['DOCUMENT_ROOT'].'/templates/event/form.php'); ?>
-          </div>
-        </form>
       </div>
 
       <div class="card-footer">
@@ -173,7 +158,10 @@ $adminPage = "archive";
           <?php if ($event->status != 'cancelled') { ?>
           <div class="col-12 col-md-3 admin-actions mt-1">
             <div class="d-grid gap-2 d-md-flex my-2 my-md-0">
-              <a href="/planner/view/summary?id=<?php echo $event->id; ?>" class="btn btn-secondary btn-sm flex-fill">planner</a>
+            <?php if ($event->status !== 'cancelled') { ?>  
+            <a href="/admin/edit?id=<?php echo $event->id; ?>" class="btn btn-sm btn-primary flex-fill">Edit event</a>
+            <?php } ?>
+              <a href="/planner/view/summary?id=<?php echo $event->id; ?>" class="btn btn-secondary btn-sm flex-fill">Event planner</a>
             </div>
           </div>
           <?php } ?>
