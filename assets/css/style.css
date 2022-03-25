@@ -78,6 +78,10 @@ main a:hover, .nav-tabs .nav-link:hover {
   font-style: italic;
 }
 
+.event-passed {
+  color: #897C84;
+}
+
 .back-link {
   margin-bottom: 20px;
 }

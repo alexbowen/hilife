@@ -1,8 +1,8 @@
 <?php
 include $_SERVER['DOCUMENT_ROOT'].'/lib/event.php';
 
-if (isset($_POST['search-term'])) {
-  $query = "SELECT id, date FROM events WHERE email = \"" . $_POST['search-term'] . "\"";
+if (isset($_POST['search']) && count($_POST['search']) > 0) {
+  $query = "SELECT id, date FROM events WHERE email LIKE \"%" . $_POST['search']['email'] . "%\" AND (primary_contact LIKE \"%" . $_POST['search']['contact'] . "%\" OR secondary_contact LIKE \"%" . $_POST['search']['contact'] . "%\")";
   $result = $database->query($query);
 }
 
@@ -15,13 +15,10 @@ $adminPage = "search";
   <div class="content-tabs__container admin">
     <div class="filter-panel">
       <form name="events-sort" action="<?php echo $_SERVER['REQUEST_URI'] ?>" method="post">
-        <div class="row mb-1 mb-md-3">
-          <div class="col-6">
-            <input type="text" name="search-term" class="form-control" placeholder="enter email address"<?php if(isset($_POST['search-term'])) { ?> value="<?php echo $_POST['search-term']; ?>"<?php } ?> />
-          </div>
-          <div class="col-4">
-            <button type="submit" class="btn btn-primary btn-sm">Search events</button>
-          </div>
+        <div class="d-grid gap-2 d-md-flex d-block mt-2">
+          <input type="text" name="search[email]" class="form-control" placeholder="email address"<?php if(isset($_POST['search']['email'])) { ?> value="<?php echo $_POST['search']['email']; ?>"<?php } ?> />
+          <input type="text" name="search[contact]" class="form-control" placeholder="contact name"<?php if(isset($_POST['search']['contact'])) { ?> value="<?php echo $_POST['search']['contact']; ?>"<?php } ?> />
+          <button type="submit" class="btn btn-primary btn-sm flex-fill">Search</button>
         </div>
       </form>
     </div>
@@ -38,10 +35,10 @@ $adminPage = "search";
       <div class="card-header">
         <div class="row">
           <dl class="col-6 col-md-3 mb-0">
-            <dt class="mb-0"><?php echo $date->format('D M jS Y'); ?></dt>
+            <dt class="mb-0<?php if (!$event->inFuture()) { ?> event-passed<?php } ?>"><?php echo $date->format('D M jS Y'); ?></dt>
           </dl>
           <dl class="col-6 col-md-3 mb-0">
-            <dt class="mb-0"><?php echo $event->primary_contact; if (!empty($event->secondary_contact)) echo " / " . $event->secondary_contact; ?></dt>
+            <dt class="mb-0"><?php echo $event->primary_contact; if ($event->secondary_contact != " ") echo " / " . $event->secondary_contact; ?></dt>
           </dl>
 
           <dl class="col-6 col-md-3 mb-0">
@@ -113,7 +110,7 @@ $adminPage = "search";
     </div>
     <?php } ?>
 
-    <?php } elseif (isset($_POST['search-term'])) { ?>
+    <?php } elseif (isset($_POST['search'])) { ?>
     <p class="lead mt-4">No events for this search</p>
   <?php } ?>
   </div>
