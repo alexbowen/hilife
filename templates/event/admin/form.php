@@ -19,10 +19,10 @@ $djs = $database->query($query)->fetchAll();
     <div class="row">
       <label for="event-dj" class="col-form-label col-md-3">Event DJ</label>
       <div class="col-md-9">
-      <select name="admin[dj]" id="event-dj" class="form-select form-select-sm">
-        <option value="" <?php if (empty($event->dj)) { ?>selected<?php } ?>>none</option>
+      <select name="admin[dj_user_id]" id="event-dj" class="form-select form-select-sm">
+        <option value="" <?php if (empty($event->dj_user_id)) { ?>selected<?php } ?>>none</option>
         <?php foreach ($djs as $dj) { ?>
-          <option value="<?php echo $dj['username']; ?>" <?php if ($event->dj == $dj['username']) { ?>selected<?php } ?>><?php echo $dj['username']; ?></option>
+          <option value="<?php echo $dj['id']; ?>" <?php if ($event->dj_user_id == $dj['id']) { ?>selected<?php } ?>><?php echo $dj['username']; ?></option>
         <?php } ?>
         </select>
       </div>

@@ -2,6 +2,7 @@
 include ($_SERVER['DOCUMENT_ROOT'] . '/config/event/customer.php');
 include ($_SERVER['DOCUMENT_ROOT'] . '/config/event/admin.php');
 include ($_SERVER['DOCUMENT_ROOT'] . '/config/event/package.php');
+include ($_SERVER['DOCUMENT_ROOT'] . '/config/event/dj.php');
 
 $event_config = array(
   "types" => array(
@@ -22,6 +23,7 @@ $event_config = array(
   ),
   "customer" => $customer_config,
   "admin" => $admin_config,
+  "dj" => $dj_config,
   "package" => $package_config
 );
 ?>

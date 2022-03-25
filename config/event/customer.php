@@ -13,12 +13,6 @@ $customer_config = array(
           "You can now start planning your event using our planner.",
           "Create your account at " . constant('BASE_URL') . "/account/register",
           "Or you can sign in immediatley with Facebook at " . constant('BASE_URL') . "/account/sign-in"
-        ),
-        "direct" => array(
-
-        ),
-        "package" => array(
-
         )
       )
     ),
@@ -82,12 +76,6 @@ $customer_config = array(
         "default" => array(
           "Hi %primary_contact%",
           "Event is cancelled on %date%"
-        ),
-        "direct" => array(
-          "optional direct booking body text - can be removed or changed in config"
-        ),
-        "package" => array(
-          "optional package booking body text - can be removed or changed in config"
         )
       )
     ),

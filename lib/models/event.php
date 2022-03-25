@@ -26,6 +26,7 @@ class Event {
   public $contract_status;
   public $notes;
   public $dj_user_id;
+  public $dj_email_address;
   public $dj;
   public $additional;
   public $first_dance;
