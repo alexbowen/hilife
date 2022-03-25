@@ -12,7 +12,7 @@
     <div class="col-sm">
       <div class="card card-full-width clearfix">
       <?php
-        echo "<div class=\"profile-photo img-thumbnail\"><img src=\"/assets/images/dj/" . $dj['image']['file'] . "\" alt=\"" . $dj['image']['alt'] . "\" class=\"rounded " . ($key % 2 === 0 ? "float-end ms-3" : "float-start me-3") . "\" /></div>";
+        echo "<div class=\"profile-photo img-thumbnail\"><img src=\"/assets/images/dj/" . $dj['image']['file'] . "\" width=\"140\" height=\"210\" alt=\"" . $dj['image']['alt'] . "\" class=\"rounded " . ($key % 2 === 0 ? "float-end ms-3" : "float-start me-3") . "\" /></div>";
         echo "<h3 class=\"card-title\">" . $dj['name'] . "</h3>";
         foreach ($dj['about'] as $about) {
           echo "<p>" .$about . "</p>";

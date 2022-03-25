@@ -391,8 +391,8 @@ header .notification p {
 
 .navbar-collapse {
   flex-basis: 100%;
-    flex-grow: unset;
-    align-items: flex-end;
+  flex-grow: unset;
+  align-items: flex-end;
 }
 
 .navbar-brand  {
@@ -404,24 +404,30 @@ header .notification p {
   vertical-align: middle;
 }
 
+.authenticated-status {
+  color: #CCCCCC;
+  font-size: 0.8em;
+  margin-left: 64px;
+  margin-top: -5px;
+  text-transform: capitalize;
+}
+
 @media only screen and (max-width: 480px) {
   .container-fluid {
     padding: 0;
   }
 
   .navbar-brand {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
   }
 
   .navbar-brand img {
-    width: 24px;
-    height: 24px;
+    width: 32px;
+    height: 32px;
   }
 
   .authenticated-status {
-    color: #CCCCCC;
-    font-size: 0.8em;
-    margin-left: 55px;
+    margin-left: 46px;
   }
 }
 
@@ -443,10 +449,6 @@ header .notification p {
     #212529,
     rgba(255, 0, 0, 0)
   );
-}
-
-.authenticated-status {
-  margin-left: 39px;
 }
 
 .authenticated-signout {
@@ -728,7 +730,7 @@ footer span {
 .authentication-logo {
   margin-left: 4px;
   color: #fff;
-  padding: 6px 4px 4px;
+  padding: 4px;
   border-radius: 50%;
 }
 

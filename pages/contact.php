@@ -1,34 +1,11 @@
 <?php include ($_SERVER['DOCUMENT_ROOT'].'/config/event.php'); ?>
 
 <section class="introduction content-section content-center">
-  <h1>Contact Us</h1>
+  <h1>Contact Hi-life Entertainment</h1>
   <p class="lead">For all booking enquiries, general enquiries and accounts</p>
 </section>
 
 <section class="content-section">
-  <div class="row">
-    <div class="col-sm">
-      <div class="card card-full-width clearfix profile-photo">
-      <img src="/assets/images/dj/Mark_Hepworth.png" alt="for all booking enquiries contact CEO Mark Hepworth" class="rounded float-end ms-3" />
-        <p>You can submit an enquiry using the form below or:</p>
-        <ul>
-          <li>speak to Mark on <a href="tel:07828688144" class="contact">07828 688144</a></li>
-          <li>send email to <a href="mailto:mark@thehi-life.co.uk" class="contact">mark@thehi-life.co.uk</a></li>
-        </ul>
-        <p>In emails and messages please give as much information as you have regarding:</p>
-        <ol>
-          <li>Date and times</li>
-          <li>Venue or approximate location</li>
-          <li>Type of event and any theme or preferred styles of music</li>
-        </ol>
-        <p>I'm often DJing at weekends and evenings so often better to email me to arrange a chat, letting me know when you are free to talk.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="content-section">
-  <h2>Booking enquiry form</h2>
   <div class="card card-full-width">
     <form name="enquiry-form" action="/actions/event" method="post" class="needs-validation needs-validation-time" novalidate>
       <div class="form-floating mb-3">
@@ -140,6 +117,28 @@
       <input type="hidden" name="admin[booking_type]" value="direct" />
       <input type="hidden" name="admin[status]" value="enquiry" />
     </form>
+  </div>
+</section>
+
+<section class="content-section">
+  <div class="row">
+    <div class="col-sm">
+      <div class="card card-full-width clearfix profile-photo">
+      <img src="/assets/images/dj/Mark_Hepworth.png" alt="for all booking enquiries contact CEO Mark Hepworth" width="140" height="210" class="rounded float-end ms-3" />
+        <p>Alternatively you can:</p>
+        <ul>
+          <li>speak to Mark on <a href="tel:07828688144" class="contact">07828 688144</a></li>
+          <li>send email to <a href="mailto:mark@thehi-life.co.uk" class="contact">mark@thehi-life.co.uk</a></li>
+        </ul>
+        <p>In emails and messages please give as much information as you have regarding:</p>
+        <ul>
+          <li>Date and times</li>
+          <li>Venue or approximate location</li>
+          <li>Type of event and any theme or preferred styles of music</li>
+        </ul>
+        <p>I'm often DJing at weekends and evenings so often better to email me to arrange a chat, letting me know when you are free to talk.</p>
+      </div>
+    </div>
   </div>
 </section>
 

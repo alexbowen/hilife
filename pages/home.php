@@ -16,7 +16,7 @@
           <p class="card-text">
             Our mobile DJs have played several thousand weddings up and down the country since 2006. Our Music Planner service means that every wedding set is unique and tailored to the clients' wishes and is played by a knowledgable, experienced DJ.
           </p>
-          <a href="weddings" class="card-link">Click for more info</a>
+          <a href="<?php echo $region_url_prefix; ?>/weddings" class="card-link">Click for more info</a>
         </div>
       </div>
     </div>
@@ -32,7 +32,7 @@
           <p class="card-text">
             Our knowledge of many genres, eras and cultures, relating to music means we are the ideal choice for regular bar and club bookings, or one off corporate or charity events. We have worked for many companies, both large and small with their events and promotions.
           </p>
-          <a href="bar-and-corporate" class="card-link">Click for more info</a>
+          <a href="<?php echo $region_url_prefix; ?>/bar-and-corporate" class="card-link">Click for more info</a>
         </div>
       </div>
     </div>
