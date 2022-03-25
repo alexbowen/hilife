@@ -3,13 +3,14 @@ session_start();
 include($_SERVER['DOCUMENT_ROOT'] . '/lib/auth/session.php');
 include($_SERVER['DOCUMENT_ROOT'] . '/lib/common.php');
 include ($_SERVER['DOCUMENT_ROOT'] . '/lib/validations/event.php');
-include_once ($_SERVER['DOCUMENT_ROOT'] . '/config/event.php');
+include ($_SERVER['DOCUMENT_ROOT'] . '/config/event.php');
 include ($_SERVER['DOCUMENT_ROOT'] . '/lib/email.php');
 include ($_SERVER['DOCUMENT_ROOT'] . '/lib/notify.php');
+include ($_SERVER['DOCUMENT_ROOT'].'/lib/event.php');
 
 $event_timings = array();
 
-if (isset($_POST['dateInput'])) {
+if (isset($_POST['dateInput']) && count($_POST['dateInput']) > 0) {
   $event_timings['date'] = $utils->normaliseDate($_POST['dateInput']);
 }
 
@@ -75,16 +76,19 @@ if ($_POST['action'] == 'create') {
       $query->execute(array_merge(array(':event_id' => $event_id), $_POST['admin']));
     }
 
-    $query = "SELECT * FROM events INNER JOIN events_admin ON events_admin.event_id = events.id WHERE id=\"" . $event_id  . "\"";
-    $event_updated = $database->query($query)->fetch();
+    $event_updated = EventFactory::create(array(
+      'events.id' => $event_id
+    ));
 
-    $event_updated['date'] = $utils->prettyDateFormat($event_updated['date']);
+    $event_updated->date = $utils->prettyDateFormat($event_updated->date);
 
     Email::send('admin', $event_updated);
     Email::send('customer', $event_updated);
 
-    $config = $event_config[$user->isAdmin() ? 'admin' : 'customer'][$event_updated['status']];
-    Notify::add($config['notification']['type'], $utils->templateString($config['notification']['text'], $event_updated));
+    $config = $event_config[$user->isAdmin() ? 'admin' : 'customer'][$event_updated->status];
+    if (isset($config['notification'])) {
+      Notify::add($config['notification']['type'], $utils->templateString($config['notification']['text'], $event_updated));
+    }
 
     $redirect = $user->isAdmin() ? '/admin/events': '/';
 
@@ -133,21 +137,27 @@ if ($_POST['action'] == 'update') {
       $query->execute(array_merge(array(':event_id' => $_POST['id']), $_POST['admin']));
     }
 
-    $query = "SELECT * FROM events INNER JOIN events_admin ON events_admin.event_id = events.id WHERE events.id=\"" . $_POST['id']  . "\"";
-    $event_updated = $database->query($query)->fetch();
+    $event_updated = EventFactory::create(array(
+      'events.id' => $_POST['id']
+    ));
 
-    if ($event_updated["status"] != $event_orig_status) {
+    if ($event_updated->status != $event_orig_status) {
 
-      $event_updated['date'] = $utils->prettyDateFormat($event_updated['date']);
+      $event_updated->date = $utils->prettyDateFormat($event_updated->date);
 
       Email::send('admin', $event_updated);
       Email::send('customer', $event_updated);
 
-      $config = $event_config[$user->isAdmin() ? 'admin' : 'customer'][$event_updated['status']];
-      Notify::add($config['notification']['type'], $utils->templateString($config['notification']['text'], $event_updated));
-      
+      if ($event_updated->status === 'confirmed') {
+        Email::send('dj', $event_updated);
+      }
+
+      $config = $event_config[$user->isAdmin() ? 'admin' : 'customer'][$event_updated->status];
+      if (isset($config['notification'])) {
+        Notify::add($config['notification']['type'], $utils->templateString($config['notification']['text'], $event_updated));
+      }
     } else {
-      Notify::add('message', 'Event updated for ' . $event_updated['email']);
+      Notify::add('message', 'Event updated for ' . $event_updated->email);
     }
 
     header('Location: ' . $_SERVER['HTTP_REFERER']);
@@ -155,19 +165,23 @@ if ($_POST['action'] == 'update') {
 }
 
 if ($_POST['action'] == 'cancel') {
-  $query = "UPDATE events_admin SET status='cancelled' WHERE event_id=\"" . $_POST['id'] . "\"";
-  $database->query($query);
+  $sql = "UPDATE events_admin SET status=:status WHERE event_id = :event_id";
+  $query = $database->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
+  $query->execute(array(':event_id' => $_POST['id'], ':status' => 'cancelled'));
 
-  $query = "SELECT * FROM events INNER JOIN events_admin ON events_admin.event_id = events.id WHERE events.id=\"" . $_POST['id']  . "\"";
-  $event_updated = $database->query($query)->fetch();
+  $event_updated = EventFactory::create(array(
+    'events.id' => $_POST['id']
+  ));
 
-  $event_updated['date'] = $utils->prettyDateFormat($event_updated['date']);
+  $event_updated->date = $utils->prettyDateFormat($event_updated->date);
 
   Email::send('admin', $event_updated);
   Email::send('customer', $event_updated);
 
-  $config = $event_config[$user->isAdmin() ? 'admin' : 'customer'][$event_updated['status']];
-  Notify::add($config['notification']['type'], $utils->templateString($config['notification']['text'], $event_updated));
+  $config = $event_config[$user->isAdmin() ? 'admin' : 'customer'][$event_updated->status];
+  if (isset($config['notification'])) {
+    Notify::add($config['notification']['type'], $utils->templateString($config['notification']['text'], $event_updated));
+  }
 
   header('Location: /admin/events');
 }

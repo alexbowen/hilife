@@ -10,12 +10,6 @@ $admin_config = array(
           "email: %email%",
           "telephone: %client_telephone%",
 		      "%notes%"
-        ),
-        "direct" => array(
-
-        ),
-        "package" => array(
-
         )
       )
     ),
@@ -56,12 +50,6 @@ $admin_config = array(
           "primary contact name: %primary_contact%",
           "email: %email%",
           "telephone: %client_telephone%"
-        ),
-        "direct" => array(
-          "optional direct booking body text - can be removed or changed in config"
-        ),
-        "package" => array(
-          "optional package booking body text - can be removed or changed in config"
         )
       )
     ),
@@ -79,12 +67,6 @@ $admin_config = array(
           "primary contact name: %primary_contact%",
           "email: %email%",
           "telephone: %client_telephone%"
-        ),
-        "direct" => array(
-          "optional direct booking body text - can be removed or changed in config"
-        ),
-        "package" => array(
-          "optional package booking body text - can be removed or changed in config"
         )
       )
     ),
