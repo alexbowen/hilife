@@ -29,15 +29,15 @@ $event = EventFactory::create(array(
               <div class="d-grid gap-2 d-md-flex my-2 my-md-0">
                 <?php if ($event->status == 'pending') { ?>
                   <input type="hidden" name="admin[status]" value="confirmed" />
-                  <button type="submit" name="action" value="update" class="btn btn-success btn-sm flex-fill">Confirm event</button>
+                  <button type="submit" name="action" value="update" class="btn btn-success btn-sm flex-fill">Confirm</button>
                 <?php } ?>
 
                 <?php if ($event->status == 'enquiry') { ?>
                   <input type="hidden" name="admin[status]" value="pending" />
-                  <button type="submit" name="action" value="update" class="btn btn-success btn-sm flex-fill">Accept enquiry</button>
+                  <button type="submit" name="action" value="update" class="btn btn-success btn-sm flex-fill">Accept</button>
                 <?php } ?>
 
-                <button type="submit" name="action" value="cancel" class="btn btn-danger btn-sm confirm-action flex-fill" data-confirm-message="Are you sure you want to cancel this event?">Cancel event</button>
+                <button type="submit" name="action" value="cancel" class="btn btn-danger btn-sm confirm-action flex-fill" data-confirm-message="Are you sure you want to cancel this event?">Cancel</button>
               </div>
             </form>
           </div>
