@@ -26,7 +26,7 @@ function eventInvalid($event) {
   $date_event = new DateTime($event['date']);
   
   if ($date_now > $date_event->format('Y-m-d')) {
-    $error = 'Date is invalid';
+    $error = 'Date is in the past';
   }
 
   return $error;

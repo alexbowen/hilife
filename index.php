@@ -83,11 +83,10 @@ include ($_SERVER['DOCUMENT_ROOT'].'/config/djs.php');
         <?php include ('templates/navigation.php'); ?>
         <div class="header-fade"></div>
       </div>
-
-      <?php include ('templates/notification.php'); ?>
     </header>
 
     <main role="main">
+    <?php include ('templates/notification.php'); ?>
       <div class="container">
         <?php include ('pages/'.$_GET['page_name'].'.php'); ?>
       </div>

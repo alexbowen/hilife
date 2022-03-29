@@ -35,7 +35,7 @@ if ($session->getAccessToken()) {
 ?>
 
 <section class="introduction content-section admin">
-  <?php echo $utils->backlink($_SERVER['HTTP_REFERER'], 'back to admin dashboard'); ?>
+  <?php echo $utils->backlink($_SERVER['HTTP_REFERER'], 'back to dashboard'); ?>
   <h1>Music Planner Summary</h1>
   <p><?php if ($event && !empty($event->venue_name)) { ?> at <b><?php echo $event->venue_name; ?></b><?php } ?><?php if ($event && !empty($event->date)) { ?> on <b><?php echo $event->prettyDate(); ?></b><?php } ?></p>
 </section>
@@ -43,7 +43,7 @@ if ($session->getAccessToken()) {
 <section class="content-section admin">
   <h2>Details</h2>
   <ul class="list-group admin mb-3">
-    <li class="list-group-item"><dl><dt><span>DJ playing</span></dt><dd><?php echo $utils->field($event->dj); ?></dd></dl></li>
+    <li class="list-group-item"><dl><dt><span>DJ playing</span></dt><dd><?php echo $utils->field($event->dj_name); ?></dd></dl></li>
   </ul>
 
   <?php include ($_SERVER['DOCUMENT_ROOT'].'/templates/event/show.php'); ?>

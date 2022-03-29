@@ -4,7 +4,7 @@ $event = new Event();
 ?>
 
 <section class="content-section">
-  <?php echo $utils->backlink("/admin/events", 'back to admin dashboard'); ?>
+  <?php echo $utils->backlink("/admin/events", 'back to dashboard'); ?>
   <h1>Create event from direct contact</h1>
   <div class="content-border__container admin">
     <form action="/actions/event" method="post" class="needs-validation admin-form" novalidate>

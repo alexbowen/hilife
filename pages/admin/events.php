@@ -140,7 +140,12 @@ $adminPage = "events";
 
           <dl class="col-6 col-md-3 mb-0">
             <dt class="mb-0">          
-              <?php echo $event->venue_name; ?>
+              <?php if ($event->booking_type == 'package') { ?>
+                <?php $key = array_search($event->package_client_id, array_column($package_clients, 'id')); ?>
+                <a href="/admin/view/client?id=<?php echo $event->package_client_id; ?>"><?php echo $package_clients[$key]['venue_name']; ?></a>
+              <?php } else { ?>
+                <?php echo $event->venue_name; ?>
+              <?php } ?>
             </dt>
           </dl>
 
@@ -152,15 +157,16 @@ $adminPage = "events";
         </div>
       </div>
 
-      <div class="card-footer">
+      <div class="card-body">
         <div class="row">
           <div class="col-12 col-md-3">
             <dl class="mb-0">
-              <dt>Email</dt>
               <dd class="mb-0"><?php echo $event->email; ?></dd>
             </dl>
+          </div>
+
+          <div class="col-6 col-md-3">
             <dl class="mb-0">
-              <dt>Telephone</dt>
               <dd class="mb-0"><?php echo $event->client_telephone; ?></dd>
             </dl>
           </div>
@@ -168,27 +174,7 @@ $adminPage = "events";
           <div class="col-6 col-md-3">
             <dl class="mb-0">
               <dt>DJ</dt>
-              <dd class="mb-0"><?php echo $utils->field($event->dj); ?></dd>
-            </dl>
-            <dl class="mb-0">
-              <dt>Booking</dt>
-              <?php if ($event->booking_type == 'package') { ?>
-                <?php $key = array_search($event->package_client_id, array_column($package_clients, 'id')); ?>
-                <dd class="mb-0"><a href="/admin/view/client?id=<?php echo $event->package_client_id; ?>"><?php echo $package_clients[$key]['venue_name']; ?></a></dd>
-              <?php } else { ?>
-                <dd class="mb-0"><?php echo $event->booking_type; ?></dd>
-              <?php } ?>
-            </dl>
-          </div>
-
-          <div class="col-6 col-md-3">
-            <dl class="mb-0">
-              <dt>Contract</dt>
-              <dd class="mb-0"><?php echo $event->contract_status; ?></dd>
-            </dl>
-            <dl class="mb-0">
-              <dt>Status</dt>
-              <dd class="mb-0"><?php echo $event->status; ?></dd>
+              <dd class="mb-0"><?php echo $utils->field($event->dj_name); ?></dd>
             </dl>
           </div>
 
@@ -199,15 +185,21 @@ $adminPage = "events";
 
               <div class="d-grid gap-2 d-md-flex my-2 my-md-0">
               <?php if ($event->status !== 'cancelled') { ?>
-                <a href="/admin/edit?id=<?php echo $event->id; ?>" class="btn btn-sm btn-primary flex-fill">Edit event</a>
+                <a href="/admin/edit?id=<?php echo $event->id; ?>" class="btn btn-sm btn-primary flex-fill">Edit</a>
               <?php } ?>
-                <a href="/planner/view/summary?id=<?php echo $event->id; ?>" class="btn btn-secondary btn-sm flex-fill">Event planner</a>
+                <a href="/planner/view/summary?id=<?php echo $event->id; ?>" class="btn btn-secondary btn-sm flex-fill">Planner</a>
               </div>
             </form>
           </div>
           <?php } ?>
         </div>
       </div>
+
+      <?php if ($event->booking_type == 'direct' && $event->contract_status !== 'received') { ?>
+      <div class="card-footer">
+        <span class="text-danger">** No contract received for this event **</span>
+      </div>
+      <?php } ?>
     </div>
     <?php } ?>
 

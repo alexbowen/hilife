@@ -1,15 +1,9 @@
-<?php
-include_once ($_SERVER['DOCUMENT_ROOT'] . '/lib/notify.php');
-?>
+<?php include_once ($_SERVER['DOCUMENT_ROOT'] . '/lib/notify.php'); ?>
 
-<?php
-foreach (Notify::queue() as $notification) {
-?>
-  <div class="notification <?php echo $notification['type']; ?>">
-    <p><?php echo $notification['message']; ?></p>
-  </div>
-<?php
-}
+<ul class="notifications">
+<?php foreach (Notify::queue() as $notification) { ?>
+  <li class="notification <?php echo $notification['type']; ?>"><?php echo $notification['message']; ?></li>
+<?php } ?>
+</ul>
 
-Notify::flush()
-?>
+<?php Notify::flush(); ?>

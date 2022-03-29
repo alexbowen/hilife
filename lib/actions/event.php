@@ -97,71 +97,62 @@ if ($_POST['action'] == 'create') {
 }
 
 if ($_POST['action'] == 'update') {
+  if (isset($_POST['event']) && count($_POST['event']) > 0) {
+
+    $updateFields = '';
+
+    foreach ($_POST['event'] as $key => $value) {
+      $updateFields .= $key . "=:" . $key . ", ";
+    }
+
+    foreach ($event_timings as $key => $value) {
+      $updateFields .= $key . "=:" . $key . ", ";
+    }
+    
+    $sql = "UPDATE events SET " . rtrim($updateFields, ", ") . " WHERE id = :event_id";
+    $query = $database->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
+    $query->execute(array_merge(array(':event_id' => $_POST['id']), $_POST['event'], $event_timings));
+  }
+
+  if (isset($_POST['admin']) && count($_POST['admin']) > 0) {
+
+    $updateFields = '';
+
+    foreach ($_POST['admin'] as $key => $value) {
+      $updateFields .= $key . "=:" . $key . ", ";
+    }
+
+    $sql = "UPDATE events_admin SET " . rtrim($updateFields, ", ") . " WHERE event_id = :event_id";
+    $query = $database->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
+    $query->execute(array_merge(array(':event_id' => $_POST['id']), $_POST['admin']));
+  }
+
+  $event_updated = EventFactory::create(array(
+    'events.id' => $_POST['id']
+  ));
+
+  if ($event_updated->status != $event_orig_status) {
+
+    $event_updated->date = $utils->prettyDateFormat($event_updated->date);
+
+    Email::send('admin', $event_updated);
+    Email::send('customer', $event_updated);
+
+    if ($event_updated->status === 'confirmed') {
+      Email::send('dj', $event_updated);
+    }
+  }
 
   $to_validate = array_filter(array(array('date' => $event_timings['date']), $_POST['event'], $_POST['admin']));
 
   $invalid = eventInvalid(array_merge(...$to_validate));
   if ($invalid) {
-    Notify::add('error', 'Event cannot be updated - ' . $invalid);
-
-    header('Location: /admin/edit?id=' . $_POST['id']);
-  } else {
-
-    if (isset($_POST['event']) && count($_POST['event']) > 0) {
-
-      $updateFields = '';
-    
-      foreach ($_POST['event'] as $key => $value) {
-        $updateFields .= $key . "=:" . $key . ", ";
-      }
-
-      foreach ($event_timings as $key => $value) {
-        $updateFields .= $key . "=:" . $key . ", ";
-      }
-      
-      $sql = "UPDATE events SET " . rtrim($updateFields, ", ") . " WHERE id = :event_id";
-      $query = $database->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
-      $query->execute(array_merge(array(':event_id' => $_POST['id']), $_POST['event'], $event_timings));
-    }
-
-    if (isset($_POST['admin']) && count($_POST['admin']) > 0) {
-
-      $updateFields = '';
-    
-      foreach ($_POST['admin'] as $key => $value) {
-        $updateFields .= $key . "=:" . $key . ", ";
-      }
-
-      $sql = "UPDATE events_admin SET " . rtrim($updateFields, ", ") . " WHERE event_id = :event_id";
-      $query = $database->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
-      $query->execute(array_merge(array(':event_id' => $_POST['id']), $_POST['admin']));
-    }
-
-    $event_updated = EventFactory::create(array(
-      'events.id' => $_POST['id']
-    ));
-
-    if ($event_updated->status != $event_orig_status) {
-
-      $event_updated->date = $utils->prettyDateFormat($event_updated->date);
-
-      Email::send('admin', $event_updated);
-      Email::send('customer', $event_updated);
-
-      if ($event_updated->status === 'confirmed') {
-        Email::send('dj', $event_updated);
-      }
-
-      $config = $event_config[$user->isAdmin() ? 'admin' : 'customer'][$event_updated->status];
-      if (isset($config['notification'])) {
-        Notify::add($config['notification']['type'], $utils->templateString($config['notification']['text'], $event_updated));
-      }
-    } else {
-      Notify::add('message', 'Event updated for ' . $event_updated->email);
-    }
-
-    header('Location: ' . $_SERVER['HTTP_REFERER']);
+    Notify::add('error', $invalid . ' for ' . $event_updated->email);
   }
+
+  Notify::add('message', 'Event updated for ' . $event_updated->email);
+
+  header('Location: ' . $_SERVER['HTTP_REFERER']);
 }
 
 if ($_POST['action'] == 'cancel') {

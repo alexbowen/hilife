@@ -27,7 +27,7 @@ class Event {
   public $notes;
   public $dj_user_id;
   public $dj_email_address;
-  public $dj;
+  public $dj_name;
   public $additional;
   public $first_dance;
   public $last_dance;

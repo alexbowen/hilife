@@ -5,7 +5,7 @@ body {
 
 main {
   min-height: 100vh;
-  padding-top: 7em;
+  padding-top: 6em;
 }
 
 .cookies-banner {
@@ -157,8 +157,8 @@ input.form-control,
 }
 
 .admin .card-body {
-  padding: 0;
   background-color: #efefef;
+  padding: 0.5rem 1rem;
 }
 
 .admin .card-footer {
@@ -331,7 +331,6 @@ form .form-radio label {
   font-size: 1.2rem;
 }
 
-
 header {
   position: fixed;
   top: 0;
@@ -340,13 +339,15 @@ header {
 }
 
 .navigation-container {
-  z-index: 1212529;
   position: relative;
 }
 
-header .notification {
-  margin-top: -12px;
-  padding-bottom: 4px;
+.notifications {
+  animation: fadeOut 0.5s forwards;
+  animation-delay: 5s;
+  list-style-type: none;
+  margin-top: -10px;
+  padding: 0;
   z-index: 500;
 }
 
@@ -355,12 +356,10 @@ header .notification {
   to {opacity: 0;}
 }
 
-header .notification p {
-  font-size: 0.8rem;
-  padding-top: 12px;
-}
 
-.notification p {
+.notification {
+  font-size: 0.8rem;
+  padding: 4px 0;
   text-align: center;
   margin-bottom: 0;
 }
@@ -370,8 +369,6 @@ header .notification p {
 }
 
 .message {
-  animation: fadeOut 0.5s forwards;
-  animation-delay: 5s;
   background-color: #C5DCA0;
 }
 
@@ -482,6 +479,10 @@ header .notification p {
   border-top: none;
   background-color: #FEFEFE;
   padding: 1.5em;
+}
+
+.content-tabs__container .row {
+  align-items: center;
 }
 
 .content-list__container {

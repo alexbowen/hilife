@@ -115,7 +115,7 @@ $adminPage = "archive";
         </div>
       </div>
 
-      <div class="card-footer">
+      <div class="card-body">
         <div class="row">
           <div class="col-12 col-md-3">
             <dl class="mb-0">
@@ -131,7 +131,7 @@ $adminPage = "archive";
           <div class="col-6 col-md-3">
             <dl class="mb-0">
               <dt>DJ</dt>
-              <dd class="mb-0"><?php echo $utils->field($event->dj); ?></dd>
+              <dd class="mb-0"><?php echo $utils->field($event->dj_name); ?></dd>
             </dl>
             <dl class="mb-0">
               <dt>Booking</dt>
@@ -155,18 +155,23 @@ $adminPage = "archive";
             </dl>
           </div>
 
-          <?php if ($event->status != 'cancelled') { ?>
           <div class="col-12 col-md-3 admin-actions mt-1">
             <div class="d-grid gap-2 d-md-flex my-2 my-md-0">
             <?php if ($event->status !== 'cancelled') { ?>  
-            <a href="/admin/edit?id=<?php echo $event->id; ?>" class="btn btn-sm btn-primary flex-fill">Edit event</a>
+            <a href="/admin/edit?id=<?php echo $event->id; ?>" class="btn btn-sm btn-primary flex-fill">Edit</a>
             <?php } ?>
-              <a href="/planner/view/summary?id=<?php echo $event->id; ?>" class="btn btn-secondary btn-sm flex-fill">Event planner</a>
+              <a href="/planner/view/summary?id=<?php echo $event->id; ?>" class="btn btn-secondary btn-sm flex-fill">Planner</a>
             </div>
           </div>
-          <?php } ?>
+
         </div>
       </div>
+
+      <?php if ($event->status == 'cancelled') { ?>
+      <div class="card-footer">
+        <span class="text-danger">** Event was cancelled **</span>
+      </div>
+      <?php } ?>
     </div>
     <?php } ?>
 

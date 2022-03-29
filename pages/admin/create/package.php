@@ -15,7 +15,7 @@ if (isset($_POST['action']) && $_POST['action'] == 'select') {
 ?>
 
 <section class="content-section">
-  <?php echo $utils->backlink("/admin/events", 'back to admin dashboard'); ?>
+  <?php echo $utils->backlink("/admin/events", 'back to dashboard'); ?>
   <h1>Create package event</h1>
   <form action="/admin/create/package" method="post" class="admin-form" data-auto-submit="true">
     <input type="hidden" name="action" value="select" />

@@ -37,7 +37,7 @@ $event = EventFactory::create(array(
                   <button type="submit" name="action" value="update" class="btn btn-success btn-sm flex-fill">Accept enquiry</button>
                 <?php } ?>
 
-                <button type="submit" name="action" value="cancel" class="btn btn-danger btn-sm confirm-action flex-fill">Cancel event</button>
+                <button type="submit" name="action" value="cancel" class="btn btn-danger btn-sm confirm-action flex-fill" data-confirm-message="Are you sure you want to cancel this event?">Cancel event</button>
               </div>
             </form>
           </div>
@@ -46,17 +46,15 @@ $event = EventFactory::create(array(
 
       <div class="card-body pb-2 pt-2">
         <form name="event-update" action="/actions/event" method="post" class="admin-form needs-validation needs-validation-time" novalidate>
-          <div class="container">
-            <input type="hidden" name="id" value="<?php echo $event->id; ?>" />
+          <input type="hidden" name="id" value="<?php echo $event->id; ?>" />
 
-            <?php include ($_SERVER['DOCUMENT_ROOT'].'/templates/event/admin/form.php'); ?>
-            <?php include ($_SERVER['DOCUMENT_ROOT'].'/templates/event/form.php'); ?>
+          <?php include ($_SERVER['DOCUMENT_ROOT'].'/templates/event/admin/form.php'); ?>
+          <?php include ($_SERVER['DOCUMENT_ROOT'].'/templates/event/form.php'); ?>
 
-            <div class="row text-end">
-              <div class="d-grid gap-2 d-md-block mt-2">
-                <span class="float-start form-info">* required field</span>
-                <button type="submit" name="action" value="update" class="btn btn-primary btn-sm">Update event</button>
-              </div>
+          <div class="row text-end">
+            <div class="d-grid gap-2 d-md-block mt-2">
+              <span class="float-start form-info">* required field</span>
+              <button type="submit" name="action" value="update" class="btn btn-primary btn-sm">Update event</button>
             </div>
           </div>
         </form>

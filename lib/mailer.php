@@ -1,6 +1,4 @@
 <?php
-// include ($_SERVER['DOCUMENT_ROOT'] . '/config/settings.php');
-
 class Mailer {
   public static function send($to, $subject, $message) {
 
