@@ -71,7 +71,7 @@ $adminPage = "search";
           <div class="col-6 col-md-3">
             <dl class="mb-0">
               <dt>DJ</dt>
-              <dd class="mb-0"><?php echo $utils->field($event->dj); ?></dd>
+              <dd class="mb-0"><?php echo $utils->field($event->dj['dj_name']); ?></dd>
             </dl>
             <dl class="mb-0">
               <dt>Booking</dt>
