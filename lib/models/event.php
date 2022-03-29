@@ -26,8 +26,7 @@ class Event {
   public $contract_status;
   public $notes;
   public $dj_user_id;
-  public $dj_email_address;
-  public $dj_name;
+  public $dj;
   public $additional;
   public $first_dance;
   public $last_dance;
@@ -68,6 +67,9 @@ class Event {
 
       $query = "SELECT playlist_id FROM events_playlists WHERE event_id=\"" . $this->id . "\"";
       $this->spotify_playlists = $database->query($query)->fetchAll(PDO::FETCH_COLUMN);
+
+      $query = "SELECT users.email AS dj_email_address, users.username AS dj_name FROM users WHERE id=\"" . $this->dj_user_id . "\"";
+      $this->dj = $database->query($query)->fetch();
     }
   }
 

@@ -33,7 +33,7 @@ class Email {
         $email_address = constant("ADMIN_EMAIL");
         break;
       case "dj":      
-        $email_address = $event->dj_email_address;
+        $email_address = $event->dj['dj_email_address'];
         break;
       case "customer":
         $email_address = $event->email;
