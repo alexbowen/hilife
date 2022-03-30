@@ -1,6 +1,9 @@
 <?php
 $query = "SELECT * FROM users WHERE roles_mask >= 2";
 $djs = $database->query($query)->fetchAll();
+
+$query = "SELECT * FROM package_clients";
+$package_clients = $database->query($query)->fetchAll();
 ?>
 
 <div class="row mb-1">

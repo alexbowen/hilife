@@ -63,7 +63,7 @@ $query = "SELECT count(*) FROM events INNER JOIN events_admin ON events_admin.ev
 $count = $database->query($query)->fetchColumn();
 
 $query = "SELECT * FROM package_clients";
-$package_clients = $database->query($query)->fetchAll(PDO::FETCH_ASSOC);
+$package_clients = $database->query($query)->fetchAll();
 
 $pagination = new \yidas\data\Pagination([
     'totalCount' => $count,
@@ -140,18 +140,47 @@ $adminPage = "events";
 
           <dl class="col-6 col-md-3 mb-0">
             <dt class="mb-0">          
-              <?php if ($event->booking_type == 'package') { ?>
-                <?php $key = array_search($event->package_client_id, array_column($package_clients, 'id')); ?>
-                <a href="/admin/view/client?id=<?php echo $event->package_client_id; ?>"><?php echo $package_clients[$key]['venue_name']; ?></a>
-              <?php } else { ?>
-                <?php echo $event->venue_name; ?>
-              <?php } ?>
+              <?php echo $event->venue_name; ?>
             </dt>
           </dl>
 
-          <dl class="col-6 col-md-2 mb-0">
+          <dl class="col-6 col-md-3 mb-0">
             <dt class="mb-0">
+            <?php if ($event->booking_type == 'package') { ?>
+
+            <?php $key = array_search($event->package_client_id, array_column($package_clients, 'id')); ?>
+              <a href="/admin/view/client?id=<?php echo $event->package_client_id; ?>"><?php echo $package_clients[$key]['venue_name']; ?></a>
+            <?php } else { ?>
             <?php echo $event->booking_type; ?> booking
+              <button type="button" class="btn btn-link btn-sm" data-bs-toggle="modal" data-bs-target="#select-package-<?php echo $event->id; ?>">
+                convert to package
+              </button>
+              <div class="modal fade" id="select-package-<?php echo $event->id; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <form name="event-update" action="/actions/event" method="post" class="admin-form needs-validation needs-validation-time" novalidate>
+                  <input type="hidden" name="id" value="<?php echo $event->id; ?>" />
+                  <input type="hidden" name="admin[booking_type]" value="package" />
+                  <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Select package client</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                        <select name="admin[package_client_id]" id="event-package-client-<?php echo $event->id; ?>" class="form-select form-select-sm">
+                        <?php foreach ($package_clients as $client) { ?>
+                          <option value="<?php echo $client['id']; ?>" <?php if ($event->package_client_id == $client['id']) { ?>selected<?php } ?>><?php echo $client['venue_name']; ?></option>
+                        <?php } ?>
+                        </select>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">cancel</button>
+                        <button type="submit" name="action" value="update" class="btn btn-primary">save</button>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            <?php } ?>
             </dt>
           </dl>
         </div>
@@ -197,7 +226,7 @@ $adminPage = "events";
 
       <?php if ($event->booking_type == 'direct' && $event->contract_status !== 'received') { ?>
       <div class="card-footer">
-        <span class="text-danger">** No contract received for this event **</span>
+        <span class="text-danger">** No contract received for this direct booking **</span>
       </div>
       <?php } ?>
     </div>
