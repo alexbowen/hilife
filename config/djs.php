@@ -73,19 +73,6 @@ $djs = array(
     )
   ),
   array(
-    "name" => "DJ Jackson Lee",
-    "image" => array(
-        "file" => "DJ_Jackson_Lee.png",
-        "alt" => "mobile DJ Jackson Lee for funk and soul motown reggae and hip hop in the Manchester area"
-    ),
-    "summary" => "Rock, metal, indie, punk, steampunk and more. Spike is a versatile DJ for all types of events",
-    "about" => array(
-        "Tareck (his non DJ name), has been involved in music since his teens, DJing, managing bands, singing, writing reviews, promoting nights and radio. His most recent radio show 'Sticks and Stones' is a weekly Friday night show on BCB radio in Bradford, playing a range of funky dance, soul, jazz fusion, classic breaks, rare groove and funk.",
-        "He has always been influenced by guitar crossover music such as bands like The Who, Jimi Hendrix, Funkadelic and Prince, although claims his number 1 influence is James Brown. ",
-        "Having played Festivals around Europe, club nights in Leeds and Manchester, as well as weddings, birthdays and special occasions for the last 10 years, Jackson Lee loves nothing more than a good time and a dance floor full of party people! "
-    )
-  ),
-  array(
     "name" => "DJ Dan De Lissandri",
     "image" => array(
         "file" => "DJ_Dan_De_Lissandri.png",
@@ -109,19 +96,6 @@ $djs = array(
         "Maree has been DJing for over a decade now, following somewhat of a family tradition, as her father and brother are also DJs.",
         "She is passionate about music and has worked all over Yorkshire in many hotels and bars, DJing at weddings and parties. Seeing a full dance floor with everyone singing and dancing along is her main motivation. Her favourite types of music to play are Motown and pop and rock.",
         "Outside DJing, she works as an auxiliary nurse in an A&E unit, which she also finds very rewarding."
-    )
-  ),
-  array(
-    "name" => "J William",
-    "image" => array(
-        "file" => "DJ_J_William.png",
-        "alt" => "book mobile DJ J William for all types of party in the Manchester area and beyond"
-    ),
-    "summary" => "Rock, metal, indie, punk, steampunk and more. Spike is a versatile DJ for all types of events.",
-    "about" => array(
-        "Joe has 13 years experience collecting and playing records. Career highlights include playing Boiler Room, supporting Bonobo, De La Soul and MF Doom, playing KOKO, Fabric, Bestival, Dimensions and Outlook Festival.",
-        "He also has years of experience DJing at weddings, corporate functions and bar nights, playing all areas of music.",
-        "He joined us recently, having relocated to York from London, being recommended to us by a local promoter and has already become a key member of the team, due to his wide knowledge and versatility."
     )
   ),
   array(
