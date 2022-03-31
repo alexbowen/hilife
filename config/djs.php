@@ -162,23 +162,6 @@ $djs = array(
     )
   ),
   array(
-    "name" => "DJ Ryan \"Sarge\" Sargent",
-    "image" => array(
-        "file" => "DJ_Ryan.png",
-        "alt" => "book DJ Ryan Sargant for rave, old school, house, club and private party events"
-    ),
-    "summary" => "Rock, metal, indie, punk, steampunk and more. Spike is a versatile DJ for all types of events.",
-    "about" => array(
-        "Ryan has been DJing for 10 years and has vast experience in all genres of music. Ryan's forte is working a crowd, with his love of house and commercial dance beats.  From clubbing in the early 2000’s he has always studied the way a DJ presents his sets and decided to pursue the same path.",
-        "Ryan has 2 weekly online radio residencies with South Leeds Radio and Raverholics Radio, in which impressive demo mixes secured his slot.",
-        "He is available for both bar and club work, as well as private events."
-    ),
-    "link" => array(
-        "url" => "https://www.mixcloud.com/ryansargent104",
-        "text" => "Ryan on Mixcloud"
-    )
-  ),
-  array(
     "name" => "DJ Chris Hall",
     "image" => array(
         "file" => "DJ_Chris.png",
@@ -190,19 +173,6 @@ $djs = array(
         "Since then he has played many eclectic styles of music over the years, doing tailored sets for bar, corporate, wedding and party type events.  ",
         "He currently runs an exclusive ibiza house / disco night, which incorporates live music, like sax and percussion and he is our \"goto\" man for this type of set.",
         "He sees every gig as a way to further his musical knowledge and enjoys the satisfaction of delivering a unique set of music for clients and their guests."
-    )
-  ),
-  array(
-    "name" => "DJ Rick Andrews",
-    "image" => array(
-        "file" => "DJ_Rick.png",
-        "alt" => "book DJ Rick Andrews for dance music, 18ths 21sts, 30th birthdays, weddings and parties"
-    ),
-    "summary" => "Rock, metal, indie, punk, steampunk and more. Spike is a versatile DJ for all types of events.",
-    "about" => array(
-        "Rick is always looking to new technology for ideas of how he can improve his sets, which is why he currently tries to use all formats for Djing i.e. Vinyl/Laptop/CDJs and FX.",
-        "Rick started out playing clubs and parties over in his native Grimsby. From there, he moved to Leeds to study a Music Technology Degree and learned how to put his own music together. Whilst there he met many like-minded individuals and secured residencies at a House/Tech Night “Control”.",
-        "He's now giving back some of his hard earned knowledge to new DJs, via DJ School in Leeds, as well as playing private events for ourselves up and down the country."
     )
   ),
   array(
