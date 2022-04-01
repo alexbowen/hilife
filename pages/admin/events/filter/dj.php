@@ -7,9 +7,9 @@ $djs = $database->query($query)->fetchAll();
 <div class="col">
   <div class="input-group mb-1">
     <select name="dj" id="filter-dj" class="form-select form-select-sm col-sm-8" data-auto-submit="true">
-      <option value="" <?php if (empty($_GET['dj'])) { ?>selected<?php } ?>>show all</option>
+      <option value="" <?php if (isset($_GET['dj'])) { ?>selected<?php } ?>>show all</option>
       <?php foreach ($djs as $dj) { ?>
-        <option value="<?php echo $dj['username']; ?>" <?php if ($_GET['dj'] == $dj['username']) { ?>selected<?php } ?>><?php echo $dj['username']; ?></option>
+        <option value="<?php echo $dj['id']; ?>" <?php if (isset($_GET['dj']) && $_GET['dj'] == $dj['id']) { ?>selected<?php } ?>><?php echo $dj['username']; ?></option>
       <?php } ?>
     </select>
   </div>
