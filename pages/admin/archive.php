@@ -8,7 +8,7 @@ array_push($filter_parts, "events.date < CURDATE()");
 
 if (!empty($_GET['booking_type'])) array_push($filter_parts, "events_admin.booking_type=\"" . $_GET['booking_type'] . "\"");
 if (!empty($_GET['venue'])) array_push($filter_parts, "events.venue_name=\"" . $_GET['venue'] . "\"");
-if (!empty($_GET['dj'])) array_push($filter_parts, "events_admin.dj=\"" . $_GET['dj'] . "\"");
+if (!empty($_GET['dj'])) array_push($filter_parts, "events_admin.dj_user_id=\"" . $_GET['dj'] . "\"");
 if (!empty($_GET['sort'])) {
   switch ($_GET['sort']) {
     case "asc":

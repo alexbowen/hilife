@@ -1,5 +1,6 @@
 <?php
 include $_SERVER['DOCUMENT_ROOT'].'/lib/event.php';
+include ($_SERVER['DOCUMENT_ROOT'].'/config/event.php');
 
 $event = EventFactory::create(array(
   'events.id' => $_GET['id']
@@ -137,8 +138,8 @@ if ($session->getAccessToken()) {
   <h5>Policy</h5>
   <ul class="list-group admin">
     <li class="list-group-item"><dl><dt><span>No play</span></dt><dd><?php echo $utils->field($event->noplay); ?></dd></dl></li>
-    <li class="list-group-item"><dl><dt><span>Requests</span></dt><dd><?php echo $utils->field($event->requests); ?></dd></dl></li>
-    <li class="list-group-item"><dl><dt><span>DJ microphone</span></dt><dd><?php echo $utils->field($event->mic); ?></dd></dl></li>
+    <li class="list-group-item"><dl><dt><span>Requests</span></dt><dd><?php echo $utils->field($event_config['policy']['requests'][$event->requests]); ?></dd></dl></li>
+    <li class="list-group-item"><dl><dt><span>DJ microphone</span></dt><dd><?php echo $utils->field($event_config['policy']['mic'][$event->mic]); ?></dd></dl></li>
     <li class="list-group-item"><dl><dt><span>Cheese/guilty pleasures</span></dt><dd><?php echo $utils->field($event->cheese); ?></dd></dl></li>
   </ul>
 </section>
