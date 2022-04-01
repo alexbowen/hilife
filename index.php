@@ -1,22 +1,7 @@
 <?php
 session_start();
-
 include($_SERVER['DOCUMENT_ROOT'] . '/lib/common.php');
-
-require $_SERVER['DOCUMENT_ROOT'].'/vendor/autoload.php';
-$auth = new \Delight\Auth\Auth($database, null);
-
-include ('lib/auth/session.php');
-include ('lib/utils.php');
-
-require ($_SERVER['DOCUMENT_ROOT'].'/lib/auth/facebook/auth.php');
-require ($_SERVER['DOCUMENT_ROOT'].'/lib/auth/google/auth.php');
-
-include ($_SERVER['DOCUMENT_ROOT'].'/config/regions.php');
-$region = $regions[$_GET['region']]["db_key"];
-$region_url_prefix = isset($_GET['region']) && $_GET['region'] != "leeds" ? "/" . $_GET['region'] : "";
-
-include ($_SERVER['DOCUMENT_ROOT'].'/config/djs.php');
+include ($_SERVER['DOCUMENT_ROOT'] . '/lib/auth.php');
 ?>
 
 <!DOCTYPE html>

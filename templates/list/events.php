@@ -4,6 +4,7 @@
   <div class="content-list__container content-border__container">
     <ul class="content-list">
     <?php
+    $region = $regions[$_GET['region']]["db_key"];
     $query = "SELECT * FROM gigs WHERE region='$region' ORDER BY ID DESC";
     foreach ($database->query($query) as $row) {
     ?>

@@ -7,7 +7,7 @@ include ($_SERVER['DOCUMENT_ROOT'].'/lib/mailer.php');
 
 if ($_POST['action'] == 'register') {
   require $_SERVER['DOCUMENT_ROOT'].'/vendor/autoload.php';
-  $auth = new \Delight\Auth\Auth($database, null);
+  $auth = new \Delight\Auth\Auth($database->connection, null);
   try {
     $userId = $auth->register($_POST['email'], $_POST['password'], $_POST['username'], function ($selector, $token) {
 

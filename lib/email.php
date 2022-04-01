@@ -1,6 +1,5 @@
 <?php
 include_once ($_SERVER['DOCUMENT_ROOT'] . '/lib/mailer.php');
-include_once ($_SERVER['DOCUMENT_ROOT'] . '/lib/utils.php');
 include ($_SERVER['DOCUMENT_ROOT'] . '/config/event.php');
 
 class Email {

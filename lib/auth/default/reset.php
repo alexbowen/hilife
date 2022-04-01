@@ -6,7 +6,7 @@ include ($_SERVER['DOCUMENT_ROOT'] . '/lib/notify.php');
 include ($_SERVER['DOCUMENT_ROOT'].'/lib/mailer.php');
 
 require $_SERVER['DOCUMENT_ROOT'].'/vendor/autoload.php';
-$auth = new \Delight\Auth\Auth($database, null);
+$auth = new \Delight\Auth\Auth($database->connection, null);
 
 if ($_POST['action'] == 'forgot') {
   try {

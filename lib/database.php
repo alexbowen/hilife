@@ -1,3 +1,28 @@
 <?php
-$database = new PDO('mysql:host=' . constant("DB_HOST") . ';dbname=' . constant("DB_NAME"), constant("DB_USER"), constant("DB_PASS"));
+class Database {
+
+    public $connection;
+
+    function __construct($host, $name, $user, $pass) {
+        $this->connection = new PDO('mysql:host=' . $host . ';dbname=' . $name, $user, $pass);
+    }
+
+    function query($query) {
+        return $this->connection->query($query);
+    }
+
+    function prepare($sql, $extra) {
+        return $this->connection->prepare($sql, $extra);
+    }
+
+    function execute($statement, $params) {
+        $statement->execute($params);
+
+        if ($_SERVER['HTTP_HOST'] === constant('LOCAL_HOST')) {
+            $statement->debugDumpParams();
+        }
+    }
+}
+
+$database = new Database(constant("DB_HOST"), constant("DB_NAME"), constant("DB_USER"), constant("DB_PASS"));
 ?>

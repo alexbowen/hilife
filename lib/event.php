@@ -1,5 +1,4 @@
 <?php
-include_once ($_SERVER['DOCUMENT_ROOT'] . '/lib/utils.php');
 include $_SERVER['DOCUMENT_ROOT'].'/lib/models/event.php';
 
 class EventFactory
@@ -19,7 +18,7 @@ class EventFactory
 
       $query = $database->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
 
-      $query->execute($where);
+      $database->execute($query, $where);
 
       return $query->fetchObject("Event", array($expanded));
     }

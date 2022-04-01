@@ -11,7 +11,7 @@ if ($_POST['action'] == 'sign-in') {
   }
 
   require $_SERVER['DOCUMENT_ROOT'].'/vendor/autoload.php';
-  $auth = new \Delight\Auth\Auth($database, null);
+  $auth = new \Delight\Auth\Auth($database->connection, null);
   include ($_SERVER['DOCUMENT_ROOT'].'/lib/auth/session.php');
 
   try {

@@ -1,3 +1,5 @@
+<?php include ($_SERVER['DOCUMENT_ROOT'].'/config/djs.php'); ?>
+
 <section class="introduction content-section">
   <h1>Hi-life mobile wedding DJ hire in <?php echo $regions[$_GET['region']]["db_key"]; ?> and <?php echo $regions[$_GET['region']]["county"]; ?></h1>
   <p class="lead">Bespoke mobile DJ services and equipment hire for weddings, parties and corporate events. We are friendly, professional and knowledgeable about music and music technology. We can supply DJs of all styles for bar and club events.</p>

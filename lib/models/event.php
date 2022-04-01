@@ -1,5 +1,4 @@
 <?php
-include_once ($_SERVER['DOCUMENT_ROOT'] . '/lib/utils.php');
 
 class Event {
   public $id;
