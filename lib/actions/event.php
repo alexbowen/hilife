@@ -129,7 +129,7 @@ if ($_POST['action'] == 'update') {
 
   $event_updated = EventFactory::create(array(
     'events.id' => $_POST['id']
-  ));
+  ), true);
 
   if ($event_updated->status != $event_orig_status) {
 

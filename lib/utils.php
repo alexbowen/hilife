@@ -37,7 +37,9 @@ class Utils {
 
   public function templateString(&$template, $values) {
     foreach ($values as $key => $value) {
-      $template = str_replace('%' . $key . '%', $value, $template);
+      if (is_string($value)) {
+        $template = str_replace('%' . $key . '%', $value, $template);
+      }
     }
 
     return $template;

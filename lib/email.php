@@ -16,10 +16,10 @@ class Email {
     }
 
     if (isset($config['email']['body'][$event->booking_type])) {
-    foreach ($config['email']['body'][$event->booking_type] as $line) {
-      $email_body .= $utils->templateString($line, $event) . "\r\n\n";
+      foreach ($config['email']['body'][$event->booking_type] as $line) {
+        $email_body .= $utils->templateString($line, $event) . "\r\n\n";
+      }
     }
-  }
 
     $email_body .= constant("ADMIN_NAME") . "\n";
     $email_body .= constant("ADMIN_COMPANY") . "\n";
