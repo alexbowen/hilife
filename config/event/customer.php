@@ -2,7 +2,7 @@
 $customer_config = array(
   "enquiry" => array(
     "email" => array(
-      "title" => "Hi-life Entertainment booking enquiry received",
+      "title" => "Hi-Life Entertainment booking enquiry received",
       "body" => array(
         "default" => array(
           "Hi %primary_contact%",
@@ -23,7 +23,7 @@ $customer_config = array(
   ),
   "pending" => array(
     "email" => array(
-      "title" => "Hi-life Entertainment event is pending confirmation",
+      "title" => "Hi-Life Entertainment event is pending confirmation",
       "body" => array(
         "default" => array(
           "Hi %primary_contact%",
@@ -47,7 +47,7 @@ $customer_config = array(
   ),
   "confirmed" => array(
     "email" => array(
-      "title" => "Hi-life Entertainment event is confirmed for %date%",
+      "title" => "Hi-Life Entertainment event is confirmed for %date%",
       "body" => array(
         "default" => array(
           "Hi %primary_contact%",
@@ -71,7 +71,7 @@ $customer_config = array(
   ),
   "cancelled" => array(
     "email" => array(
-      "title" => "Hi-life Entertainment event is cancelled for %date%",
+      "title" => "Hi-Life Entertainment event is cancelled for %date%",
       "body" => array(
         "default" => array(
           "Hi %primary_contact%",

@@ -127,10 +127,6 @@ main a:hover, .nav-tabs .nav-link:hover {
   text-align: center;
 }
 
-h1, .content h2 {
-  text-transform: capitalize;
-}
-
 .card-full-width {
   display: block;
   padding: 1em;

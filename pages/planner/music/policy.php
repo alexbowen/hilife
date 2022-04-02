@@ -29,7 +29,7 @@ $section = 'policy';
 
 <section class="content-section">
   
-<?php include ('navigation.php'); ?>
+  <?php include ('navigation.php'); ?>
 
   <form name="eventmusic" action="/planner/music/policy?id=<?php echo $event->id; ?>" method="post">
     <div class="content-tabs__container admin">
@@ -50,7 +50,6 @@ $section = 'policy';
         </div>
       </div>
     </div>
-
 
     <div class="content-border__container admin">
       <h5>DJ interaction</h5>
@@ -98,7 +97,5 @@ $section = 'policy';
         <button type="submit" name="action" value="update" class="btn btn-sm btn-secondary">update music policy</button>
       </div>
     </div>
-  </div>
-</form>
-
+  </form>
 </section>

@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
     <div style="display:flex;flex-direction: column;">
-    <a class="navbar-brand palette-light-shade" href="/"><img src="/assets/images/logo-light-bg-sm.png" height="48" width="48" alt="Hi-life Entertainment" />Hi-life Entertainment</a>
+    <a class="navbar-brand palette-light-shade" href="/"><img src="/assets/images/logo-light-bg-sm.png" height="48" width="48" alt="Hi-Life Entertainment" />Hi-Life Entertainment</a>
     <span class="authenticated-status">
       <?php if (isset($_SESSION['auth_username'])) { ?>Hello <?php echo $_SESSION['auth_username']; } ?>
       <?php if (isset($_SESSION['auth_provider']) && $_SESSION['auth_provider'] == "facebook") { ?>

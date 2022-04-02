@@ -1,5 +1,5 @@
 <section class="introduction content-section content-center">
-  <h1>Music Planner Registration</h1>
+  <h1>Music planner registration</h1>
 </section>
 
 <div class="row authentication-form">

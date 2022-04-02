@@ -80,7 +80,7 @@ $djs = array(
     ),
     "summary" => "A very experienced DJ, with very technical mixing skills, that can play all styles of music for weddings or bar events.",
     "about" => array(
-        "A fairly recent addition to the DJ roster at Hi-life, (in 2017), but a very experienced DJ, who started out 18 years ago in Leeds underground club circuit.",
+        "A fairly recent addition to the DJ roster at Hi-Life, (in 2017), but a very experienced DJ, who started out 18 years ago in Leeds underground club circuit.",
         "I got to know Dan some years ago, as part of his work with DJ School. He has been passing on his turntable skills for a number of years now to new, upcoming DJs. Needless to say he now covers a wide variety of styles of music.",
         "He's very capable of playing a party, as well as having the technical prowess and is a very flexible DJ."
     )

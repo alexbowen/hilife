@@ -1,6 +1,6 @@
 <section class="content-section">
   <div class="row">
-    <h2>Hi-life weddings photo gallery</h2>
+    <h2>Hi-Life weddings photo gallery</h2>
     <p>Click on image to view</p>
 
     <div class="my-gallery" itemscope itemtype="http://schema.org/ImageGallery">

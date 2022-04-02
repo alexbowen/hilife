@@ -1,7 +1,7 @@
 <?php include ($_SERVER['DOCUMENT_ROOT'].'/config/djs.php'); ?>
 
 <section class="introduction content-section">
-  <h1>Hi-life mobile wedding DJ hire in <?php echo $regions[$_GET['region']]["db_key"]; ?> and <?php echo $regions[$_GET['region']]["county"]; ?></h1>
+  <h1>Hi-Life mobile wedding DJ hire in <?php echo $regions[$_GET['region']]["db_key"]; ?> and <?php echo $regions[$_GET['region']]["county"]; ?></h1>
   <p class="lead">Bespoke mobile DJ services and equipment hire for weddings, parties and corporate events. We are friendly, professional and knowledgeable about music and music technology. We can supply DJs of all styles for bar and club events.</p>
 </section>
 
@@ -105,7 +105,6 @@
     <p>Contact Mark on our <a href="contact">contact page</a> for more information.</p>
   </div>
 
-
   <div class="row">
     <div class="col-sm">
       <p>Since 2006, when we started DJing under the name Hi-Life Entertainment from Mark's record shop (Soul Alley Records, Grand Arcade, Leeds), we have covered pretty much the whole of the UK. I think the most northern gig was Elgin and the most southern would be either Port Eliot in Devon, or West Hill Hall, Brighton.</p>
@@ -114,11 +113,11 @@
 
   <div class="content-border__container clearfix">
     <img
-        src="/assets/images/home/marquee-weddings.jpg"
-        alt="Tuscan castle Wedding DJ Set"
-        class="float-start img-fluid me-3"
-      />
-      <h3>Outdoor events</h3>
+      src="/assets/images/home/marquee-weddings.jpg"
+      alt="Tuscan castle Wedding DJ Set"
+      class="float-start img-fluid me-3"
+    />
+    <h3>Outdoor events</h3>
     <p class="lead">We do many outdoor events in marquees, teepees, barns, glamping sites for weddings these days.</p>
     <p>The relaxed atmosphere and the beautiful countryside of the nearby Yorkshire Dales, Peak District and North Yorkshire Moors make these events really special. We offer all day packages for music, speeches and wedding services.</p>
     <a href="contact">Drop Mark a line here for a quote</a>
@@ -139,7 +138,7 @@
     northern soul, ska, 2-tone, dancehall, rocksteady, bass, latin,
     garage, drum and bass, breaks, dubstep, trap, salsa, afrobeats around
     <?php echo $regions[$_GET['region']]["associated_areas"]; ?>.
-    <p>You can read more detailed profiles of all Hi-life DJs on our <a href="<?php echo $region_url_prefix; ?>/djs">DJ page</a></p>
+    <p>You can read more detailed profiles of all Hi-Life DJs on our <a href="<?php echo $region_url_prefix; ?>/djs">DJ page</a></p>
   </p>
 
   <div id="dj-carousel" class="dj-carousel">

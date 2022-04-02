@@ -13,7 +13,6 @@
         <button type="button" class="toggle-control btn btn-primary btn-sm card-link" data-content-id="toggle-content-<?php echo $key; ?>">show playlist tracks</button>
       </div>
     </div>
-
   </div>
 </div>
 

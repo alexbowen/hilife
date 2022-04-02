@@ -1,5 +1,5 @@
 <section class="introduction content-section">
-  <h1>Hi-life Music</h1>
+  <h1>Hi-Life music</h1>
   <p class="lead">Our unique music planner allows you make sure you hear the music that you want at your event</p>
   <img src="/assets/images/music/intro.jpg" width="100%" alt="Hilife music" />
 </section>
