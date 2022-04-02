@@ -65,8 +65,12 @@ main a:hover, .nav-tabs .nav-link:hover {
   margin: 0.4em 0 1.8em;
 }
 
-.content-section h2, .content-section h3, .content-section h5, .content-section p {
+.content-section h2, .content-section h3, .content-section h5 {
   margin-left: 0.1em;
+}
+
+.content-section p {
+  margin-left: 0.2em;
 }
 
 .divider::after {

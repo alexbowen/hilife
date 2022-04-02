@@ -29,4 +29,6 @@
 ?>
 </section>
 
+<?php include ($_SERVER['DOCUMENT_ROOT'].'/templates/mixcloud.php'); ?>
+
 <?php include ($_SERVER['DOCUMENT_ROOT'].'/templates/list/regions.php'); ?>

@@ -1,13 +1,13 @@
+<?php
+  $region = $regions[$_GET['region']]["db_key"];
+  $query = "SELECT * FROM gigs WHERE region='$region' ORDER BY ID DESC";
+?>
 <section class="content-section">
   <h3>Recent Events</h3>
   <p>Some recent events that Hi-Life mobile DJs have played in the <?php echo $regions[$_GET['region']]["db_key"]; ?> and <?php echo $regions[$_GET['region']]["county"]; ?> Region for weddings, parties and corporate events:</p>
   <div class="content-list__container content-border__container">
     <ul class="content-list">
-    <?php
-    $region = $regions[$_GET['region']]["db_key"];
-    $query = "SELECT * FROM gigs WHERE region='$region' ORDER BY ID DESC";
-    foreach ($database->query($query) as $row) {
-    ?>
+    <?php foreach ($database->query($query) as $row) { ?>
       <li>
         <span><?php echo $row['Description']; ?></span>
         <span>at</span>
