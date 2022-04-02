@@ -16,7 +16,7 @@ if ($_POST['action'] == 'forgot') {
 
       Mailer::send(
         $_POST["email"],
-        'Hi-life Entertainment password reset',
+        'Hi-Life Entertainment password reset',
         "Click this link to reset your password\n\n" . $url
       );
 

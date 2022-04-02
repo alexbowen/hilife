@@ -5,7 +5,7 @@ $query = "SELECT * FROM events INNER JOIN events_admin ON events_admin.event_id 
 $result = $database->query($query);
 ?>
 
-<h1>DJ bookings</h1>
+<h1>Your DJ bookings</h1>
 
 <section class="content-section admin">
   <div class="content-border__container">

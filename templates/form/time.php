@@ -19,7 +19,7 @@ $ranges = array(
 <div class="row admin event-time-input" data-order="<?php echo $eventTime['order']; ?>">
   <div class="col-6">
     <select name="<?php echo $eventTime['key']; ?>TimeInput[hours]" class="form-select form-select-sm" data-time-part="hours">
-      <option value="">Select hour</option>
+      <option value="">hour</option>
       <?php for ($h = $ranges[$eventTime['key']]['earliest']; $h <= $ranges[$eventTime['key']]['latest']; $h++) { ?>
       <?php
         if ($h > 23) {
@@ -70,7 +70,7 @@ $ranges = array(
 
   <div class="col-6">
     <select name="<?php echo $eventTime['key']; ?>TimeInput[minutes]" class="form-select form-select-sm" data-time-part="minutes">
-      <option value="">Select minutes</option>
+      <option value="">minutes</option>
       <option value="0" <?php if ($eventTime['minutes'] == "0") { ?> selected<?php } ?>>00</option>
       <option value="15" <?php if ($eventTime['minutes'] == "15") { ?> selected<?php } ?>>15</option>
       <option value="30" <?php if ($eventTime['minutes'] == "30") { ?> selected<?php } ?>>30</option>

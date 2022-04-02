@@ -15,7 +15,7 @@ if ($_POST['action'] == 'register') {
 
       Mailer::send(
         $_POST["email"],
-        'Hi-life Entertainment registration confirm email',
+        'Hi-Life Entertainment registration confirm email',
         "Click this link to activate your account\n\n" . $url
       );
 

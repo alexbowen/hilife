@@ -17,6 +17,10 @@ class Database {
 
     function execute($statement, $params) {
         $statement->execute($params);
+
+        if (constant("DEBUG_SQL") === true) {
+            $statement->debugDumpParams();
+        }
     }
 }
 

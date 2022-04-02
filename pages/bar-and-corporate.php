@@ -1,5 +1,5 @@
 <section class="introduction content-section">
-  <h1>Bar DJ Bookings</h1>
+  <h1>HI-Life bar DJ bookings</h1>
   <p class="lead">We cover all forms of bar bookings, from one off promotions, christmas parties, through to monthly and weekly nights. Prices depend on the night of the week, times, whether we are supplying PA / lighting, whether it is a one off or ongoing night etc. What I always suggest is meeting you in the venue to discuss your needs. I will then monitor how things are progressing, feeding back information to DJs.</p>
 </section>
 
@@ -47,5 +47,7 @@
     </ul>
   </div>
 </section>
+
+<?php include ($_SERVER['DOCUMENT_ROOT'].'/templates/youtube.php'); ?>
 
 <?php include ($_SERVER['DOCUMENT_ROOT'].'/templates/list/regions.php'); ?>
