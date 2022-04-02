@@ -32,6 +32,10 @@ dt, dd {
   display: inline;
 }
 
+.text-bold {
+  font-weight: bold;
+}
+
 .palette-light-shade {
   color: #EFF2EB;
 }
@@ -142,6 +146,15 @@ input.form-control,
 .admin-form textarea.form-control,
 .auth-form {
   font-size: 0.9em;
+}
+
+.filter-panel .filter-control--inactive {
+  color: #6c757d;
+}
+
+.filter-panel .filter-control--active {
+  background-color: #e9ecef;
+  border-color: #198754;
 }
 
 .content-tabs__container .card:hover {

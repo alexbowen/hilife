@@ -17,10 +17,6 @@ class Database {
 
     function execute($statement, $params) {
         $statement->execute($params);
-
-        if ($_SERVER['HTTP_HOST'] === constant('LOCAL_HOST')) {
-            $statement->debugDumpParams();
-        }
     }
 }
 
