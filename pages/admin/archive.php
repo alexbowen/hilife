@@ -118,10 +118,10 @@ $adminPage = "archive";
               <button type="button" class="btn btn-link btn-sm" data-bs-toggle="modal" data-bs-target="#select-package-<?php echo $event->id; ?>">
                 convert to package
               </button>
-              <div class="modal fade" id="select-package-<?php echo $event->id; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <form name="event-update" action="/actions/event" method="post" class="admin-form needs-validation needs-validation-time" novalidate>
-                  <input type="hidden" name="id" value="<?php echo $event->id; ?>" />
-                  <input type="hidden" name="admin[booking_type]" value="package" />
+              <form name="event-update" action="/actions/event" method="post" class="admin-form needs-validation needs-validation-time" novalidate>
+                <input type="hidden" name="id" value="<?php echo $event->id; ?>" />
+                <input type="hidden" name="admin[booking_type]" value="package" />
+                <div class="modal fade" id="select-package-<?php echo $event->id; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                   <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
                       <div class="modal-header">
@@ -141,8 +141,8 @@ $adminPage = "archive";
                       </div>
                     </div>
                   </div>
-                </form>
-              </div>
+                </div>
+              </form>
             <?php } ?>
             </dt>
           </dl>
