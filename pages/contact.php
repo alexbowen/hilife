@@ -2,7 +2,6 @@
 
 <section class="introduction content-section content-center">
   <h1>Contact Hi-life Entertainment</h1>
-  <p class="lead">For all booking enquiries, general enquiries and accounts</p>
 </section>
 
 <section class="content-section">
@@ -10,7 +9,7 @@
     <form name="enquiry-form" action="/actions/event" method="post" class="needs-validation needs-validation-time" novalidate>
       <div class="form-floating mb-3">
         <input type="text" name="event[primary_contact]" id="enquiry-contact" class="form-control form-control-sm" placeholder="your name" required />
-        <label for="enquiry-contact">Contact name</label>
+        <label for="enquiry-contact">Name <span class="form-optional">(required)</span></label>
         <div class="invalid-feedback">
           This field is required
         </div>
@@ -18,25 +17,18 @@
 
       <div class="form-floating mb-3">
         <input type="email" id="enquiry-email" name="event[email]" class="form-control form-control-sm" placeholder="name@example.com" required <?php if (isset($_SESSION['auth_email'])) { ?>value="<?php echo $_SESSION['auth_email']; ?>"<?php } ?> />
-        <label for="enquiry-email">Email address</label>  
+        <label for="enquiry-email">Email address <span class="form-optional">(required)</span></label>  
         <div class="invalid-feedback">
           Invalid email address
         </div>
       </div>
 
-      <h5>Event Details</h5>
+
 
       <div class="row">
-        <label for="enquiry-date" class="col-form-label col-md-4">Date</label>
+        <label for="enquiry-telephone" class="col-form-label col-md-4">Telephone number</label>
         <div class="col-md-8 mb-3">
-        <?php include ($_SERVER['DOCUMENT_ROOT'].'/templates/form/date.php'); ?>
-        </div>
-      </div>
-
-      <div class="row">
-        <label for="enquiry-telephone" class="col-form-label col-md-4">Telephone number <span class="form-optional">(optional)</span></label>
-        <div class="col-md-8 mb-3">
-          <input type="tel" id="enquiry-telephone" name="event[client_telephone]" class="form-control" pattern="(\+)?([ 0-9]){10,16}" />
+          <input type="tel" id="enquiry-telephone" name="event[client_telephone]" class="form-control form-control-sm" pattern="(\+)?([ 0-9]){10,16}" />
           <div class="invalid-feedback">
             Invalid phone number
           </div>
@@ -44,7 +36,14 @@
       </div>
 
       <div class="row">
-        <label for="enquiry-location" class="col-form-label col-md-4">Type <span class="form-optional">(optional)</span></label>
+        <label for="enquiry-date" class="col-form-label col-md-4">Event date <span class="form-optional">(required)</span></label>
+        <div class="col-md-8 mb-3">
+        <?php include ($_SERVER['DOCUMENT_ROOT'].'/templates/form/date.php'); ?>
+        </div>
+      </div>
+
+      <div class="row">
+        <label for="enquiry-location" class="col-form-label col-md-4">Event type</label>
         <div class="col-md-8">
           <div class="input-group mb-3">
             <select name="event[type]" id="enquiry-location" class="form-select form-select-sm col-sm-8">
@@ -59,21 +58,21 @@
       </div>
 
       <div class="row">
-        <label for="event-venue-name" class="col-form-label col-md-4">Venue name <span class="form-optional">(optional)</span></label>
+        <label for="event-venue-name" class="col-form-label col-md-4">Venue name</label>
         <div class="col-md-8 mb-3">
           <input type="text" name="event[venue_name]" id="event-venue-name" class="form-control" aria-label="venue name" />
         </div>
       </div>
 
       <div class="row">
-        <label for="event-venue-address" class="col-form-label col-md-4">Venue address <span class="form-optional">(optional)</span></label>
+        <label for="event-venue-address" class="col-form-label col-md-4">Venue address</label>
         <div class="col-md-8 mb-3">
           <input type="text" name="event[venue_address]" id="event-venue-address" class="form-control" aria-label="venue address" />
         </div>
       </div>
 
       <div class="row">
-        <label for="enquiry-date" class="col-form-label col-md-4">Start time <span class="form-optional">(optional)</span></label>
+        <label for="enquiry-date" class="col-form-label col-md-4">Start time</label>
         <div class="col-md-8 mb-3">
           <?php
             $eventTime = array(
@@ -88,7 +87,7 @@
       </div>
 
       <div class="row">
-        <label for="enquiry-date" class="col-form-label col-md-4">Finish time <span class="form-optional">(optional)</span></label>
+        <label for="enquiry-date" class="col-form-label col-md-4">Finish time</label>
         <div class="col-md-8 mb-3">
           <?php
             $eventTime = array(
@@ -103,7 +102,7 @@
       </div>
 
       <div class="row">
-        <label for="enquiry-notes" class="col-form-label col-md-4">Additional information <span class="form-optional">(optional)</span></label>
+        <label for="enquiry-notes" class="col-form-label col-md-4">Additional information</label>
         <div class="col-md-8 mb-3">
           <textarea name="admin[notes]" class="form-control" id="enquiry-notes"></textarea>
         </div>
@@ -125,7 +124,7 @@
     <div class="col-sm">
       <div class="card card-full-width clearfix profile-photo">
       <img src="/assets/images/dj/Mark_Hepworth.png" alt="for all booking enquiries contact CEO Mark Hepworth" width="140" height="210" class="rounded float-end ms-3" />
-        <p>Alternatively you can:</p>
+        <p class="lead">Alternatively for all booking enquiries, general enquiries and accounts:</p>
         <ul>
           <li>speak to Mark on <a href="tel:07828688144" class="contact">07828 688144</a></li>
           <li>send email to <a href="mailto:mark@thehi-life.co.uk" class="contact">mark@thehi-life.co.uk</a></li>

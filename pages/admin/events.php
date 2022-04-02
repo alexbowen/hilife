@@ -239,7 +239,7 @@ $adminPage = "events";
     <?php } ?>
 
     <?php } else { ?>
-    <p class="lead mt-4">No events</p>
+    <p class="lead mt-4">No events for current selection</p>
   <?php } ?>
   </div>
 </section>

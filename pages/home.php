@@ -82,6 +82,10 @@
       </div>
     </div>
   </div>
+
+  <div class="content-border__container content-section-link">
+    <p>For all enquiries please visit our <a href="djs">contact page</a></p>
+  </div>
 </section>
 
 <section class="content-section">
