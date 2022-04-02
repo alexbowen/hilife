@@ -11,8 +11,8 @@ class Database {
         return $this->connection->query($query);
     }
 
-    function prepare($sql, $extra) {
-        return $this->connection->prepare($sql, $extra);
+    function prepare($sql, $options = []) {
+        return $this->connection->prepare($sql, $options);
     }
 
     function execute($statement, $params) {
