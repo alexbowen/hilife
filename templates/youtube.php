@@ -1,8 +1,8 @@
 <section class="content-section">
-  <h3>Watch Hi-Life entertainment on YouTube</h3>
+  <h3>Watch Hi-Life Entertainment on YouTube</h3>
   <div class="row">
     <div class="col-sm">
-      <iframe width="100%" height="240" src="https://www.youtube.com/embed/X0zJNF7xtEI" frameborder="0" allowfullscreen=""></iframe>
+      <iframe title="Watch Hi-Life Entertainment on YouTube" width="100%" height="240" src="https://www.youtube.com/embed/X0zJNF7xtEI" frameborder="0" allowfullscreen=""></iframe>
     </div>
 
     <div class="col-sm">

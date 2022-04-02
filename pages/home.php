@@ -11,10 +11,10 @@
       <div class="card event">
         <img class="card-img-top" src="/assets/images/home/wedding_djs.jpg" alt="Wedding DJ services in Leeds, West Yorkshire, North Yorkshire, Bradford and York" />
         <div class="card-body">
-          <h3 class="card-title">Weddings</h3>
-          <h5 class="card-subtitle mb-2 text-muted">
+          <h2 class="card-title">Weddings</h2>
+          <h3 class="card-subtitle mb-2 text-muted">
             Bespoke Wedding DJ services 
-          </h5>
+          </h3>
           <p class="card-text">
             Our mobile DJs have played several thousand weddings up and down the country since 2006. Our Music Planner service means that every wedding set is unique and tailored to the clients' wishes and is played by a knowledgable, experienced DJ.
           </p>
@@ -27,10 +27,10 @@
       <div class="card event">
         <img class="card-img-top" src="/assets/images/home/bar-corporate.jpg" alt="DJs for bar, corporate and club events in the leeds and Yorkshire area" />
         <div class="card-body">
-          <h3 class="card-title">Bar and Corporate</h3>
-          <h5 class="card-subtitle mb-2 text-muted">
+          <h2 class="card-title">Bar and Corporate</h2>
+          <h3 class="card-subtitle mb-2 text-muted">
             We supply professional DJs for bar and club work
-          </h5>
+          </h3>
           <p class="card-text">
             Our knowledge of many genres, eras and cultures, relating to music means we are the ideal choice for regular bar and club bookings, or one off corporate or charity events. We have worked for many companies, both large and small with their events and promotions.
           </p>
@@ -49,10 +49,10 @@
           alt="Sax and DJ packages for weddings and parties in Leeds and Yorkshire"
         />
         <div class="card-body">
-          <h3 class="card-title">Sax and DJ packages</h3>
-          <h5 class="card-subtitle mb-2 text-muted">
+          <h2 class="card-title">Sax and DJ packages</h2>
+          <h3 class="card-subtitle mb-2 text-muted">
             Live music sets for all types of event
-          </h5>
+          </h3>
           <p class="card-text">
             We can supply a range of musicians to play alongside our DJs at weddings, parties and corporate events.
     The most popular is either sax and DJ, or percussion and DJ. Some of the musicians we use can combine the two as part of a longer set. Other options can also be supplied on request.
@@ -70,10 +70,10 @@
           alt="Silent disco events in Leeds and Yorkshire"
         />
         <div class="card-body">
-          <h3 class="card-title">Silent Disco</h3>
-          <h5 class="card-subtitle mb-2 text-muted">
+          <h2 class="card-title">Silent Disco</h2>
+          <h3 class="card-subtitle mb-2 text-muted">
             Silent disco packages for all kinds of event
-          </h5>
+          </h3>
           <p class="card-text">
             Silent discos have been popular at festivals now for a number of years. In recent times we have done more of these at weddings. They work excellently as surprise to guests later on in the evening, as an alternative to live entertainment. They are far more than a gimmick and can provide you with unique memories.
           </p>

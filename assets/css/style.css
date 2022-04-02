@@ -136,6 +136,10 @@ main a:hover, .nav-tabs .nav-link:hover {
   margin-bottom: 20px;
 }
 
+.event h3 {
+  font-size: 1.4em;
+}
+
 .admin,
 .filter-panel,
 .admin .card-body,
@@ -443,6 +447,7 @@ header {
 
 .navbar-brand img {
   margin-right: 10px;
+  vertical-align: top;
 }
 
 .navbar-button {

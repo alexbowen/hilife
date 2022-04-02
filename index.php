@@ -5,12 +5,12 @@ include ($_SERVER['DOCUMENT_ROOT'] . '/lib/auth.php');
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <title><?php echo $regions[$_GET['region']]["page_title"]; ?></title>
     <?php include ('templates/head/meta.php'); ?>
-    <?php include ('templates/head/links.php'); ?>
     <?php include ('templates/head/scripts.php'); ?>
+    <?php include ('templates/head/links.php'); ?>
   </head>
 
   <body>
