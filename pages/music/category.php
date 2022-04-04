@@ -1,5 +1,5 @@
-<div class="content-section__article">
-  <h3><?php echo $genre['title']; ?></h3>
+<div class="content-border__container">
+  <h3 class="mt-0"><?php echo $genre['title']; ?></h3>
   <div class="clearfix mb-3">
     <img height="150" width="175" src="/assets/images/music/<?php echo $genre['image']['file']; ?>" alt="<?php echo $genre['image']['alt']; ?>" class="img-fluid rounded float-start mb-1 me-3" />
     <?php foreach ($genre['about'] as $about) { ?>

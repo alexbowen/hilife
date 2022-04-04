@@ -2,7 +2,9 @@
 
 <section class="introduction content-section">
   <h1>Wedding DJ Hire from Hi-Life Entertainment</h1>
-  <p class="lead">Since I founded the company, back in 2006 from my record shop (Soul Alley) in Leeds our mobile DJs have played several thousand weddings up and down the country. Our Music Planner service means that every wedding set is unique and tailored to the clients' wishes. We have played over 100 LGBT weddings and civil partnerships in recent years and hopefully there will be many more in the future.</p>
+  <img src="/assets/images/wedding/intro.png" alt="Hilife music" class="me-4 img-fluid rounded float-start" />
+  <p class="lead">Since I founded the company, back in 2006 from my record shop (Soul Alley) in Leeds our mobile DJs have played several thousand weddings up and down the country.</p>
+  <p class="clearfix">Our Music Planner service means that every wedding set is unique and tailored to the clients' wishes. We have played over 100 LGBT weddings and civil partnerships in recent years and hopefully there will be many more in the future.</p>
 </section>
 
 <section class="content-section">
@@ -14,12 +16,12 @@
       <div class="card card-full-width clearfix">
         <img src="/assets/images/wedding/<?php echo $wedding['image']['file']; ?>" alt="<?php echo $wedding['image']['alt']; ?>" class="rounded img-fluid float-md-end ms-md-3" />
         <p class="caption"><?php echo $wedding['caption']; ?></p>
-        <p><span class="label">Venue</span> <?php echo $wedding['venue']; ?></p>
+        <dl class="initialism"><dt>Venue</dt><dd><?php echo $wedding['venue']; ?></dd></dl>
         <?php if (isset($wedding['dj'])) { ?>
-          <p><span class="label">DJ</span> <?php echo $wedding['dj']; ?></p>
+          <dl class="initialism"><dt>DJ</dt><dd><?php echo $wedding['dj']; ?></dd></dl>
         <?php } ?>
-        <p><span class="label">Music genres</span> <?php echo $wedding['genres']; ?></p>
-        <p><span class="label">Favourite track(s)</span> <?php echo $wedding['tracks']; ?></p>
+        <dl class="initialism"><dt>Music genres</dt><dd><?php echo $wedding['genres']; ?></dd></dl>
+        <dl class="initialism"><dt>Favourite track(s)</dt><dd><?php echo $wedding['tracks']; ?></dd></dl>
       </div>
     </div>
   </div>

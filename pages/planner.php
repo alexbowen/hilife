@@ -9,7 +9,7 @@ if (isset($_GET['id'])) {
 $result = $database->query($query);
 ?>
 
-<h1>Your Events</h1>
+<h1>Your Hi-Life Entertainment events</h1>
 
 <?php if($result->rowCount() > 0) { ?>  
 <?php foreach ($result as $e) { ?>

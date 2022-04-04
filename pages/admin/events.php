@@ -135,7 +135,7 @@ $adminPage = "events";
             <dt class="mb-0"><?php echo $date->format('D M jS Y'); ?></dt>
           </dl>
           <dl class="col-6 col-md-3 mb-0">
-            <dt class="mb-0"><?php echo $event->primary_contact; if (!empty($event->secondary_contact)) echo " / " . $event->secondary_contact; ?></dt>
+            <dt class="mb-0"><?php echo $event->primary_contact; if ($event->secondary_contact != " ") echo " / " . $event->secondary_contact; ?></dt>
           </dl>
 
           <dl class="col-6 col-md-3 mb-0">
@@ -189,20 +189,22 @@ $adminPage = "events";
       <div class="card-body">
         <div class="row">
           <div class="col-12 col-md-3">
-            <dl class="mb-0">
+            <dl class="mb-0 initialism">
+              <dt>Email: </dt>
               <dd class="mb-0"><?php echo $event->email; ?></dd>
             </dl>
           </div>
 
           <div class="col-6 col-md-3">
-            <dl class="mb-0">
+            <dl class="mb-0 initialism">
+              <dt>Tel: </dt>
               <dd class="mb-0"><?php echo $event->client_telephone; ?></dd>
             </dl>
           </div>
 
           <div class="col-6 col-md-3">
-            <dl class="mb-0">
-              <dt>DJ</dt>
+            <dl class="mb-0 initialism">
+              <dt>DJ: </dt>
               <dd class="mb-0"><?php echo $utils->field($event->dj['dj_name']); ?></dd>
             </dl>
           </div>
