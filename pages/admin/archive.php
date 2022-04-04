@@ -98,7 +98,7 @@ $adminPage = "archive";
             <dt class="mb-0"><?php echo $date->format('D M jS Y'); ?></dt>
           </dl>
           <dl class="col-6 col-md-3 mb-0">
-            <dt class="mb-0"><?php echo $event->primary_contact; if (!empty($event->secondary_contact)) echo " / " . $event->secondary_contact; ?></dt>
+            <dt class="mb-0"><?php echo $event->primary_contact; if ($event->secondary_contact != " ") echo " / " . $event->secondary_contact; ?></dt>
           </dl>
 
           <dl class="col-6 col-md-3 mb-0">
@@ -151,53 +151,41 @@ $adminPage = "archive";
 
       <div class="card-body">
         <div class="row">
-          <div class="col-12 col-md-3">
-            <dl class="mb-0">
-              <dt>Email</dt>
+        <div class="col-12 col-md-3">
+            <dl class="mb-0 initialism">
+              <dt>Email:</dt>
               <dd class="mb-0"><?php echo $event->email; ?></dd>
             </dl>
-            <dl class="mb-0">
-              <dt>Telephone</dt>
+          </div>
+
+          <div class="col-6 col-md-3">
+            <dl class="mb-0 initialism">
+              <dt>Tel:</dt>
               <dd class="mb-0"><?php echo $event->client_telephone; ?></dd>
             </dl>
           </div>
 
           <div class="col-6 col-md-3">
-            <dl class="mb-0">
-              <dt>DJ</dt>
+            <dl class="mb-0 initialism">
+              <dt>DJ:</dt>
               <dd class="mb-0"><?php echo $utils->field($event->dj['dj_name']); ?></dd>
             </dl>
-            <dl class="mb-0">
-              <dt>Booking</dt>
-              <?php if ($event->booking_type == 'package') { ?>
-                <?php $key = array_search($event->package_client_id, array_column($package_clients, 'id')); ?>
-                <dd class="mb-0"><a href="/admin/view/client?id=<?php echo $event->package_client_id; ?>"><?php echo $package_clients[$key]['venue_name']; ?></a></dd>
-              <?php } else { ?>
-                <dd class="mb-0"><?php echo $event->booking_type; ?></dd>
-              <?php } ?>
-            </dl>
           </div>
 
-          <div class="col-6 col-md-3">
-            <dl class="mb-0">
-              <dt>Type</dt>
-              <dd class="mb-0"><?php echo $utils->field($event->type); ?></dd>
-            </dl>
-            <dl class="mb-0">
-              <dt>Guests</dt>
-              <dd class="mb-0"><?php echo $utils->field($event->numbers); ?></dd>
-            </dl>
-          </div>
-
+          <?php if ($event->status != 'cancelled') { ?>
           <div class="col-12 col-md-3 admin-actions mt-1">
-            <div class="d-grid gap-2 d-md-flex my-2 my-md-0">
-            <?php if ($event->status !== 'cancelled') { ?>  
-            <a href="/admin/edit?id=<?php echo $event->id; ?>" class="btn btn-sm btn-primary flex-fill">Edit</a>
-            <?php } ?>
-              <a href="/planner/view/summary?id=<?php echo $event->id; ?>" class="btn btn-secondary btn-sm flex-fill">Planner</a>
-            </div>
-          </div>
+            <form name="event-update" action="/actions/event" method="post" class="admin-form mb-0">
+              <input type="hidden" name="id" value="<?php echo $event->id; ?>" />
 
+              <div class="d-grid gap-2 d-md-flex my-2 my-md-0">
+              <?php if ($event->status !== 'cancelled') { ?>
+                <a href="/admin/edit?id=<?php echo $event->id; ?>" class="btn btn-sm btn-primary flex-fill">Edit</a>
+              <?php } ?>
+                <a href="/planner/view/summary?id=<?php echo $event->id; ?>" class="btn btn-secondary btn-sm flex-fill">Planner</a>
+              </div>
+            </form>
+          </div>
+          <?php } ?>
         </div>
       </div>
 

@@ -1,5 +1,5 @@
 <section class="introduction content-section">
-  <h1>Meet the Hi-Life DJs</h1>
+  <h1>Meet the Hi-Life Entertainment DJs</h1>
   <p class="lead">Hi-Life mobile and club DJs available for hire from Hi-Life in <?php echo $regions[$_GET['region']]["db_key"]; ?> and <?php echo $regions[$_GET['region']]["county"]; ?>. Your mobile DJ will be selected based primarily upon the music that you are looking for, as well as the location of the event and availability. You can of course request a quote to book a specific DJ.</p>
 </section>
 
