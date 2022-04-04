@@ -6,13 +6,13 @@ $customer_config = array(
       "body" => array(
         "default" => array(
           "Hi %primary_contact%",
-          "Thank you for your enquiry about booking a DJ for your %type% on %date% at %venue_name%",
-          "line of body text with email %email%",
-          "line of body text with telephone %client_telephone%",
-          "line of body text with location %location%",
-          "You can now start planning your event using our planner.",
-          "Create your account at " . constant('BASE_URL') . "/account/register",
-          "Or you can sign in immediatley with Facebook at " . constant('BASE_URL') . "/account/sign-in"
+          "Thank you for your enquiry about booking a DJ for your %type% on %date% at %venue_name% .",
+          "I will send you a quote shortly to your email address at %email% .",
+          "All the best,",
+          "",
+          "Mark Hepworth",
+          "Hi-Life Entertainment Ltd",
+          "Tel 07828 688144"
         )
       )
     ),
