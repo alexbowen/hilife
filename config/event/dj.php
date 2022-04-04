@@ -5,7 +5,7 @@ $dj_config = array(
       "title" => "DJ - event now confirmed for %date%",
       "body" => array(
         "default" => array(
-          "mail to DJ Event confirmed on %date%"
+          "DJ Event confirmed on %date%"
         )
       )
     )
@@ -15,7 +15,7 @@ $dj_config = array(
       "title" => "DJ - event is cancelled for %date%",
       "body" => array(
         "default" => array(
-          "Event cancelled on %date%"
+          "DJ event cancelled on %date%"
         )
       )
     )

@@ -21,6 +21,7 @@ class Email {
       }
     }
 
+    $email_body .= "All the best,\n\n";
     $email_body .= constant("ADMIN_NAME") . "\n";
     $email_body .= constant("ADMIN_COMPANY") . "\n";
     $email_body .= constant("ADMIN_ADDRESS") . "\n";

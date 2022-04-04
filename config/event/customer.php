@@ -7,8 +7,7 @@ $customer_config = array(
         "default" => array(
           "Hi %primary_contact%",
           "Thank you for your enquiry about booking a DJ for your %type% on %date% at %venue_name% .",
-          "I will send you a quote shortly to your email address at %email% .",
-          "All the best,"
+          "I will send you a quote shortly to your email address at %email% ."
         )
       )
     ),

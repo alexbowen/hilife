@@ -2,7 +2,7 @@
 $admin_config = array(
   "enquiry" => array(
     "email" => array(
-      "title" => "booking enquiry from website for %type% at %venue_name%",
+      "title" => "Admin - booking enquiry from website for %type% at %venue_name%",
       "body" => array(
         "default" => array(
           "Enquiry submitted for event on %date% starting at %start_time% till %finish_time%",
