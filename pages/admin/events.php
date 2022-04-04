@@ -135,7 +135,7 @@ $adminPage = "events";
             <dt class="mb-0"><?php echo $date->format('D M jS Y'); ?></dt>
           </dl>
           <dl class="col-6 col-md-3 mb-0">
-            <dt class="mb-0"><?php echo $event->primary_contact; if ($event->secondary_contact != " ") echo " / " . $event->secondary_contact; ?></dt>
+            <dt class="mb-0"><?php echo $event->primary_contact; if (!empty($event->secondary_contact)) echo " / " . $event->secondary_contact; ?></dt>
           </dl>
 
           <dl class="col-6 col-md-3 mb-0">
@@ -189,8 +189,8 @@ $adminPage = "events";
       <div class="card-body">
         <div class="row">
           <div class="col-12 col-md-3">
-            <dl class="mb-0 initialism">
-              <dt>Email: </dt>
+            <dl class="mb-0">
+              <dt class="initialism">Email: </dt>
               <dd class="mb-0"><?php echo $event->email; ?></dd>
             </dl>
           </div>
@@ -225,12 +225,6 @@ $adminPage = "events";
           <?php } ?>
         </div>
       </div>
-
-      <?php if ($event->booking_type == 'direct' && $event->contract_status !== 'received') { ?>
-      <div class="card-footer">
-        <span class="text-danger">** No contract received for this direct booking **</span>
-      </div>
-      <?php } ?>
     </div>
     <?php } ?>
 

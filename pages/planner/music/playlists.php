@@ -78,9 +78,7 @@ $section = 'playlists';
 ?>
 
 <section class="content-section">
-  
-<?php include ('navigation.php'); ?>
-
+  <?php include ('navigation.php'); ?>
   <div class="content-tabs__container admin">
     <h5>Top 25</h5>
     <form name="eventmusic" action="/planner/music/playlists?id=<?php echo $event->id; ?>" method="post">

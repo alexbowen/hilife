@@ -143,13 +143,6 @@ if ($_POST['action'] == 'update') {
     }
   }
 
-  $to_validate = array_filter(array(array('date' => $event_timings['date']), $_POST['event'], $_POST['admin']));
-
-  $invalid = eventInvalid(array_merge(...$to_validate));
-  if ($invalid) {
-    Notify::add('error', $invalid . ' for ' . $event_updated->email);
-  }
-
   Notify::add('message', 'Event updated for ' . $event_updated->email);
 
   header('Location: ' . $_SERVER['HTTP_REFERER']);

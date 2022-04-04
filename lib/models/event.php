@@ -84,7 +84,7 @@ class Event {
 
   public function prettyTime($when) {
     global $utils;
-    return $utils->prettyTimeFormat($this->{$when . '_time'});
+    return $utils->field($utils->prettyTimeFormat($this->{$when . '_time'}));
   }
 
   public function inFuture() {

@@ -15,8 +15,6 @@ client_address
 client_telephone
 numbers
 status
-contract_status
-dj
 
 *add notes
 *date format

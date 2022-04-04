@@ -51,12 +51,12 @@ $package_clients = $database->query($query)->fetchAll();
   <div class="col-md-6">
     <div class="row">
     <?php if ($event->booking_type == 'direct') { ?>
-      <label for="event-contract-status" class="col-form-label col-md-3">Contract</label>
+      <label for="event-contract-status" class="col-form-label col-md-3">Status</label>
       <div class="col-md-9">
-        <select name="admin[contract_status]" id="event-contract-status" class="form-select form-select-sm">
-          <option value="none" <?php if ($event->contract_status == 'none') { ?>selected<?php } ?>>none</option>
-          <option value="sent" <?php if ($event->contract_status == 'sent') { ?>selected<?php } ?>>sent</option>
-          <option value="received" <?php if ($event->contract_status == 'received') { ?>selected<?php } ?>>received</option>
+        <select name="admin[status]" id="event-status" class="form-select form-select-sm">
+          <option value="enquiry" <?php if ($event->status == 'enquiry') { ?>selected<?php } ?>>enquiry</option>
+          <option value="pending" <?php if ($event->status == 'pending') { ?>selected<?php } ?>>pending</option>
+          <option value="confirmed" <?php if ($event->status == 'confirmed') { ?>selected<?php } ?>>confirmed</option>
         </select>
       </div>
       <?php } else { ?>

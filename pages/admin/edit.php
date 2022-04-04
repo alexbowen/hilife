@@ -21,8 +21,6 @@ $event = EventFactory::create(array(
             <form name="event-update" action="/actions/event" method="post" class="admin-form needs-validation needs-validation-time" novalidate>
               <input type="hidden" name="id" value="<?php echo $event->id; ?>" />
               <input type="hidden" name="admin[booking_type]" value="<?php echo $event->booking_type; ?>" />
-              <input type="hidden" name="admin[status]" value="<?php echo $event->status; ?>" />
-              <input type="hidden" name="admin[contract_status]" value="<?php echo $event->contract_status; ?>" />
               <input type="hidden" name="event[email]" value="<?php echo $event->email; ?>" />
               <input type="hidden" name="event[primary_contact]" value="<?php echo $event->primary_contact; ?>" />
 
