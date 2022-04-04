@@ -132,9 +132,7 @@ $section = 'themes';
   <form name="eventmusic" action="/planner/music/themes?id=<?php echo $event->id; ?>" method="post">
     <input type="hidden" name="id" value="<?php echo $event->id; ?>" />
     <div class="content-border__container admin">
-
       <h5>Additional requirements</h5>
-      
       <div class="row my-3">
           <div class="col">
             <textarea name="additional" class="form-control" rows="6"><?php echo $event->additional; ?></textarea>

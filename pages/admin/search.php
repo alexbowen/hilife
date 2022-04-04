@@ -38,7 +38,7 @@ $adminPage = "search";
             <dt class="mb-0<?php if (!$event->inFuture()) { ?> event-passed<?php } ?>"><?php echo $date->format('D M jS Y'); ?></dt>
           </dl>
           <dl class="col-6 col-md-3 mb-0">
-            <dt class="mb-0"><?php echo $event->primary_contact; if ($event->secondary_contact != " ") echo " / " . $event->secondary_contact; ?></dt>
+            <dt class="mb-0"><?php echo $event->primary_contact; if (!empty($event->secondary_contact)) echo " / " . $event->secondary_contact; ?></dt>
           </dl>
 
           <dl class="col-6 col-md-3 mb-0">
@@ -58,8 +58,8 @@ $adminPage = "search";
       <div class="card-footer">
         <div class="row">
         <div class="col-12 col-md-3">
-            <dl class="mb-0 initialism">
-              <dt>Email: </dt>
+            <dl class="mb-0">
+              <dt class="initialism">Email: </dt>
               <dd class="mb-0"><?php echo $event->email; ?></dd>
             </dl>
           </div>
