@@ -19,12 +19,12 @@ $customer_config = array(
   ),
   "pending" => array(
     "email" => array(
-      "title" => "Hi-Life Entertainment event is pending confirmation",
+      "title" => "Your booking is now in our diary, pending you paying your deposit",
       "body" => array(
         "default" => array(
           "Hi %primary_contact%",
-          "Event is pending confirmation on %date%",
-          "You can now start planning your event using our planner.",
+          "You will receive a seperate email from me with your booking form and instructions how to pay your deposit for your event on  %date%",
+          "You can now start planning your event using our music planner.",
           "Create your account at " . constant('BASE_URL') . "/account/register",
           "Or you can sign in immediatley with Facebook at " . constant('BASE_URL') . "/account/sign-in"
         ),
@@ -71,7 +71,7 @@ $customer_config = array(
       "body" => array(
         "default" => array(
           "Hi %primary_contact%",
-          "Event is cancelled on %date%"
+          "I can confirm that your booking is cancelled on %date% . If you change your mind please drop me an email back at any point."
         )
       )
     ),
