@@ -28,7 +28,7 @@ function requestedAuth() {
 }
 
 if(!$user->signedIn() && requestedAuth() == 'user') {
-  header('Location: /');
+  header('Location: /account/sign-in');
 }
 
 if(!$user->isInternal() && requestedAuth() == 'user' && isset($_GET['eid'])) {
@@ -36,6 +36,6 @@ if(!$user->isInternal() && requestedAuth() == 'user' && isset($_GET['eid'])) {
 }
 
 if(!$user->isAdmin() && requestedAuth() == 'admin') {
-  header('Location: /');
+  header('Location: /account/sign-in');
 }
 ?>

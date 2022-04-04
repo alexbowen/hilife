@@ -190,21 +190,21 @@ $adminPage = "events";
         <div class="row">
           <div class="col-12 col-md-3">
             <dl class="mb-0">
-              <dt class="initialism">Email: </dt>
+              <dt class="initialism">Email:</dt>
               <dd class="mb-0"><?php echo $event->email; ?></dd>
             </dl>
           </div>
 
           <div class="col-6 col-md-3">
             <dl class="mb-0 initialism">
-              <dt>Tel: </dt>
+              <dt>Tel:</dt>
               <dd class="mb-0"><?php echo $event->client_telephone; ?></dd>
             </dl>
           </div>
 
           <div class="col-6 col-md-3">
             <dl class="mb-0 initialism">
-              <dt>DJ: </dt>
+              <dt>DJ:</dt>
               <dd class="mb-0"><?php echo $utils->field($event->dj['dj_name']); ?></dd>
             </dl>
           </div>

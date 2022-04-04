@@ -16,12 +16,12 @@
       <div class="card card-full-width clearfix">
         <img src="/assets/images/wedding/<?php echo $wedding['image']['file']; ?>" alt="<?php echo $wedding['image']['alt']; ?>" class="rounded img-fluid float-md-end ms-md-3" />
         <p class="caption"><?php echo $wedding['caption']; ?></p>
-        <dl class="initialism"><dt>Venue</dt><dd><?php echo $wedding['venue']; ?></dd></dl>
+        <dl class="initialism"><dt>Venue: </dt><dd><?php echo $wedding['venue']; ?></dd></dl>
         <?php if (isset($wedding['dj'])) { ?>
-          <dl class="initialism"><dt>DJ</dt><dd><?php echo $wedding['dj']; ?></dd></dl>
+          <dl class="initialism"><dt>DJ: </dt><dd><?php echo $wedding['dj']; ?></dd></dl>
         <?php } ?>
-        <dl class="initialism"><dt>Music genres</dt><dd><?php echo $wedding['genres']; ?></dd></dl>
-        <dl class="initialism"><dt>Favourite track(s)</dt><dd><?php echo $wedding['tracks']; ?></dd></dl>
+        <dl class="initialism"><dt>Music genres: </dt><dd><?php echo $wedding['genres']; ?></dd></dl>
+        <dl class="initialism"><dt>Favourite track(s): </dt><dd><?php echo $wedding['tracks']; ?></dd></dl>
       </div>
     </div>
   </div>

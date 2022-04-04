@@ -29,12 +29,21 @@ h1 {
   margin-bottom: 15px;
 }
 
+.initialism {
+  font-size: .9em;
+}
+
 dl {
   margin-bottom: 0;
 }
 
 dt, dd {
   display: inline;
+  font-size: .9em;
+}
+
+dt {
+  margin-right: 0.2em;
 }
 
 .text-bold {

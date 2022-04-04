@@ -9,7 +9,7 @@ if (isset($_GET['id'])) {
 $result = $database->query($query);
 ?>
 
-<h1>Your Hi-Life Entertainment events</h1>
+<h1>Your upcoming Hi-Life events</h1>
 
 <?php if($result->rowCount() > 0) { ?>  
 <?php foreach ($result as $e) { ?>
@@ -71,6 +71,7 @@ $result = $database->query($query);
 <?php } ?>
 
 <?php } ?>
+
 <?php } else { ?>
   <div class="content-border__container content-section-link">
     <p class="lead">You have no events created - submit an enquiry on our <a href="/contact">contact page</a></p>
