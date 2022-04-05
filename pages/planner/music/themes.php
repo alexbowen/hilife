@@ -1,59 +1,4 @@
 <?php
-if (isset($_POST['action']) && $_POST['action'] == 'update') {
-
-  $query = "INSERT INTO events_music (event_id, additional, first_dance, last_dance)";
-  $query .= " VALUES (\"" . $_GET['id'] . "\", \"" . $_POST['additional'] . "\", \"" . $_POST['first_dance'] . "\", \"" . $_POST['last_dance'] . "\")";
-  $query .= " ON DUPLICATE KEY UPDATE additional=VALUES(additional), first_dance=VALUES(first_dance), last_dance=VALUES(last_dance)";
-  $database->query($query);
-
-  $utils->setPlannerUpdated($_POST['id'], $_SESSION['auth_roles']);
-}
-
-if (isset($_POST['action']) && $_POST['action'] == 'update-auto') {
-
-  $query = "DELETE FROM event_music_categories WHERE event_id = \"" . $_GET['id'] . "\"";
-  $database->query($query);
-
-  if (isset($_POST['categories'])) {
-    $query = "INSERT INTO event_music_categories (event_id, category_id, favourite) VALUES ";
-
-    foreach($_POST['categories'] as $category_id) {
-      $query .= "(\"" . $_GET['id'] . "\", \"" . $category_id . "\"";
-      if (isset($_POST['category-favourites']) && in_array($category_id, $_POST['category-favourites'])) {
-        $query .= ", \"1\" ";
-      } else {
-        $query .= ", \"0\" ";
-      }
-      $query .= "), ";
-    }
-
-    $query = substr($query, 0, -2);
-    $database->query($query);
-  }
-
-  $query = "DELETE FROM event_music_decades WHERE event_id = \"" . $_GET['id'] . "\"";
-  $database->query($query);
-
-  if (isset($_POST['decades'])) {
-    $query = "INSERT INTO event_music_decades (event_id, decade_id, favourite) VALUES ";
-
-    foreach($_POST['decades'] as $decade_id) {
-      $query .= "(\"" . $_GET['id'] . "\", \"" . $decade_id . "\"";
-      if (isset($_POST['decade-favourites']) && in_array($decade_id, $_POST['decade-favourites'])) {
-        $query .= ", \"1\" ";
-      } else {
-        $query .= ", \"0\" ";
-      }
-      $query .= "), ";
-    }
-
-    $query = substr($query, 0, -2);
-    $database->query($query);
-  }
-
-  $utils->setPlannerUpdated($_GET['id'], $_SESSION['auth_roles']);
-}
-
 include $_SERVER['DOCUMENT_ROOT'].'/lib/event.php';
 
 $event = EventFactory::create(array(
@@ -73,7 +18,7 @@ $section = 'themes';
 <section class="content-section">
   
   <?php include ('navigation.php'); ?>
-  <form name="eventmusic" action="/planner/music/themes?id=<?php echo $event->id; ?>" method="post" data-auto-submit="true">
+  <form name="eventmusic" action="/actions/planner/themes?id=<?php echo $event->id; ?>" method="post" data-auto-submit="true">
     <div class="content-tabs__container admin mb-3">
       <input type="hidden" name="id" value="<?php echo $event->id; ?>" />
       <input type="hidden" name="action" value="update-auto" />
@@ -129,7 +74,7 @@ $section = 'themes';
     </div>
   </form>
 
-  <form name="eventmusic" action="/planner/music/themes?id=<?php echo $event->id; ?>" method="post">
+  <form name="eventmusic" action="/actions/planner/themes?id=<?php echo $event->id; ?>" method="post">
     <input type="hidden" name="id" value="<?php echo $event->id; ?>" />
     <div class="content-border__container admin">
       <h5>Additional requirements</h5>

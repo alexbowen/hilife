@@ -24,7 +24,7 @@ include ($_SERVER['DOCUMENT_ROOT'] . '/lib/auth.php');
     </header>
 
     <main role="main">
-    <?php include ('templates/notification.php'); ?>
+      <?php include ('templates/notification.php'); ?>
       <div class="container">
         <?php include ('pages/'.$_GET['page_name'].'.php'); ?>
       </div>
