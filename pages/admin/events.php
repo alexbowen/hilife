@@ -67,7 +67,7 @@ $package_clients = $database->query($query)->fetchAll();
 
 $pagination = new \yidas\data\Pagination([
     'totalCount' => $count,
-    'perPage' => 5
+    'perPage' => 6
 ]);
 
 $query = "SELECT id, date, events_planner.last_updated FROM events INNER JOIN events_admin ON events_admin.event_id = events.id LEFT JOIN events_planner ON events_planner.event_id = events.id" . $filters . $sort . " LIMIT {$pagination->offset}, {$pagination->limit}";

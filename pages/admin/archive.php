@@ -5,6 +5,7 @@ include $_SERVER['DOCUMENT_ROOT'].'/lib/event.php';
 $filter_parts = array();
 
 array_push($filter_parts, "events.date < CURDATE()");
+array_push($filter_parts, "events_admin.status != 'cancelled'");
 
 if (!empty($_GET['booking_type'])) array_push($filter_parts, "events_admin.booking_type=\"" . $_GET['booking_type'] . "\"");
 if (!empty($_GET['venue'])) array_push($filter_parts, "events.venue_name=\"" . $_GET['venue'] . "\"");
@@ -35,7 +36,7 @@ $package_clients = $database->query($query)->fetchAll();
 
 $pagination = new \yidas\data\Pagination([
     'totalCount' => $count,
-    'perPage' => 5
+    'perPage' => 6
 ]);
 
 $query = "SELECT id, date FROM events INNER JOIN events_admin ON events_admin.event_id = events.id LEFT JOIN events_planner ON events_planner.event_id = events.id " . $filters . $sort . " LIMIT {$pagination->offset}, {$pagination->limit}";
