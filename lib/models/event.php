@@ -64,8 +64,8 @@ class Event {
       $query = "SELECT music_decades.*, event_music_decades.favourite FROM event_music_decades INNER JOIN music_decades ON music_decades.id = event_music_decades.decade_id WHERE event_id = \"" . $this->id . "\"";
       $this->decades = $database->query($query)->fetchAll(PDO::FETCH_NAMED);
 
-      $query = "SELECT playlist_id FROM events_playlists WHERE event_id=\"" . $this->id . "\"";
-      $this->spotify_playlists = $database->query($query)->fetchAll(PDO::FETCH_COLUMN);
+      $query = "SELECT playlist_id, playlist_name, playlist_url FROM events_playlists WHERE event_id=\"" . $this->id . "\"";
+      $this->spotify_playlists = $database->query($query)->fetchAll(PDO::FETCH_NAMED);
 
       $query = "SELECT users.email AS dj_email_address, users.username AS dj_name FROM users WHERE id=\"" . $this->dj_user_id . "\"";
       $this->dj = $database->query($query)->fetch();

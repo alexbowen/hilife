@@ -80,7 +80,7 @@ $section = 'playlists';
         <select class="form-select" name="playlist_id">
         <?php
           foreach ($playlists->items as $playlist) {
-            if (in_array($playlist->id, $event->spotify_playlists)) {
+            if (in_array($playlist->id, array_column($event->spotify_playlists, 'playlist_id'))) {
               echo "<option disabled value=\"" . $playlist->id . "\">" . $playlist->name . "</option>";
             } else {
               ?>
@@ -101,7 +101,7 @@ $section = 'playlists';
     <?php
     if (isset($playlists)) {
       foreach ($playlists->items as $key => $playlist) {
-        if (in_array($playlist->id, $event->spotify_playlists)) {
+        if (in_array($playlist->id, array_column($event->spotify_playlists, 'playlist_id'))) {
           ?>
           <form name="playlistactions" action="/planner/music/playlists?id=<?php echo $event->id; ?>" method="post">
             <input type="hidden" name="delete_playlist_id" value="<?php echo $playlist->id; ?>" />

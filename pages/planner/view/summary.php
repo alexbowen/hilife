@@ -25,14 +25,6 @@ $options = [
 ];
 
 $api = new SpotifyWebAPI\SpotifyWebAPI($options, $session);
-
-$playlists = array();
-
-if ($session->getAccessToken()) {
-  foreach ($event->spotify_playlists as $playlist_id) {
-    array_push($playlists, $api->getPlaylist($playlist_id));
-  }
-}
 ?>
 
 <section class="introduction content-section admin">
@@ -90,21 +82,11 @@ if ($session->getAccessToken()) {
   <h5>Spotify playlists (<?php echo count($event->spotify_playlists); ?>)</h5>
 
   <ul class="list-group admin">
-  <?php foreach ($playlists as $playlist) { ?>
-    <li class="list-group-item"><span><?php echo $playlist->name; ?></span><a href="<?php echo $playlist->uri; ?>">view playlist in Spotify</a></li>
+  <?php foreach ($event->spotify_playlists as $playlist) { ?>
+    <li class="list-group-item"><span><?php echo $playlist['playlist_name']; ?></span><a href="<?php echo $playlist['playlist_url']; ?>">view playlist in Spotify</a></li>
   <?php } ?>
   </ul>
 
-  <div class="row my-3">
-    <div class="d-grid gap-2 d-md-block">
-    <?php if ($session->getAccessToken()) { ?>
-      <a href="/spotify/revoke" class="btn btn-sm spotify"><img src="/assets/images/logos/spotify.png" height="24" width="24" />sign out from Spotify</a>
-    <?php } ?>
-    <?php if (!$session->getAccessToken() && count($event->spotify_playlists) > 0) { ?>
-      <a href="/spotify/auth?redirect=<?php echo urlencode($_SERVER['REQUEST_URI']); ?>" class="btn btn-sm spotify"><img src="/assets/images/logos/spotify.png" height="24" width="24" />sign in to Spotify to view</a>
-    <?php } ?>
-    </div>
-  </div>
 </section>
 <?php } ?>
 
