@@ -4,6 +4,9 @@
 
 <div class="row authentication-form">
   <form name="emailform" action="/auth/sign-in" method="post" class="needs-validation auth-form form-signin" novalidate>
+    <?php if (isset($_GET['redirect'])) { ?>
+    <input type="hidden" name="redirect" value="<?php echo $_GET['redirect']; ?>" />
+    <?php } ?>
     <input type="email" id="email" name="email" class="form-control mb-2" placeholder="Email address" required />
     <div class="invalid-feedback">
       You must enter an email address.

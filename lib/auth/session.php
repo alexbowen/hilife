@@ -36,7 +36,7 @@ function requestedAuth() {
 }
 
 if(!$user->signedIn() && requestedAuth() == 'user') {
-  header('Location: /account/sign-in');
+  header('Location: /account/sign-in?redirect=' . $_SERVER['REQUEST_URI']);
 }
 
 if(!$user->isInternal() && requestedAuth() == 'user' && isset($_GET['eid'])) {

@@ -28,13 +28,17 @@ if ($_POST['action'] == 'sign-in') {
       setcookie('hilife-remember-user', null, time() - 3600, '/', "thehi-life.co.uk"); 
     }
 
-    if ($user->isCustomer()) {
-      header('Location: /planner');
-    } elseif ($user->isAdmin()) {
-      header('Location: /admin/events');
+    $url = "";
+
+    if ($user->isAdmin()) {
+      $url .= "/admin/events";
+    } else if (isset($_POST['redirect'])) {
+      $url .= $_POST['redirect'];
     } else {
-      header('Location: /');
+      $url .= "/";
     }
+
+    header('Location: ' . $url);
   }
   catch (\Delight\Auth\InvalidEmailException $e) {
     Notify::add('error', 'No email address registered for ' . $_POST['email']);
