@@ -72,11 +72,13 @@ if (isset($accessToken)) {
 }
 } else {
   // replace your website URL same as added in the developers.Facebook.com/apps e.g. if you used http instead of https and you used            
-  if (!isset($_GET['redirect'])) {
-    $url = constant('BASE_URL') . '/facebook/callback';
-  } else {
-    $url = constant('BASE_URL') . '/facebook/callback?redirect=' . $_GET['redirect'];
-  }
+  // if (!isset($_GET['redirect'])) {
+  //   $url = constant('BASE_URL') . '/facebook/callback';
+  // } else {
+  //   $url = constant('BASE_URL') . '/facebook/callback?redirect=' . $_GET['redirect'];
+  // }
+
+  $url = constant('BASE_URL') . '/facebook/callback';
 
   $fbLoginUrl = $helper->getLoginUrl($url, $permissions);
 }

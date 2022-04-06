@@ -64,11 +64,13 @@ if (! $accessToken->isLongLived()) {
 
 $_SESSION['fb_access_token'] = (string) $accessToken;
 
-if (isset($_GET['redirect'])) {
-  $redirectUri = $_GET['redirect'];
-} else {
-  $redirectUri = "/";
-}
+// if (isset($_GET['redirect'])) {
+//   $redirectUri = $_GET['redirect'];
+// } else {
+//   $redirectUri = "/";
+// }
 
-header('Location: ' . $redirectUri);
+// header('Location: ' . $redirectUri);
+
+header('Location: /');
 ?>
