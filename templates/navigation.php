@@ -3,14 +3,7 @@
     <div style="display:flex;flex-direction: column;">
     <a class="navbar-brand palette-light-shade" href="/"><img src="/assets/images/logo-light-bg-sm.png" height="38" width="41" alt="Hi-Life Entertainment" />Hi-Life Entertainment</a>
     <span class="authenticated-status">
-      <?php if (isset($_SESSION['auth_username'])) { ?>Hello <?php echo $_SESSION['auth_username']; } ?>
-      <?php if (isset($_SESSION['auth_provider']) && $_SESSION['auth_provider'] == "facebook") { ?>
-        <i class="fa-brands fa-facebook facebook-btn authentication-logo"></i>
-      <?php } ?>
-
-      <?php if (isset($_SESSION['auth_provider']) && $_SESSION['auth_provider'] == "google") { ?>
-        <i class="fa-brands fa-google google-btn authentication-logo"></i>
-      <?php } ?>
+      <?php echo navigationAuthenticated(); ?>
     </span>
       </div>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

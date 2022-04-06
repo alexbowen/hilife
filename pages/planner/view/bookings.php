@@ -19,20 +19,26 @@ $result = $database->query($query);
       <div class="card">
         <div class="card-body p-2">
           <div class="row">
-            <dl class="col-12 col-md-3 mb-0">
+            <dl class="col-12 col-md-3 mb-0 initialism">
+            <dd>Venue:</dd>
               <dt class="mb-0"><?php echo $event->prettyDate(); ?></dt>
             </dl>
-            <dl class="col-12 col-md-3 mb-0">
-              <dd>Contact:</dd>
-              <dt class="mb-0"><?php echo $event->primary_contact; ?></dt>
+            <dl class="col-12 col-md-3 mb-0 initialism">
+              <dd>Setup time:</dd>
+              <dt class="mb-0"><?php echo $event->prettyTime('setup'); ?></dt>
             </dl>
 
-            <dl class="col-12 col-md-3 mb-0">
+            <dl class="col-12 col-md-3 mb-0 initialism">
+              <dd>Start time:</dd>
+              <dt class="mb-0"><?php echo $event->prettyTime('start'); ?></dt>
+            </dl>
+
+            <dl class="col-12 col-md-3 mb-0 initialism">
               <dd>Venue:</dd>
-              <dt class="mb-0"><?php echo $event->venue_name; ?></dt>
+              <dt class="mb-0"><?php echo $utils->field($event->venue_name); ?></dt>
             </dl>
             <div class="col-12 col-md-3 mb-0">
-              <a href="/planner/view/summary?id=<?php echo $event->id; ?>" class="btn btn-primary btn-sm">view music planner</a>
+              <a href="/planner/view/summary?id=<?php echo $event->id; ?>" class="btn btn-secondary btn-sm">view music planner</a>
             </div>
           </div>
         </div>

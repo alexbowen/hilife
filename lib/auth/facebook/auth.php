@@ -51,6 +51,13 @@ if (isset($accessToken)) {
     $_SESSION['auth_username'] = $fbfullname;
     $_SESSION['auth_email'] = $fbemail;
     $_SESSION['auth_provider'] = "facebook";
+
+    $query = "SELECT roles_mask, id FROM users WHERE email = \"" . $_SESSION['auth_email'] . "\"";
+    $auth_user = $database->query($query)->fetchAll(PDO::FETCH_NAMED);
+
+    $_SESSION['auth_roles'] = (int)$auth_user[0]['roles_mask'];
+    $_SESSION['auth_user_id'] = (int)$auth_user[0]['id'];
+
   } catch(Facebook\Exceptions\FacebookResponseException $e) {
     // When Graph returns an error
     echo 'Graph returned an error: ' . $e->getMessage();

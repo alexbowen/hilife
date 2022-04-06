@@ -3,16 +3,10 @@
 </section>
 
 <div class="row authentication-form">
-  <form name="emailform" action="/auth/register" method="post" class="needs-validation form-signin" novalidate>
+  <form name="emailform" action="/auth/register" method="post" class="needs-validation form-signin" novalidate autocomplete="off">
     <input type="email" id="email" name="email" maxlength="50" class="form-control mt-4" placeholder="Enter your email address" required />
     <div class="invalid-feedback">
       Invalid email address.
-    </div>
-
-    <input type="text" id="username" name="username" minlength="6" maxlength="20" class="form-control mt-4" placeholder="Choose a username" aria-describedby="usernameHelp" required />
-    <div id="usernameHelp" class="form-text">Your username must be 6-20 characters.</div>
-    <div class="invalid-feedback">
-      Invalid username
     </div>
 
     <input type="password" id="password" class="form-control mt-4" minlength="8" maxlength="14" placeholder="Choose a password" aria-describedby="passwordHelp" required />
