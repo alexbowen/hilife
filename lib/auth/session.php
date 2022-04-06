@@ -44,6 +44,6 @@ if(!$user->isInternal() && requestedAuth() == 'user' && isset($_GET['eid'])) {
 }
 
 if(!$user->isAdmin() && requestedAuth() == 'admin') {
-  header('Location: /account/sign-in');
+  header('Location: /account/sign-in?redirect=' . $_SERVER['REQUEST_URI']);
 }
 ?>
