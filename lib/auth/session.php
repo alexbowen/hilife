@@ -24,10 +24,10 @@ class User {
 $user = new User();
 
 function navigationAuthenticated() {
-  if (isset($_SESSION['auth_provider'])) {
+  if (isset($_SESSION['auth_provider']) && $_SESSION['auth_provider'] != 'default') {
     return "<span class=\"text-capitalize\">Hello " . $_SESSION['auth_username'] . "<i class=\"fa-brands fa-" . $_SESSION['auth_provider'] . " " . $_SESSION['auth_provider'] . "-btn authentication-logo\"></i>";
   } if (isset($_SESSION['auth_email'])) {
-    return "<span>" . $_SESSION['auth_email'] . "</span>";
+    return "<span>Logged in " . $_SESSION['auth_email'] . "</span>";
   }
 }
 
