@@ -33,7 +33,7 @@ $result = $database->query($query);
 
 <section class="content-section">
   <div class="row">
-    <div class="col-sm">
+    <div class="col-lg-6">
       <div class="card">
         <div class="card-body">
           <h5 class="card-title">Details</h5>
@@ -50,11 +50,11 @@ $result = $database->query($query);
       </div>
     </div>
 
-    <div class="col-sm">
+    <div class="col-lg-6">
       <div class="card">
         <div class="card-body">
           <h5 class="card-title">Music</h5>
-          <p class="card-text">Manage the music for your event.</p>
+          <p class="card-text">Manage music for your event. For more info <a href="/planner/about">click here</a></p>
           <ul>
             <li>Playlists</li>
             <li>Themes</li>
@@ -74,10 +74,13 @@ $result = $database->query($query);
 
 <?php } else { ?>
   <div class="content-border__container content-section-link">
-    <p class="lead">You have no events created - submit an enquiry on our <a href="/contact">contact page</a></p>
+    <p class="lead">You have no upcoming events created - submit an enquiry on our <a href="/contact">contact page</a></p>
   </div>
+  <section class="content-section">
+    <p>Once you have an event booked you can use our <a href="/planner/about">music planner</a>
+  </section>
 <?php } ?>
 
 <?php if (!isset($_SESSION['fb_access_token']) && $user->isCustomer()) { ?>
-  <a href="/account/delete">Delete your account</a>
+  <a class="btn btn-sm btn-danger" href="/account/delete">Delete your account</a>
 <?php } ?>

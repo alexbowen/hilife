@@ -1,7 +1,7 @@
-<section class="introduction content-section">
-  <h1>Hi-Life Entertainment bar DJ bookings</h1>
+<h1>Hi-Life Entertainment bar DJ bookings</h1>
 
-<img src="/assets/images/barandcorporate/now_serving.png" alt="we supply DJs for bar and club events, like this one at Now Serving in Wakefield" class="me-4 img-fluid rounded float-start" />
+<section class="introduction content-section">
+  <img src="/assets/images/barandcorporate/now_serving.png" alt="we supply DJs for bar and club events, like this one at Now Serving in Wakefield" class="me-4 img-fluid rounded float-start" />
   <p class="lead">We cover all forms of bar bookings, from one off promotions, christmas parties, through to monthly and weekly nights.</p>
   <p class="clearfix">Prices depend on the night of the week, times, whether we are supplying PA / lighting, whether it is a one off or ongoing night etc. What I always suggest is meeting you in the venue to discuss your needs. I will then monitor how things are progressing, feeding back information to DJs.</p>
 </section>
