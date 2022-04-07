@@ -19,6 +19,7 @@ RewriteRule ^planner$ /index.php?auth=user&region=leeds&page_name=planner [L,QSA
 RewriteRule ^planner/about$ /index.php?region=leeds&page_name=planner/about [L,QSA]
 RewriteRule ^planner/(.*)?$ /index.php?auth=user&region=leeds&page_name=planner/$1 [L,QSA]
 RewriteRule ^account/(.*)?$ /index.php?region=leeds&page_name=account/$1 [L,QSA]
+RewriteRule ^admin/create/(.*)?$ /index.php?auth=admin&region=leeds&page_name=admin/create/$1&booking_type=$1 [L,QSA]
 RewriteRule ^admin/(.*)?$ /index.php?auth=admin&region=leeds&page_name=admin/$1 [L,QSA]
 RewriteRule ^actions/(.*?)/?$ /lib/actions/$1.php [L]
 RewriteRule ^(cookies|privacy|djs|music|bar-and-corporate|contact|weddings|admin|templates+?)/?$ /index.php?region=leeds&page_name=$1 [L,QSA]

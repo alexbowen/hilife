@@ -77,7 +77,7 @@ $result = $database->query($query);
     <p class="lead">You have no upcoming events created - submit an enquiry on our <a href="/contact">contact page</a></p>
   </div>
   <section class="content-section">
-    <p>Once you have an event booked you can use our <a href="/planner/about">music planner</a>
+    <p>Once you have an event created you can use our <a href="/planner/about">music planner</a>
   </section>
 <?php } ?>
 
