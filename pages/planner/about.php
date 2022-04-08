@@ -1,7 +1,7 @@
 <?php $plannerPage = "about"; ?>
 
 <h1>About Hi-Life music planner</h1>
-<p class="lead">Our unique planner allows you to view details of your event and tell us about music requirements</p>
+<p class="lead">Our unique music planner allows you to view details of your event and tell us about music requirements. You can update it at any point prior to your event and gather your ideas on what you do and don't want. It is designed to work on a mobile phone, computer or tablet so you can use it when and where you want.</p>
 
 <?php include ($_SERVER['DOCUMENT_ROOT'].'/pages/planner/navigation.php'); ?>
 
@@ -54,10 +54,11 @@
     <div class="col-sm">
       <h2 class="card-title">Personalise your music</h2>
       <figure class="figure">
-        <figcaption class="figure-caption lead">Details of first dance & last song of the night & an area to include any additional song info</figcaption>
+        <figcaption class="figure-caption lead">Details of first dance & last song of the night & an area to include any additional information</figcaption>
         <img src="/assets/images/planner/policy2.png" class="figure-img img-fluid rounded shadow border mt-3" height="178" alt="">
       </figure>
     </div>
+    <p>Remember your guests will make requests on the night, so the DJ needs a guide to what you think is acceptable. There is an area to put banned songs, set your requests policy, microphone use by the DJ and your policy on cheese/guilty pleasures.</p>
   </div>
 </section>
 
