@@ -1,47 +1,66 @@
-<?php echo $utils->backlink("/planner", 'back to your events'); ?>
+<?php $plannerPage = "about"; ?>
 
-<h1>Hi-Life Entertainment music planner</h1>
-<p class="lead">Music planner intro text. Music planner intro text. Music planner intro text. Music planner intro text.</p>
+<h1>About Hi-Life music planner</h1>
+<p class="lead">Our unique planner allows you to view details of your event and tell us about music requirements</p>
 
-<section class="content-section">
-  <h2>Music playlists</h2>
-  <div class="content-border__container">
-    <img src="/assets/images/planner/top25.png" alt="" height="200" width="450" class="ms-4 img-fluid img-thumbnail rounded float-end" />
-    <h3>Your top 25 tunes</h3>
-    <p class="lead">These are the main tunes for the DJ to include on the night</p>
-    <p class="clearfix">Bro ipsum dolor sit amet avie pipe phat Skate rig cruiser over the bars sharkbite back country. Snake bite hardtail huckfest wheels bowl trail swag.</p>
+<?php include ($_SERVER['DOCUMENT_ROOT'].'/pages/planner/navigation.php'); ?>
 
-    <img src="/assets/images/planner/spotify.png" alt="" height="200" width="450" class="ms-4 img-fluid img-thumbnail rounded float-end" />
-    <h3>Use Spotify playlists</h3>
-    <p class="lead">You can link playlists from Spotify with your event</p>
-    <p class="clearfix">Bro ipsum dolor sit amet avie pipe phat Skate rig cruiser over the bars sharkbite back country. Snake bite hardtail huckfest wheels bowl trail swag.</p>
+<section class="content-tabs__container">
+  <div class="row align-items-start gx-5">
+    <div class="col-sm">
+      <h2 class="card-title">Your top 25 tunes</h2>
+      <figure class="figure">
+        <figcaption class="figure-caption lead">These are the main tunes for the DJ to include on the night</figcaption>
+        <img src="/assets/images/planner/top25.png" class="figure-img img-fluid rounded shadow border mt-3" height="178" alt="">
+      </figure>
+    </div>
+
+    <div class="col-sm">
+      <h2 class="card-title">Use Spotify playlists</h2>
+      <figure class="figure">
+        <figcaption class="figure-caption lead">You can link playlists from Spotify with your event</figcaption>
+        <img src="/assets/images/planner/spotify.png" class="figure-img img-fluid rounded shadow border mt-3" height="178" alt="">
+      </figure>
+    </div>
+  </div>
+
+  <div class="row align-items-start gx-5 mt-5">
+    <div class="col-sm">
+      <h2 class="card-title">Preferred music categories</h2>
+      <figure class="figure">
+        <figcaption class="figure-caption lead">Categories of music you would like to be played on the night</figcaption>
+        <img src="/assets/images/planner/categories.png" class="figure-img img-fluid rounded shadow border mt-3" height="178" alt="">
+      </figure>
+    </div>
+
+    <div class="col-sm">
+      <h2 class="card-title">Preferred music decades</h2>
+      <figure class="figure">
+        <figcaption class="figure-caption lead">How contemporary/retro or focused on one or two decades to make the music</figcaption>
+        <img src="/assets/images/planner/decades.png" class="figure-img img-fluid rounded shadow border mt-3" height="178" alt="">
+      </figure>
+    </div>
+  </div>
+
+  <div class="row align-items-start gx-5 mt-5">
+    <div class="col-sm">
+      <h2 class="card-title">Music policy</h2>
+      <figure class="figure">
+        <figcaption class="figure-caption lead">What you DON'T want to hear is as important as what you DO</figcaption>
+        <img src="/assets/images/planner/policy.png" class="figure-img img-fluid rounded shadow border mt-3" height="178" alt="">
+      </figure>
+    </div>
+
+    <div class="col-sm">
+      <h2 class="card-title">Personalise your music</h2>
+      <figure class="figure">
+        <figcaption class="figure-caption lead">Details of first dance & last song of the night & an area to include any additional song info</figcaption>
+        <img src="/assets/images/planner/policy2.png" class="figure-img img-fluid rounded shadow border mt-3" height="178" alt="">
+      </figure>
+    </div>
   </div>
 </section>
 
-<section class="content-section">
-  <h2>Music themes</h2>
-  <div class="content-border__container">
-    <img src="/assets/images/planner/categories.png" alt="" height="200" width="450" class="ms-4 img-fluid img-thumbnail rounded float-end" />
-    <h3>Your prefered music categories</h3>
-    <p class="lead">Categories of music you would like to be played on the night</p>
-    <p class="clearfix">Bro ipsum dolor sit amet avie pipe phat Skate rig cruiser over the bars sharkbite back country. Snake bite hardtail huckfest wheels bowl trail swag.</p>
-
-    <img src="/assets/images/planner/decades.png" alt="" height="200" width="450" class="ms-4 img-fluid img-thumbnail rounded float-end" />
-    <h3>Your prefered music decades</h3>
-    <p class="lead">A guide to how contemporary/retro or focused on one or two decades to make the music</p>
-    <p class="clearfix">Bro ipsum dolor sit amet avie pipe phat Skate rig cruiser over the bars sharkbite back country. Snake bite hardtail huckfest wheels bowl trail swag.</p>
-  </div>
-</section>
-
-<section class="content-section">
-  <h2>Music policy</h2>
-  <div class="content-border__container">
-    <img src="/assets/images/planner/policy.png" alt="" height="200" width="450" class="ms-4 img-fluid img-thumbnail rounded float-end" />
-    <p class="lead">What you DON'T want to hear is as important as what you DO</p>
-    <p class="clearfix"> Remember your guests will make requests on the night, so the DJ needs a guide to what you think is acceptable. There is an area to put banned songs, to set your requests policy, microphone use by the DJ & policy on cheese / guilty pleasures.</p>
-
-    <img src="/assets/images/planner/policy2.png" alt="" height="200" width="450" class="ms-4 img-fluid img-thumbnail rounded float-end" />
-    <p class="lead">Details of first dance & last song of the night & an area to include any additional song info</p>
-    <p class="clearfix">Bro ipsum dolor sit amet avie pipe phat Skate rig cruiser over the bars sharkbite back country. Snake bite hardtail huckfest wheels bowl trail swag.</p>
-  </div>
-</section>
+<div class="content-border__container content-section-link">
+  <p class="lead">To book an event - submit an enquiry on our <a href="/contact">contact page</a></p>
+</div>

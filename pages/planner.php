@@ -9,7 +9,12 @@ if (isset($_GET['id'])) {
 $result = $database->query($query);
 ?>
 
+<?php $plannerPage = "events"; ?>
+
 <h1>Your upcoming Hi-Life events</h1>
+<p class="lead">Music planner intro text. Music planner intro text. Music planner intro text. Music planner intro text.</p>
+
+<?php include ($_SERVER['DOCUMENT_ROOT'].'/pages/planner/navigation.php'); ?>
 
 <?php if($result->rowCount() > 0) { ?>  
 <?php foreach ($result as $e) { ?>
@@ -20,7 +25,7 @@ $result = $database->query($query);
 ?>
 
 <?php if ($event && $event->status !== 'cancelled') { ?>
-<section class="introduction content-section">
+  <div class="content-tabs__container">
   <p class="lead">Event planner
     <?php if ($event && !empty($event->venue_name)) { ?> for <b><?php echo $event->venue_name; ?></b><?php } ?>
     on <b><?php echo $event->prettyDate(); ?></b>
@@ -29,9 +34,7 @@ $result = $database->query($query);
   <?php if ($event && $event->status !== 'confirmed') { ?>
   <p class="text-danger">Please note this event is not yet confirmed.</p>
   <?php } ?>
-</section>
-
-<section class="content-section">
+  
   <div class="row">
     <div class="col-lg-6">
       <div class="card">
@@ -67,20 +70,20 @@ $result = $database->query($query);
       </div>
     </div>
   </div>
-</section>
+  </div>
 <?php } ?>
 
 <?php } ?>
 
 <?php } else { ?>
-  <div class="content-border__container content-section-link">
-    <p class="lead">You have no upcoming events created - submit an enquiry on our <a href="/contact">contact page</a></p>
+  <div class="content-tabs__container content-section-link">
+    <p class="lead">You have no upcoming events - submit an enquiry on our <a href="/contact">contact page</a></p>
   </div>
-  <section class="content-section">
-    <p>Once you have an event created you can use our <a href="/planner/about">music planner</a>
-  </section>
+
 <?php } ?>
 
 <?php if (!isset($_SESSION['fb_access_token']) && $user->isCustomer()) { ?>
+  <div class="my-4">
   <a class="btn btn-sm btn-danger" href="/account/delete">Delete your account</a>
+</div>
 <?php } ?>

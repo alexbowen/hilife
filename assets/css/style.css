@@ -171,7 +171,7 @@ input.form-control,
   border-color: #198754;
 }
 
-.content-tabs__container .card:hover {
+.admin .card:hover {
   border: 1px solid #198754;
 }
 
