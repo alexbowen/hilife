@@ -7,7 +7,7 @@
 
 <section class="content-tabs__container">
   <div class="row align-items-start gx-5">
-    <div class="col-sm">
+    <div class="col-sm mt-2">
       <h2 class="card-title">Your top 25 tunes</h2>
       <figure class="figure">
         <figcaption class="figure-caption lead">These are the main tunes for the DJ to include on the night</figcaption>
@@ -15,7 +15,7 @@
       </figure>
     </div>
 
-    <div class="col-sm">
+    <div class="col-sm mt-2">
       <h2 class="card-title">Use Spotify playlists</h2>
       <figure class="figure">
         <figcaption class="figure-caption lead">You can link playlists from Spotify with your event</figcaption>
@@ -24,8 +24,8 @@
     </div>
   </div>
 
-  <div class="row align-items-start gx-5 mt-5">
-    <div class="col-sm">
+  <div class="row align-items-start gx-5 mt-lg-5">
+    <div class="col-sm mt-2">
       <h2 class="card-title">Preferred music categories</h2>
       <figure class="figure">
         <figcaption class="figure-caption lead">Categories of music you would like to be played on the night</figcaption>
@@ -33,7 +33,7 @@
       </figure>
     </div>
 
-    <div class="col-sm">
+    <div class="col-sm mt-2">
       <h2 class="card-title">Preferred music decades</h2>
       <figure class="figure">
         <figcaption class="figure-caption lead">How contemporary/retro or focused on one or two decades to make the music</figcaption>
@@ -42,8 +42,8 @@
     </div>
   </div>
 
-  <div class="row align-items-start gx-5 mt-5">
-    <div class="col-sm">
+  <div class="row align-items-start gx-5 mt-lg-5">
+    <div class="col-sm mt-2">
       <h2 class="card-title">Music policy</h2>
       <figure class="figure">
         <figcaption class="figure-caption lead">What you DON'T want to hear is as important as what you DO</figcaption>
@@ -51,7 +51,7 @@
       </figure>
     </div>
 
-    <div class="col-sm">
+    <div class="col-sm mt-2">
       <h2 class="card-title">Personalise your music</h2>
       <figure class="figure">
         <figcaption class="figure-caption lead">Details of first dance & last song of the night & an area to include any additional information</figcaption>

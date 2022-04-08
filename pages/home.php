@@ -96,7 +96,7 @@
     <img
       src="/assets/images/home/Tuscany_S2.jpg"
       alt="Tuscan castle Wedding DJ Set"
-      class="float-end img-fluid ms-3"
+      class="float-end img-fluid ms-3 mb-3"
     />
     <h3>Recent Highlights</h3>
     <p class="lead">One of the highlights of recent years was playing a wedding in a castle in Tuscany</p>
@@ -115,7 +115,7 @@
     <img
       src="/assets/images/home/marquee-weddings.jpg"
       alt="Tuscan castle Wedding DJ Set"
-      class="float-start img-fluid me-3"
+      class="float-start img-fluid me-3 mb-3"
     />
     <h3>Outdoor events</h3>
     <p class="lead">We do many outdoor events in marquees, teepees, barns, glamping sites for weddings these days.</p>
