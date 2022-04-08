@@ -65,3 +65,5 @@
 <div class="content-border__container content-section-link">
   <p class="lead">To book an event - submit an enquiry on our <a href="/contact">contact page</a></p>
 </div>
+
+<?php include ($_SERVER['DOCUMENT_ROOT'].'/templates/list/regions.php'); ?>
