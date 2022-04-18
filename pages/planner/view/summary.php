@@ -29,11 +29,16 @@ $api = new SpotifyWebAPI\SpotifyWebAPI($options, $session);
 
 <section class="introduction content-section admin">
   <?php echo $utils->backlink($_SERVER['HTTP_REFERER'], 'back to dashboard'); ?>
-  <h1>Music planner summary</h1>
+  <div class="row">
+    <div class="col">
+      <h1 style="display:inline-block;">Music planner summary</h1>
+      <button class="btn btn-link palette-light-accent no-print print-action">download PDF</button>
+    </div>
+  </div>
   <p><?php if ($event && !empty($event->venue_name)) { ?> at <b><?php echo $event->venue_name; ?></b><?php } ?><?php if ($event && !empty($event->date)) { ?> on <b><?php echo $event->prettyDate(); ?></b><?php } ?></p>
 </section>
 
-<section class="content-section admin">
+<section class="content-section admin page-break">
   <h2>Details</h2>
   <ul class="list-group admin mb-3">
     <li class="list-group-item"><dl><dt><span>DJ playing</span></dt><dd><?php echo $utils->field($event->dj['dj_name']); ?></dd></dl></li>
@@ -42,7 +47,7 @@ $api = new SpotifyWebAPI\SpotifyWebAPI($options, $session);
   <?php include ($_SERVER['DOCUMENT_ROOT'].'/templates/event/show.php'); ?>
 </section>
 
-<section class="content-section admin">
+<section class="content-section admin page-break">
   <h2>Music</h2>
   <?php if (is_array($event->top_25) && count($event->top_25) > 0) { ?>
   <div class="content-border__container admin">

@@ -50,7 +50,7 @@ $package_clients = $database->query($query)->fetchAll();
   </div>
   <div class="col-md-6">
     <div class="row">
-    <?php if ($event->booking_type == 'direct' || $_GET['booking_type'] == 'direct') { ?>
+    <?php if ($event->booking_type == 'direct' || (isset($_GET['booking_type']) && $_GET['booking_type'] == 'direct')) { ?>
       <label for="event-contract-status" class="col-form-label col-md-3">Status</label>
       <div class="col-md-9">
         <select name="admin[status]" id="event-status" class="form-select form-select-sm">

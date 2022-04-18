@@ -5,7 +5,7 @@ class Utils {
   }
 
   public function backlink($path, $text) {
-    return '<div class="back-link"><a href="' . $path . '">' . $text . '</a></div>';
+    return '<div class="back-link no-print"><a href="' . $path . '">' . $text . '</a></div>';
   }
 
   public function normaliseDate($parts) {

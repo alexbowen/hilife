@@ -8,6 +8,23 @@ main {
   padding-top: 6em;
 }
 
+@media print {
+  body {
+    font-size: larger;
+  }
+  header, footer, .no-print {
+    display: none !important;
+  }
+
+  main {
+    padding-top: 0;
+  }
+
+  .page-break {
+    page-break-after: always;
+  }
+}
+
 .cookies-banner {
   position: sticky;
   bottom: 0;
