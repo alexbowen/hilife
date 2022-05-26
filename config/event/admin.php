@@ -2,14 +2,18 @@
 $admin_config = array(
   "enquiry" => array(
     "email" => array(
-      "title" => "Admin - booking enquiry from website for %type% at %venue_name%",
+      "title" => "Booking enquiry received from %primary_contact% for %date%",
       "body" => array(
         "default" => array(
-          "Enquiry submitted for event on %date% starting at %start_time% till %finish_time%",
+          "Enquiry submitted for event on %date%",
+          "start time: %start_time%",
+          "finish time: %finish_time%",
+          "venue: %venue_name%",
+          "event type: %type%",
           "primary contact name: %primary_contact%",
           "email: %email%",
           "telephone: %client_telephone%",
-		      "%notes%"
+          constant('BASE_URL') . "/admin/edit?id=%id%"
         )
       )
     ),
@@ -20,19 +24,24 @@ $admin_config = array(
   ),
   "pending" => array(
     "email" => array(
-      "title" => "Admin - event now pending",
+      "title" => "Event now pending for %primary_contact% on %date%",
       "body" => array(
         "default" => array(
           "Event pending on %date%",
+          "start time: %start_time%",
+          "finish time: %finish_time%",
+          "venue: %venue_name%",
+          "event type: %type%",
           "primary contact name: %primary_contact%",
           "email: %email%",
-          "telephone: %client_telephone%"
+          "telephone: %client_telephone%",
+          constant('BASE_URL') . "/admin/edit?id=%id%"
         ),
         "direct" => array(
-          "Your contract will be sent to you shortly."
+          ""
         ),
         "package" => array(
-          "optional package booking body text - can be removed or changed in config"
+          ""
         )
       )
     ),
@@ -43,13 +52,18 @@ $admin_config = array(
   ),
   "confirmed" => array(
     "email" => array(
-      "title" => "Admin - event now confirmed for %date%",
+      "title" => "Event now confirmed for %primary_contact% on %date%",
       "body" => array(
         "default" => array(
           "Event confirmed on %date%",
+          "start time: %start_time%",
+          "finish time: %finish_time%",
+          "venue: %venue_name%",
+          "event type: %type%",
           "primary contact name: %primary_contact%",
           "email: %email%",
-          "telephone: %client_telephone%"
+          "telephone: %client_telephone%",
+          constant('BASE_URL') . "/admin/edit?id=%id%"
         )
       )
     ),
@@ -66,7 +80,8 @@ $admin_config = array(
           "Event cancelled on %date%",
           "primary contact name: %primary_contact%",
           "email: %email%",
-          "telephone: %client_telephone%"
+          "telephone: %client_telephone%",
+          constant('BASE_URL') . "/admin/edit?id=%id%"
         )
       )
     ),

@@ -6,8 +6,10 @@ $customer_config = array(
       "body" => array(
         "default" => array(
           "Hi %primary_contact%",
-          "Thank you for your enquiry about booking a DJ for your %type% on %date% at %venue_name% .",
-          "I will send you a quote shortly to your email address at %email% ."
+          "Thank you for your enquiry about booking a DJ for your event on %date%",
+          "venue: %venue_name%",
+          "event type: %type%",
+          "I will send you a quote shortly to your email address at %email%."
         )
       )
     ),
@@ -28,10 +30,10 @@ $customer_config = array(
           "Or you can sign in immediatley with Facebook at " . constant('BASE_URL') . "/account/sign-in"
         ),
         "direct" => array(
-          "Your contract will be sent to you shortly."
+          ""
         ),
         "package" => array(
-          "optional package booking body text - can be removed or changed in config"
+          ""
         )
       )
     ),
@@ -52,10 +54,10 @@ $customer_config = array(
           "Or you can sign in immediatley with Facebook at " . constant('BASE_URL') . "/account/sign-in"
         ),
         "direct" => array(
-          "optional direct booking body text - can be removed or changed in config"
+          ""
         ),
         "package" => array(
-          "optional package booking body text - can be removed or changed in config"
+          ""
         )
       )
     ),
