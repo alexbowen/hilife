@@ -42,6 +42,8 @@ class Utils {
       }
     }
 
+    $template = preg_replace('%.*%', '', $template);
+
     return $template;
   }
 
