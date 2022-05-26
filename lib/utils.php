@@ -37,12 +37,12 @@ class Utils {
 
   public function templateString(&$template, $values) {
     foreach ($values as $key => $value) {
-      if (is_string($value)) {
+      if (is_string($value) && strlen($value) > 0) {
         $template = str_replace('%' . $key . '%', $value, $template);
       }
     }
 
-    $template = preg_replace('%.*%', '', $template);
+    $template = preg_replace('/\%.*\%/', 'not specified', $template);
 
     return $template;
   }
