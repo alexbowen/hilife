@@ -12,7 +12,7 @@ $result = $database->query($query);
 <?php $plannerPage = "events"; ?>
 
 <h1>Your upcoming Hi-Life events</h1>
-<p class="lead">Music planner intro text. Music planner intro text. Music planner intro text. Music planner intro text.</p>
+<p class="lead">You will have already received a Google Calendar invite regarding these dates. Please check your calendar that you have received everything. Any problems send an email to <a href="mailto:mark@thehi-life.co.uk">mark@thehi-life.co.uk</a></p>
 
 <?php include ($_SERVER['DOCUMENT_ROOT'].'/pages/planner/navigation.php'); ?>
 
