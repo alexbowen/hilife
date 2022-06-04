@@ -1,11 +1,46 @@
 body {
   background: rgb(244,244,244);
-  background: radial-gradient(circle, rgba(244,244,244,1) 0%, rgba(244,244,244,1) 14%, rgba(239,242,235,1) 100%);
 }
 
 main {
   min-height: 100vh;
   padding-top: 6em;
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  perspective: 300px;
+}
+
+.container {
+  padding-bottom: 1em;
+}
+
+.parallax__group {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  transform-style: preserve-3d;
+}
+
+.parallax__fade {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: linear-gradient(to bottom, transparent, #fff);
+  height: 200px;
+}
+
+.parallax__background {
+  background: url('/assets/images/page_bg.jpg') no-repeat;
+  background-size: cover;
+  opacity: 0.1;
+  transform: translateZ(-600px) scale(3);
+  z-index: 1;
+  position: absolute;
+  top: -12em;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 
 @media print {
@@ -160,6 +195,8 @@ main a:hover, .nav-tabs .nav-link:hover {
 }
 
 .card {
+  border: 1px solid #ddd;
+  box-shadow: #ddd 2px 2px 6px;
   margin-bottom: 20px;
 }
 
@@ -193,6 +230,7 @@ input.form-control,
 }
 
 .admin .card-header {
+  background-color: #efefef;
   font-size: 1rem;
 }
 
@@ -201,7 +239,7 @@ input.form-control,
 }
 
 .admin .card-body {
-  background-color: #efefef;
+  background-color: #fefefe;
   padding: 0.5rem 1rem;
 }
 
@@ -424,7 +462,14 @@ header {
 
 .navbar-nav li a,
 .navbar-nav li button {
-  font-size: 0.75em;
+  font-size: 0.9em;
+}
+
+@media only screen and (min-width: 768px) {
+  .navbar-nav li a,
+  .navbar-nav li button {
+    font-size: 0.75em;
+  }
 }
 
 .navbar .navbar-nav .active .nav-link {
@@ -512,7 +557,8 @@ header {
 }
 
 .content-border__container {
-  border: 1px solid rgba(0,0,0,.125);
+  border: 1px solid #ddd;
+  box-shadow: #ddd 2px 2px 6px;
   border-radius: .25rem;
   background-color: #FEFEFE;
   padding: 1em;

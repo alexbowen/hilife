@@ -24,10 +24,18 @@ include ($_SERVER['DOCUMENT_ROOT'] . '/lib/auth.php');
     </header>
 
     <main role="main">
+    <div class="parallax__group">
+
+        <div class="parallax__background">
+          <div class="parallax__fade"></div>
+        </div>
       <?php include ('templates/notification.php'); ?>
       <div class="container">
         <?php include ('pages/'.$_GET['page_name'].'.php'); ?>
       </div>
+
+</div>
+
     </main>
 
     <?php include ('templates/cookies.php'); ?>
