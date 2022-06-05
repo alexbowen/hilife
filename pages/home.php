@@ -9,7 +9,7 @@
   <div class="row">
     <div class="col-sm" style="display:flex">
       <div class="card event">
-        <img class="card-img-top" src="/assets/images/home/wedding_djs.jpg" alt="Wedding DJ services in Leeds, West Yorkshire, North Yorkshire, Bradford and York" />
+        <img class="card-img-top" srcset="/assets/images/home/wedding-djs-mobile.jpg 300w, /assets/images/home/wedding-djs.jpg 480w" sizes="(max-width: 1024px) 300px, 480px" src="/assets/images/home/wedding_djs.jpg" alt="Wedding DJ services in Leeds, West Yorkshire, North Yorkshire, Bradford and York" />
         <div class="card-body">
           <h2 class="card-title">Weddings</h2>
           <h3 class="card-subtitle mb-2 text-muted">
@@ -25,7 +25,7 @@
 
     <div class="col-sm">
       <div class="card event">
-        <img class="card-img-top" src="/assets/images/home/bar-corporate.jpg" alt="DJs for bar, corporate and club events in the leeds and Yorkshire area" />
+        <img class="card-img-top" srcset="/assets/images/home/bar-corporate-mobile.jpg 300w, /assets/images/home/bar-corporate.jpg 480w" sizes="(max-width: 1024px) 300px, 480px" src="/assets/images/home/wedding_djs.jpg" alt="DJs for bar, corporate and club events in the leeds and Yorkshire area" />
         <div class="card-body">
           <h2 class="card-title">Bar and Corporate</h2>
           <h3 class="card-subtitle mb-2 text-muted">
@@ -43,11 +43,10 @@
   <div class="row">
     <div class="col-sm">
       <div class="card event">
-        <img
-          class="card-img-top"
-          src="/assets/images/home/sax-bongo-dj.jpg"
-          alt="Sax and DJ packages for weddings and parties in Leeds and Yorkshire"
-        />
+        <img class="card-img-top"
+              srcset="/assets/images/home/sax-bongo-dj-mobile.jpg 300w, /assets/images/home/sax-bongo-dj.jpg 480w"
+              sizes="(max-width: 1024px) 300px, 480px" src="/assets/images/home/sax-bongo-dj.jpg"
+              alt="Sax and DJ packages for weddings and parties in Leeds and Yorkshire" />
         <div class="card-body">
           <h2 class="card-title">Sax and DJ packages</h2>
           <h3 class="card-subtitle mb-2 text-muted">
@@ -64,11 +63,10 @@
 
     <div class="col-sm">
       <div class="card event">
-        <img
-          class="card-img-top"
-          src="/assets/images/home/silent-disco.jpg"
-          alt="Silent disco events in Leeds and Yorkshire"
-        />
+        <img class="card-img-top"
+              srcset="/assets/images/home/silent-disco-mobile.jpg 300w, /assets/images/home/silent-disco.jpg 480w"
+              sizes="(max-width: 1024px) 300px, 480px" src="/assets/images/home/silent-disco.jpg"
+              alt="Silent disco events in Leeds and Yorkshire" />
         <div class="card-body">
           <h2 class="card-title">Silent Disco</h2>
           <h3 class="card-subtitle mb-2 text-muted">

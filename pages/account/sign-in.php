@@ -18,7 +18,7 @@
     </div>
 
     <div class="d-grid gap-2 mb-3">
-      <button class="btn btn-success" type="submit" name="action" value="sign-in"><i class="fas fa-sign-in-alt me-1"></i> Sign in</button>
+      <button class="btn btn-success" type="submit" name="action" value="sign-in">Sign in</button>
       <div class="row">
         <div class="col-6">
             <a href="/account/forgot-password" id="forgot_pswd">Forgot password?</a>
@@ -31,13 +31,13 @@
         </div>
       </div>
       <hr>
-      <a href="/account/register" class="btn btn-primary"><i class="fas fa-user-plus me-1"></i> Create new account</a>
+      <a href="/account/register" class="btn btn-primary"></i> Create new account</a>
       
       <?php if (isset($_COOKIE['cookie-consent']) && $_COOKIE['cookie-consent'] == 'accepted') { ?>
       <p style="text-align:center">OR</p>
       <div class="social-login">
-        <a href="<?php echo $fbLoginUrl; ?>" class="btn facebook-btn social-btn mb-2"><span><i class="fa-brands fa-facebook me-1"></i> Sign in with Facebook</span> </a>
-        <a href="<?php echo $googleLoginUrl; ?>" class="btn google-btn social-btn"><span><i class="fa-brands fa-google me-1"></i> Sign in with Google</span> </a>
+        <a href="<?php echo $fbLoginUrl; ?>" class="btn facebook-btn social-btn mb-2"><span><i class="facebook me-1"></i> Sign in with Facebook</span> </a>
+        <a href="<?php echo $googleLoginUrl; ?>" class="btn google-btn social-btn"><span><i class="google me-1"></i> Sign in with Google</span> </a>
       </div>
       <?php } ?>
     </div>

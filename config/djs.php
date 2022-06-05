@@ -3,7 +3,7 @@ $djs = array(
   array(
     "name" => "DJ Darren Baxter",
     "image" => array(
-      "file" => "DJ_Darren.png",
+      "file" => "DJ_Darren.jpeg",
       "alt" => "mobile DJ Darren Baxter plays funk, northern soul, motown, indie, disco & house"
     ),
     "summary" => "Darren has been with us since 2006, playing hundreds of weddings and parties in all styles of music. He has great mixing skills and a wide knowledge of music.",
@@ -16,7 +16,7 @@ $djs = array(
   array(
     "name" => "DJ Jonathan Wright",
     "image" => array(
-      "file" => "DJ_Jonathan_Wright.png",
+      "file" => "DJ_Jonathan_Wright.jpeg",
       "alt" => "book mobile DJ Jonathan Wright for personality style DJing & live music options"
     ),
     "summary" => "Experienced DJ, who can cover many styles from northern soul, salsa and reggae to current chart. A personality style DJ and vast knowledge of music.",
@@ -33,7 +33,7 @@ $djs = array(
   array(
     "name" => "DJ Mark Hepworth",
     "image" => array(
-        "file" => "DJ_Mark_Hepworth.png",
+        "file" => "DJ_Mark_Hepworth.jpeg",
         "alt" => "mobile DJ Mark Hepworth plays northern soul, motown, funk, ska, reggae, r&b, punk & indie"
     ),
     "summary" => "Funk, soul, ska, hip hop, r&b, afrobeats, rock, punk, indie, house or electronic music. Vinyl sets also in certain styles of music.",
@@ -48,7 +48,7 @@ $djs = array(
   array(
     "name" => "DJ Rich Banks",
     "image" => array(
-        "file" => "DJ_Rich_Banks.png",
+        "file" => "DJ_Rich_Banks.jpeg",
         "alt" => "mobile DJ bookings for DJ Rich Banks, Rich plays sixties mod, motown, northern soul, funk, rock and roll and indie"
     ),
     "summary" => "DJ Rich banks, versatile, experienced DJ, who can cover northern soul, motown, funk, indie, rock, and a whole lot more.",
@@ -62,7 +62,7 @@ $djs = array(
   array(
     "name" => "DJ Spike Griffin",
     "image" => array(
-        "file" => "DJ_Spike_Griffin.png",
+        "file" => "DJ_Spike_Griffin.jpeg",
         "alt" => "DJ Spike Griffin plays rock, metal, indie, punk, steampunk as well as dance music and across the board party tunes"
     ),
     "summary" => "Rock, metal, indie, punk, steampunk and more. Spike is a versatile DJ for all types of events.",
@@ -75,7 +75,7 @@ $djs = array(
   array(
     "name" => "DJ Dan De Lissandri",
     "image" => array(
-        "file" => "DJ_Dan_De_Lissandri.png",
+        "file" => "DJ_Dan_De_Lissandri.jpeg",
         "alt" => "book mobile DJ Dan De Lissandri for house techno breakbeat disco and general weddings and parties in Manchester, Cheshire, Knutsford, Bury and Salford"
     ),
     "summary" => "A very experienced DJ, with very technical mixing skills, that can play all styles of music for weddings or bar events.",
@@ -88,7 +88,7 @@ $djs = array(
   array(
     "name" => "DJ Maree",
     "image" => array(
-        "file" => "DJ_Maree.png",
+        "file" => "DJ_Maree.jpeg",
         "alt" => "book mobile DJ Maree for Motown, pop and rock in Cheshire, Greater Manchester and Knutsford"
     ),
     "summary" => "Motown, disco, chart and R&B. Maree plays weddings and parties, corporate events and theme nights, bringing the floorfillers.",
@@ -101,7 +101,7 @@ $djs = array(
   array(
     "name" => "DJ Bryn",
     "image" => array(
-        "file" => "DJ_Bryn.png",
+        "file" => "DJ_Bryn.jpeg",
         "alt" => "book DJ Bryn for a wide variety of mobile parties, weddings and bar events"
     ),
     "summary" => "Vibrant and popular DJ that has worked in many and different types of event and always gets great feedback from clients, playing popular or eclectic sets.",
@@ -114,7 +114,7 @@ $djs = array(
   array(
     "name" => "DJ Fekix",
     "image" => array(
-        "file" => "DJ_Fekix.png",
+        "file" => "DJ_Fekix.jpeg",
         "alt" => "book DJ Fekix for techno, disco and more"
     ),
     "summary" => "Rock, metal, indie, punk, steampunk and more. Spike is a versatile DJ for all types of events.",
@@ -131,7 +131,7 @@ $djs = array(
   array(
     "name" => "Mel Low D",
     "image" => array(
-        "file" => "DJ_Mel.png",
+        "file" => "DJ_Mel.jpeg",
         "alt" => "book DJ MelloD for house, club and private party events"
     ),
     "summary" => "A very popular DJ at our club residencies, who can play many styles of music from dance and R&B to retro sets too.",
@@ -148,7 +148,7 @@ $djs = array(
   array(
     "name" => "Tim Pinder",
     "image" => array(
-        "file" => "DJ_Tim.png",
+        "file" => "DJ_Tim.jpeg",
         "alt" => "book DJ Tim Pinder for bespoke weddings and parties"
     ),
     "summary" => "Tim is a versatile, fun and experienced DJ who is drawn to music that has a groove, a good beat, and an innovative sound.",
@@ -164,7 +164,7 @@ $djs = array(
   array(
     "name" => "DJ Chris Hall",
     "image" => array(
-        "file" => "DJ_Chris.png",
+        "file" => "DJ_Chris.jpeg",
         "alt" => "book DJ Chris Hall for dance music, 18ths 21sts, 30th birthdays, weddings and parties and sax and DJ sets"
     ),
     "summary" => "DJ Chris Hall covers all styles from funk and soul to hip hop and house and works very well with live musicians, like sax and bongo players.",
@@ -178,7 +178,7 @@ $djs = array(
   array(
     "name" => "DJ Nite Owl",
     "image" => array(
-        "file" => "DJ_Nite_Owl.png",
+        "file" => "DJ_Nite_Owl.jpeg",
         "alt" => "DJ Nite Owl for soul, funk, disco, house music, dance and current pop "
     ),
     "summary" => "All things funky. DJ Nite Owl is a fun loving party machine, who can play DJ sets, both retro and current for weddings, parties and club events.",

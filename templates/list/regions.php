@@ -2,25 +2,25 @@
   <h3>Areas we cover</h3>
   <p>See links to regions we have mobile DJs for hire below. We do also travel to other areas at reasonable mileage rates.</p>
 
-  <div class="content-border__container">
-    <ul class="footer-links region">
-      <li>
-        <a href="/" rel="canonical">Leeds<span>Yorkshire</span></a>
+  <div class="regions">
+    <ul class="list-group list-group-horizontal-md content-border__container">
+      <li class="list-group-item border-0">
+        <a href="/" rel="canonical" class=" text-wrap">Leeds Yorkshire</a>
       </li>
-      <li>
-        <a href="/sheffield-derbyshire" rel="canonical">Sheffield<span>Derbyshire</span></a>
+      <li class="list-group-item border-0">
+        <a href="/sheffield-derbyshire" rel="canonical">Sheffield Derbyshire</a>
       </li>
-      <li>
-        <a href="/manchester-cheshire" rel="canonical">Manchester<span>Cheshire</span></a>
+      <li class="list-group-item border-0">
+        <a href="/manchester-cheshire" rel="canonical">Manchester Cheshire</a>
       </li>
-      <li>
-        <a href="/liverpool-lancashire" rel="canonical">Liverpool<span>Lancashire</span></a>
+      <li class="list-group-item border-0">
+        <a href="/liverpool-lancashire" rel="canonical">Liverpool Lancashire</a>
       </li>
-      <li>
-        <a href="/newcastle-north-east" rel="canonical">Newcastle<span>North East</span></a>
+      <li class="list-group-item border-0">
+        <a href="/newcastle-north-east" rel="canonical">Newcastle North East</a>
       </li>
-      <li>
-        <a href="/edinburgh-scotland" rel="canonical">Edinburgh<span>Scotland</span></a>
+      <li class="list-group-item border-0">
+        <a href="/edinburgh-scotland" rel="canonical">Edinburgh Scotland</a>
       </li>
     </ul>
   </div>
