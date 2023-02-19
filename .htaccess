@@ -1,9 +1,13 @@
 RewriteEngine On 
 
+RewriteRule ^robots.txt - [L]
+
 ErrorDocument 404 /index.php?page_name=error-404
 
 # RewriteRule ^/?$ /maintenance.php [L]
 
+RewriteRule ^signin.php$ /account/sign-in [L]
+RewriteRule ^newplanner(.*)?$ /account/sign-in [L]
 RewriteRule ^migrate$ /dev/scripts/migrate_event_additional.php [L]
 RewriteRule ^bookings/csv$ /lib/csv.php [L]
 RewriteRule ^/?$ /index.php?region=leeds&page_name=home [L]
@@ -27,10 +31,10 @@ RewriteRule ^(sheffield-derbyshire|manchester-cheshire|liverpool-lancashire|newc
 RewriteRule ^(.*?)/(djs|music|bar-and-corporate|contact|weddings+?)/?$ /index.php?region=$1&page_name=$2 [L]
 
 # One year for image files
-# <filesMatch ".(jpg|jpeg|png|gif|ico|svg)$">
-# Header set Cache-Control "max-age=31536000, public"
-# </filesMatch>
+<filesMatch ".(jpg|jpeg|png|gif|ico|svg)$">
+Header set Cache-Control "max-age=31536000, public"
+</filesMatch>
 # One month for css and js
-# <filesMatch ".(css|js)$">
-# Header set Cache-Control "max-age=2628000, public"
-# </filesMatch>
+<filesMatch ".(css|js)$">
+Header set Cache-Control "max-age=2628000, public"
+</filesMatch>
