@@ -78,9 +78,3 @@ $result = $database->query($query);
     <p class="lead">You have no upcoming events - submit an enquiry on our <a href="/contact">contact page</a></p>
   </div>
 <?php } ?>
-
-<?php if (!isset($_SESSION['fb_access_token']) && $user->isCustomer()) { ?>
-  <div class="my-4">
-  <a class="btn btn-sm btn-danger" href="/account/delete">Delete your account</a>
-</div>
-<?php } ?>
