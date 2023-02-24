@@ -86,6 +86,8 @@
       }
     }
     
-    password.onchange = validatePassword;
-    confirm_password.onkeyup = validatePassword;
+    if (password && confirm_password) {
+      password.onchange = validatePassword;
+      confirm_password.onkeyup = validatePassword;
+    }
 })();
