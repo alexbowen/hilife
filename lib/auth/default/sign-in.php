@@ -34,6 +34,8 @@ if ($_POST['action'] == 'sign-in') {
       $url .= "/admin/events";
     } else if ($user->isCustomer()) {
         $url .= "/planner";
+    } else if ($user->isInternal()) {
+        $url .= "/planner/view/bookings";
     } else if (isset($_POST['redirect'])) {
       $url .= $_POST['redirect'];
     } else {

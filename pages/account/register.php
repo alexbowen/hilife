@@ -24,4 +24,4 @@
       <button type="submit" name="action" value="register" class="btn btn-success">Register</button>
     </div>
   </form>
-</div>       
+</div>
