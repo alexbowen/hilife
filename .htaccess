@@ -6,8 +6,8 @@ ErrorDocument 404 /index.php?page_name=error-404
 
 # RewriteRule ^/?$ /maintenance.php [L]
 
-RewriteRule ^signin.php$ /account/sign-in [L]
-RewriteRule ^newplanner(.*)?$ /account/sign-in [L]
+# RewriteRule ^signin.php$ /account/sign-in [L]
+# RewriteRule ^newplanner(.*)?$ /account/sign-in [L]
 RewriteRule ^bookings/csv$ /lib/csv.php [L]
 RewriteRule ^/?$ /index.php?region=leeds&page_name=home [L]
 RewriteRule ^facebook/auth$ /lib/auth/facebook/auth.php [L]
