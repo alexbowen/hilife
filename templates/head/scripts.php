@@ -6,6 +6,8 @@
 <script defer src="/assets/javascript/lib/photoswipe.js"></script>
 <script defer src="/assets/production/hilife.min.js"></script>
 
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
 <?php if (isset($_COOKIE['cookie-consent']) && $_COOKIE['cookie-consent'] == 'accepted') { ?>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-171512010-1"></script>
@@ -16,4 +18,5 @@
 
   gtag('config', 'UA-171512010-1');
 </script>
+
 <?php } ?>

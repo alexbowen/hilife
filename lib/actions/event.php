@@ -47,53 +47,71 @@ if (isset($_POST['setupTimeInput'])) {
 $query = "SELECT status FROM events_admin WHERE event_id=\"" . $_POST['id']  . "\"";
 $event_orig_status = $database->query($query)->fetchColumn();
 
-if ($_POST['action'] == 'create') {
-  $invalid = eventInvalid(array('primary_contact' => $_POST['event']['primary_contact'], 'email' => $_POST['event']['email'], 'date' => $event_timings['date'], 'status' => $_POST['admin']['status']));
-  if ($invalid) {
-    Notify::add('error', 'Event cannot be created - ' . $invalid);
+if(isset($_POST['g-recaptcha-response']) && !empty($_POST['g-recaptcha-response'])){ 
+ 
+  // Verify the reCAPTCHA API response 
+  $verifyResponse = file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret=' . constant("GOOGLE_RECAPTCHA") . '&response=' . $_POST['g-recaptcha-response']); 
+   
+  // Decode JSON data of API response 
+  $responseData = json_decode($verifyResponse); 
+   
+  // If the reCAPTCHA API response is valid 
+  if($responseData->success){ 
 
-    header('Location: ' . $_SERVER['HTTP_REFERER']);
-  } else {
-    $database->connection->beginTransaction();
-    $query = $database->prepare("INSERT INTO events (type, email, location, venue_name, venue_address, client_address, client_telephone, primary_contact, secondary_contact, date, numbers, start_time, finish_time, setup_time) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-    $query->execute(array($_POST['event']["type"], $_POST['event']["email"], $_POST['event']["location"], $_POST['event']["venue_name"], $_POST['event']["venue_address"], $_POST['event']["client_address"], $_POST['event']["client_telephone"], $_POST['event']["primary_contact"], $_POST['event']["secondary_contact"], $event_timings['date'], $_POST['event']["numbers"], $event_timings['start_time'], $event_timings['finish_time'], $event_timings['setup_time']));
+    if ($_POST['action'] == 'create') {
+      $invalid = eventInvalid(array('primary_contact' => $_POST['event']['primary_contact'], 'email' => $_POST['event']['email'], 'date' => $event_timings['date'], 'status' => $_POST['admin']['status']));
+      if ($invalid) {
+        Notify::add('error', 'Event cannot be created - ' . $invalid);
 
-    $event_id = $database->connection->lastInsertId();
-    $database->connection->commit();
+        header('Location: ' . $_SERVER['HTTP_REFERER']);
+      } else {
+        $database->connection->beginTransaction();
+        $query = $database->prepare("INSERT INTO events (type, email, location, venue_name, venue_address, client_address, client_telephone, primary_contact, secondary_contact, date, numbers, start_time, finish_time, setup_time) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        $query->execute(array($_POST['event']["type"], $_POST['event']["email"], $_POST['event']["location"], $_POST['event']["venue_name"], $_POST['event']["venue_address"], $_POST['event']["client_address"], $_POST['event']["client_telephone"], $_POST['event']["primary_contact"], $_POST['event']["secondary_contact"], $event_timings['date'], $_POST['event']["numbers"], $event_timings['start_time'], $event_timings['finish_time'], $event_timings['setup_time']));
 
-    if (count($_POST['admin']) > 0) {
+        $event_id = $database->connection->lastInsertId();
+        $database->connection->commit();
 
-      $insertFields = '';
-      $parameters = '';
-    
-      foreach ($_POST['admin'] as $key => $value) {
-        $insertFields .= $key . ", ";
-        $parameters .= ":" . $key . ", ";
+        if (count($_POST['admin']) > 0) {
+
+          $insertFields = '';
+          $parameters = '';
+
+          foreach ($_POST['admin'] as $key => $value) {
+            $insertFields .= $key . ", ";
+            $parameters .= ":" . $key . ", ";
+          }
+
+          $sql = "INSERT INTO events_admin (event_id, " . rtrim($insertFields, ", ") . ") VALUES (:event_id, " . rtrim($parameters, ", ") . ")";
+          $query = $database->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
+          $query->execute(array_merge(array(':event_id' => $event_id), $_POST['admin']));
+        }
+
+        $event_updated = EventFactory::create(array(
+          'events.id' => $event_id
+        ));
+
+        $event_updated->date = $utils->prettyDateFormat($event_updated->date);
+
+        Email::send('admin', $event_updated);
+        Email::send('customer', $event_updated);
+
+        $config = $event_config[$user->isAdmin() ? 'admin' : 'customer'][$event_updated->status];
+        if (isset($config['notification'])) {
+          Notify::add($config['notification']['type'], $utils->templateString($config['notification']['text'], $event_updated));
+        }
+
+        $redirect = $user->isAdmin() ? '/admin/events': '/';
+
+        header('Location: ' . $redirect);
       }
-      
-      $sql = "INSERT INTO events_admin (event_id, " . rtrim($insertFields, ", ") . ") VALUES (:event_id, " . rtrim($parameters, ", ") . ")";
-      $query = $database->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
-      $query->execute(array_merge(array(':event_id' => $event_id), $_POST['admin']));
     }
-
-    $event_updated = EventFactory::create(array(
-      'events.id' => $event_id
-    ));
-
-    $event_updated->date = $utils->prettyDateFormat($event_updated->date);
-
-    Email::send('admin', $event_updated);
-    Email::send('customer', $event_updated);
-
-    $config = $event_config[$user->isAdmin() ? 'admin' : 'customer'][$event_updated->status];
-    if (isset($config['notification'])) {
-      Notify::add($config['notification']['type'], $utils->templateString($config['notification']['text'], $event_updated));
-    }
-
-    $redirect = $user->isAdmin() ? '/admin/events': '/';
-
-    header('Location: ' . $redirect);
+  } else{
+    Notify::add('error', 'Invalid Recaptcha form submission');
+    header('Location: /');
   }
+} else {
+  header("Location:".$_SERVER['HTTP_REFERER']);
 }
 
 if ($_POST['action'] == 'update') {

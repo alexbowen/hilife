@@ -19,7 +19,7 @@
     <div class="invalid-feedback">
       Passwords do not match.
     </div>
-
+    <div class="g-recaptcha" data-sitekey="6LcV-kolAAAAAFJHHRYPvwEEZ2nSpNKdDW2pW8JW"></div>
     <div class="d-grid gap-2 my-4">
       <button type="submit" name="action" value="register" class="btn btn-success">Register</button>
     </div>
