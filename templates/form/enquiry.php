@@ -98,6 +98,8 @@
     </div>
   </div>
 
+  <div class="g-recaptcha" data-sitekey="6LcV-kolAAAAAFJHHRYPvwEEZ2nSpNKdDW2pW8JW"></div>
+
   <div class="row text-end">
     <div class="d-grid gap-2 d-md-block">
       <button type="submit" name="action" value="create" class="btn btn-success btn-sm">Click to submit enquiry</button>

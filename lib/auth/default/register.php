@@ -6,6 +6,18 @@ include ($_SERVER['DOCUMENT_ROOT'] . '/lib/notify.php');
 include ($_SERVER['DOCUMENT_ROOT'].'/lib/mailer.php');
 
 if ($_POST['action'] == 'register') {
+
+  if(isset($_POST['g-recaptcha-response']) && !empty($_POST['g-recaptcha-response'])){ 
+ 
+    // Verify the reCAPTCHA API response 
+    $verifyResponse = file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret=' . constant("GOOGLE_RECAPTCHA") . '&response=' . $_POST['g-recaptcha-response']); 
+     
+    // Decode JSON data of API response 
+    $responseData = json_decode($verifyResponse); 
+     
+    // If the reCAPTCHA API response is valid 
+    if($responseData->success){ 
+
   require $_SERVER['DOCUMENT_ROOT'].'/vendor/autoload.php';
   $auth = new \Delight\Auth\Auth($database->connection, null);
   try {
@@ -39,5 +51,12 @@ if ($_POST['action'] == 'register') {
       die('Too many requests');
   }
 }
+  } else{
+    Notify::add('error', 'Invalid Recaptcha form submission');
+    header('Location: /');
+  }
+  } else {
+  header("Location:".$_SERVER['HTTP_REFERER']);
+  }
 
 ?>

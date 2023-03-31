@@ -8,6 +8,17 @@ include ($_SERVER['DOCUMENT_ROOT'].'/lib/mailer.php');
 require $_SERVER['DOCUMENT_ROOT'].'/vendor/autoload.php';
 $auth = new \Delight\Auth\Auth($database->connection, null);
 
+
+if(isset($_POST['g-recaptcha-response']) && !empty($_POST['g-recaptcha-response'])){ 
+ 
+  // Verify the reCAPTCHA API response 
+  $verifyResponse = file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret=' . constant("GOOGLE_RECAPTCHA") . '&response=' . $_POST['g-recaptcha-response']); 
+   
+  // Decode JSON data of API response 
+  $responseData = json_decode($verifyResponse); 
+   
+  // If the reCAPTCHA API response is valid 
+  if($responseData->success){ 
 if ($_POST['action'] == 'forgot') {
   try {
     $auth->forgotPassword($_POST['email'], function ($selector, $token) {
@@ -39,6 +50,8 @@ if ($_POST['action'] == 'forgot') {
     die('Too many requests');
   }
 }
+}
+
 
 if ($_GET['action'] == 'reset') {
   if ($auth->canResetPassword($_GET['selector'], $_GET['token'])) {
@@ -62,5 +75,11 @@ if ($_POST['action'] == 'new') {
   catch (\Delight\Auth\TokenExpiredException $e) {
     header('Location: /');
   }
+} else{
+  Notify::add('error', 'Invalid Recaptcha form submission');
+  header('Location: /');
+}
+} else {
+header("Location:".$_SERVER['HTTP_REFERER']);
 }
 ?>
