@@ -32,4 +32,24 @@ function eventInvalid($event) {
   return $error;
 }
 
+function eventIsSpam($event) {
+
+  $error = false;
+
+  foreach($event as $key => $value) {
+    if (preg_match(constant("URL_PATTERN"), $value) > 0) {
+      $error = 'Enquiries cannot contain any URL';
+    }
+
+    foreach (constant("BANNED_WORDS") as $key => $banned_word) {
+      if (stripos($value, $banned_word) !== false) {
+        // echo 'Enquiries cannot contain banned words' . $banned_word . ' ' . $value . "\n\n";
+        $error = 'Enquiries cannot contain banned words';
+      }
+    }
+  }
+
+  return $error;
+}
+
 ?>
