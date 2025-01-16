@@ -23,7 +23,7 @@ class EventFactory
 
       $query = $database->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
 
-      $database->execute($query, $where);
+      $query->execute();
 
       return $query->fetchObject("Event", array($expanded));
     }

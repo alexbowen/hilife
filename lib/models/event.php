@@ -36,6 +36,7 @@ class Event {
   public $day;
   public $month;
   public $year;
+  public $legacy_id;
 
   public $startMinute;
   public $startHour;
