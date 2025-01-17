@@ -1,5 +1,5 @@
 <?php
-$query = "SELECT * FROM users WHERE roles_mask='2'";
+$query = "SELECT * FROM users WHERE roles_mask >= 2 ORDER BY username";
 $djs = $database->query($query)->fetchAll();
 ?>
 
