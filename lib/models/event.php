@@ -70,8 +70,16 @@ class Event {
 
       $query = "SELECT users.email AS dj_email_address, users.username AS dj_name FROM users WHERE id=\"" . $this->dj_user_id . "\"";
       $this->dj = $database->query($query)->fetch();
+
+      if (!$this->dj) {
+        $this->dj = array(
+          'dj_name' => ''
+        );
+      }
     }
   }
+
+
 
   public function prettyField($property) {
     global $utils;

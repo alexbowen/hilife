@@ -65,9 +65,10 @@ $count = $database->query($query)->fetchColumn();
 $query = "SELECT * FROM package_clients";
 $package_clients = $database->query($query)->fetchAll();
 
+
 $pagination = new \yidas\data\Pagination([
     'totalCount' => $count,
-    'perPage' => 50
+    'perPage' => 20
 ]);
 
 $query = "SELECT id, date, events_planner.last_updated FROM events INNER JOIN events_admin ON events_admin.event_id = events.id LEFT JOIN events_planner ON events_planner.event_id = events.id" . $filters . $sort . " LIMIT {$pagination->offset}, {$pagination->limit}";
@@ -84,19 +85,19 @@ $adminPage = "events";
       <form name="events-sort" action="<?php echo $_SERVER['REQUEST_URI'] ?>" method="get">
         <div class="row mb-1 mb-md-3">
           <div class="col-md-3 d-grid d-block mb-1 my-md-0">
-            <button class="btn <?php if($_SESSION['admin'] == 'enquiry') { ?>btn-success<?php } else { ?>btn-outline-secondary<?php } ?> btn-sm" type="submit" name="status" value="enquiry">Enquiries<?php if ($new_enquiry_count > 0) { echo " (" . $new_enquiry_count . " new)"; } ?></button>
+            <button class="btn <?php if($_SESSION['admin'] == 'enquiry') { ?>btn-secondary<?php } else { ?>btn-outline-secondary<?php } ?> btn-sm" type="submit" name="status" value="enquiry">Enquiries<?php if ($new_enquiry_count > 0) { echo " (" . $new_enquiry_count . " new)"; } ?></button>
           </div>
 
           <div class="col-md-3 d-grid d-block mb-1 my-md-0">
-            <button class="btn <?php if($_SESSION['admin'] == 'pending') { ?>btn-success<?php } else { ?>btn-outline-secondary<?php } ?> btn-sm" type="submit" name="status" value="pending">Pending events<?php if ($pending_count > 0) { echo " (" . $pending_count . ")"; } ?></button>
+            <button class="btn <?php if($_SESSION['admin'] == 'pending') { ?>btn-secondary<?php } else { ?>btn-outline-secondary<?php } ?> btn-sm" type="submit" name="status" value="pending">Pending events<?php if ($pending_count > 0) { echo " (" . $pending_count . ")"; } ?></button>
           </div>
 
           <div class="col-md-3 d-grid d-block mb-1 my-md-0">
-            <button class="btn <?php if($_SESSION['admin'] == 'confirmed') { ?>btn-success<?php } else { ?>btn-outline-secondary<?php } ?> btn-sm" type="submit" name="status" value="confirmed">Confirmed events<?php if ($confirmed_count > 0) { echo " (" . $confirmed_count . ")"; } ?></button>
+            <button class="btn <?php if($_SESSION['admin'] == 'confirmed') { ?>btn-secondary<?php } else { ?>btn-outline-secondary<?php } ?> btn-sm" type="submit" name="status" value="confirmed">Confirmed events<?php if ($confirmed_count > 0) { echo " (" . $confirmed_count . ")"; } ?></button>
           </div>
 
           <div class="col-md-3 d-grid d-block mb-1 my-md-0">
-            <button class="btn <?php if($_SESSION['admin'] == 'cancelled') { ?>btn-success<?php } else { ?>btn-outline-secondary<?php } ?> btn-sm" type="submit" name="status" value="cancelled">Cancelled events</button>
+            <button class="btn <?php if($_SESSION['admin'] == 'cancelled') { ?>btn-secondary<?php } else { ?>btn-outline-secondary<?php } ?> btn-sm" type="submit" name="status" value="cancelled">Cancelled events</button>
           </div>
         </div>
 
@@ -120,122 +121,95 @@ $adminPage = "events";
       </form>
     </div>
 
-    <?php if($result->rowCount() > 0) { ?>  
-    <?php foreach ($result as $key => $eventp) { ?>
-    <?php
-      $event = EventFactory::create(array(
-        'events.id' => $eventp['id']
-      ), true);
-    ?>
-    <?php $date = new DateTime($eventp['date']); ?>
-    <div class="card mt-4">
-      <div class="card-header">
-        <div class="row">
-          <dl class="col-6 col-md-3 mb-0">
-            <dt class="mb-0"><?php echo $date->format('D M jS Y'); ?></dt>
-          </dl>
-          <dl class="col-6 col-md-3 mb-0">
-            <dt class="mb-0"><?php echo $event->primary_contact; if (!empty($event->secondary_contact)) echo " / " . $event->secondary_contact; ?></dt>
-          </dl>
+    <form name="event-update" action="/actions/event" method="post" class="admin-form needs-activation" novalidate>
+      <div class="d-flex flex-row align-items-end my-4">
+      <?php if ($pagination->limit < $count) { ?>
+        <div class="flex-grow-1 align-self-end">
+          <?=\yidas\widgets\Pagination::widget([
+            'pagination' => $pagination,
+            'view' => 'simple'
+          ])?>
+        </div>
+      <?php } else { ?>
+        <div class="flex-grow-1 align-self-end">
+          Results
+        </div>
+      <?php } ?>
 
-          <dl class="col-6 col-md-3 mb-0">
-            <dt class="mb-0">          
-              <?php echo $event->venue_name; ?>
-            </dt>
-          </dl>
+      <?php if($_SESSION['admin'] == 'enquiry') { ?>
+        <button class="btn btn-sm btn-warning confirm-action active-element" disabled data-confirm-message="Are you sure you want to permanently delete these enquiries?" name="action" type="submit" value="delete">Delete selected enquiries</button>
+      <?php } ?>
+      </div>
+    
+      <?php if($result->rowCount() > 0) { ?>  
+      <?php foreach ($result as $key => $eventp) { ?>
+      <?php
+        $event = EventFactory::create(array(
+          'events.id' => $eventp['id']
+        ), true);
+      ?>
 
-          <dl class="col-6 col-md-3 mb-0">
-            <dt class="mb-0">
+      <div class="row event-row">
+        <?php $date = new DateTime($eventp['date']); ?>
+        <div class="col-3">
+          <div><strong><?php echo $date->format('D M jS Y'); ?></strong></div>
+          <div>
             <?php if ($event->booking_type == 'package') { ?>
 
             <?php $key = array_search($event->package_client_id, array_column($package_clients, 'id')); ?>
               <a href="/admin/view/client?id=<?php echo $event->package_client_id; ?>"><?php echo $package_clients[$key]['venue_name']; ?></a>
             <?php } else { ?>
-            <?php echo $event->booking_type; ?> booking
-              <button type="button" class="btn btn-link btn-sm" data-bs-toggle="modal" data-bs-target="#select-package-<?php echo $event->id; ?>">
-                convert to package
-              </button>
-              <form name="event-update" action="/actions/event" method="post" class="admin-form needs-validation needs-validation-time" novalidate>
-                <input type="hidden" name="id" value="<?php echo $event->id; ?>" />
-                <input type="hidden" name="admin[booking_type]" value="package" />
-                <div class="modal fade" id="select-package-<?php echo $event->id; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                  <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Select package client</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                      </div>
-                      <div class="modal-body">
-                        <select name="admin[package_client_id]" id="event-package-client-<?php echo $event->id; ?>" class="form-select form-select-sm">
-                        <?php foreach ($package_clients as $client) { ?>
-                          <option value="<?php echo $client['id']; ?>" <?php if ($event->package_client_id == $client['id']) { ?>selected<?php } ?>><?php echo $client['venue_name']; ?></option>
-                        <?php } ?>
-                        </select>
-                      </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">cancel</button>
-                        <button type="submit" name="action" value="update" class="btn btn-primary">save</button>
-                      </div>
-                    </div>
-                  </div>
-                </form>
-              </div>
+              <?php echo $event->venue_name; ?>
             <?php } ?>
-            </dt>
+          </div>
+        </div>
+
+        <div class="col-4">
+          <dl>
+            <dt>Name:</dt>
+            <dd><?php echo $event->primary_contact; if (!empty($event->secondary_contact)) echo " / " . $event->secondary_contact; ?></dd>
+          </dl>
+
+          <dl>
+            <dt>Email:</dt>
+            <dd><?php echo $event->email; ?></dd>
           </dl>
         </div>
-      </div>
 
-      <div class="card-body">
-        <div class="row">
-          <div class="col-12 col-md-3">
-            <dl class="mb-0">
-              <dt class="initialism">Email:</dt>
-              <dd class="mb-0"><?php echo $event->email; ?></dd>
-            </dl>
-          </div>
+        <div class="col-3">
+          <dl>
+            <dt>Event:</dt>
+            <dd class="text-capitalize"><?php echo $event->type; ?></dd>
+          </dl>
 
-          <div class="col-6 col-md-3">
-            <dl class="mb-0 initialism">
-              <dt>Tel:</dt>
-              <dd class="mb-0"><?php echo $event->client_telephone; ?></dd>
-            </dl>
-          </div>
+          <dl>
+            <dt>DJ:</dt>
+            <dd class="text-capitalize"><?php echo $utils->field($event->dj ? $event->dj['dj_name']: ''); ?></dd>
+          </dl>
+        </div>
 
-          <div class="col-6 col-md-3">
-            <dl class="mb-0 initialism">
-              <dt>DJ:</dt>
-              <dd class="mb-0"><?php echo $utils->field($event->dj['dj_name']); ?></dd>
-            </dl>
-          </div>
-
-          <?php if ($event->status != 'cancelled') { ?>
-          <div class="col-12 col-md-3 admin-actions mt-1">
-            <form name="event-update" action="/actions/event" method="post" class="admin-form mb-0">
-              <input type="hidden" name="id" value="<?php echo $event->id; ?>" />
-
-              <div class="d-grid gap-2 d-md-flex my-2 my-md-0">
-              <?php if ($event->status !== 'cancelled') { ?>
-                <a href="/admin/edit?id=<?php echo $event->id; ?>" class="btn btn-sm btn-primary flex-fill">Edit</a>
-              <?php } ?>
-                <a href="/planner/view/summary?id=<?php echo $event->id; ?>" class="btn btn-secondary btn-sm flex-fill">Planner</a>
-              </div>
-            </form>
-          </div>
+        <div class="col-2 d-flex">
+          <?php if ($event->status !== 'cancelled') { ?>
+            <a href="/admin/edit?id=<?php echo $event->id; ?>" class="btn btn-sm btn-primary flex-fill mx-2">Edit</a>
+          <?php } ?>
+            <a href="/planner/view/summary?id=<?php echo $event->id; ?>" class="btn btn-secondary btn-sm flex-fill mx-2">Planner</a>
+          <?php if($_SESSION['admin'] == 'enquiry') { ?>
+            <input type="checkbox" class="form-check-input mx-2" name="delete-events[]" value="<?php echo $event->id; ?>" />
           <?php } ?>
         </div>
       </div>
-    </div>
     <?php } ?>
 
     <?php if ($pagination->limit < $count) { ?>
-    <div>
-    <?=\yidas\widgets\Pagination::widget(['pagination' => $pagination])?>
-    </div>
+      <?=\yidas\widgets\Pagination::widget([
+        'pagination' => $pagination,
+        'view' => 'simple'
+      ])?>
     <?php } ?>
 
     <?php } else { ?>
-    <p class="lead mt-4">No events for current selection</p>
-  <?php } ?>
+      <p class="lead mt-4">No events for current selection</p>
+    <?php } ?>
+    </form>
   </div>
 </section>

@@ -190,4 +190,11 @@ if ($_POST['action'] == 'cancel') {
 
   header('Location: /admin/events');
 }
+
+if ($_POST['action'] == 'delete') {
+  $sql = "DELETE FROM events WHERE id IN (" . implode(",", $_POST['delete-events']) . ")";
+  $query = $database->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
+  $query->execute();
+  header('Location: /admin/events');
+}
 ?>

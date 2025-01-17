@@ -53,6 +53,37 @@ $event = EventFactory::create(array(
             <div class="d-grid gap-2 d-md-block mt-2">
               <span class="float-start form-info">* required field</span>
               <button type="submit" name="action" value="update" class="btn btn-primary btn-sm">Update event</button>
+
+              <?php if ($event->booking_type == 'direct') { ?>
+                            <button type="button" class="btn btn-link btn-sm" data-bs-toggle="modal" data-bs-target="#select-package-<?php echo $event->id; ?>">
+                convert to package
+              </button>
+
+
+                <input type="hidden" name="admin[booking_type]" value="package" />
+                <div class="modal fade" id="select-package-<?php echo $event->id; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Select package client</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                        <select name="admin[package_client_id]" id="event-package-client-<?php echo $event->id; ?>" class="form-select form-select-sm">
+                        <?php foreach ($package_clients as $client) { ?>
+                          <option value="<?php echo $client['id']; ?>" <?php if ($event->package_client_id == $client['id']) { ?>selected<?php } ?>><?php echo $client['venue_name']; ?></option>
+                        <?php } ?>
+                        </select>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">cancel</button>
+                        <button type="submit" name="action" value="update" class="btn btn-primary">save</button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <?php } ?>
+
             </div>
           </div>
         </form>
