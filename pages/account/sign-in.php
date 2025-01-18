@@ -21,7 +21,7 @@
       <button class="btn btn-success" type="submit" name="action" value="sign-in"><i class="fas fa-sign-in-alt me-1"></i> Sign in</button>
       <div class="row">
         <div class="col-6">
-            <a href="/account/forgot-password" id="forgot_pswd">Forgot password?</a>
+          <a href="/account/forgot-password" id="forgot_pswd">Forgot password?</a>
         </div>
         <div class="col-6 text-end">
           <?php if (isset($_COOKIE['cookie-consent']) && $_COOKIE['cookie-consent'] == 'accepted') { ?>
@@ -34,9 +34,8 @@
       <a href="/account/register" class="btn btn-primary"><i class="fas fa-user-plus me-1"></i> Create new account</a>
       
       <?php if (isset($_COOKIE['cookie-consent']) && $_COOKIE['cookie-consent'] == 'accepted') { ?>
-      <p style="text-align:center">OR</p>
+      <p class="mb-0 text-center">OR</p>
       <div class="social-login">
-        <a href="<?php echo $fbLoginUrl; ?>" class="btn facebook-btn social-btn mb-2"><span><i class="fa-brands fa-facebook me-1"></i> Sign in with Facebook</span> </a>
         <a href="<?php echo $googleLoginUrl; ?>" class="btn google-btn social-btn"><span><i class="fa-brands fa-google me-1"></i> Sign in with Google</span> </a>
       </div>
       <?php } ?>
