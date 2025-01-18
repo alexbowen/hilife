@@ -79,8 +79,6 @@ class Event {
     }
   }
 
-
-
   public function prettyField($property) {
     global $utils;
     return $utils->field($this->$property);

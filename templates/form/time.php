@@ -60,7 +60,7 @@ $ranges = array(
 
         }
       ?>
-      <option value="<?php echo $value; ?>" <?php if ($eventTime['hour'] === strval($value)) { ?> selected<?php } ?>><?php echo $display . $postfix; ?></option>
+      <option value="<?php echo $value; ?>" <?php if ($eventTime['hour'] == strval($value)) { ?> selected<?php } ?>><?php echo $display . $postfix; ?></option>
       <?php } ?>
     </select>
     <div class="invalid-feedback">
