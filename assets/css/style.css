@@ -506,11 +506,6 @@ header {
   display: none;
 }
 
-.facebook-button {
-  background-color: #4267b2;
-  color: #ffffff;
-}
-
 .content-border__container {
   border: 1px solid rgba(0,0,0,.125);
   border-radius: .25rem;
@@ -778,10 +773,6 @@ footer span {
   color: #fff;
   padding: 4px;
   border-radius: 50%;
-}
-
-.facebook-btn {
-  background-color:#3C589C;
 }
 
 .google-btn {

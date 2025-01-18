@@ -31,7 +31,6 @@
   <p>If you consent to cookies the following functionality is enabled:</p>
   <ul>
     <li>Login remember me (1 month)</li>
-    <li>Facebook login option</li>
     <li>Google login option</li>
   </ul>
   <p>The following standard Google cookies will be stored for analytics:</p>

@@ -1,12 +1,17 @@
 {
     "require": {
         "jwilsson/spotify-web-api-php": "^5.0",
-        "facebook/graph-sdk": "^5.7",
         "php-http/curl-client": "^2.2",
         "guzzlehttp/psr7": "^1.8",
         "delight-im/auth": "^8.3",
         "yidas/pagination": "^1.0",
         "nilportugues/sql-query-builder": "^1.8",
-        "google/apiclient": "^2.10"
+        "google/apiclient": "^2.10",
+        "http-interop/http-factory-guzzle": "^1.2"
+    },
+    "config": {
+        "allow-plugins": {
+            "php-http/discovery": true
+        }
     }
 }

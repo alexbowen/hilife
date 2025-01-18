@@ -26,8 +26,7 @@ $customer_config = array(
           "Hi %primary_contact%",
           "You will receive a seperate email from me with your booking form and instructions how to pay your deposit for your event on %date%",
           "You can now start planning your event using our music planner.",
-          "Create your account at " . constant('BASE_URL') . "/account/register",
-          "Or you can sign in immediatley with Facebook at " . constant('BASE_URL') . "/account/sign-in"
+          "Create your account at " . constant('BASE_URL') . "/account/register"
         ),
         "direct" => array(
           ""
@@ -50,8 +49,7 @@ $customer_config = array(
           "Hi %primary_contact%",
           "Event is confirmed on %date%",
           "You can now start planning your event using our planner.",
-          "Create your account at " . constant('BASE_URL') . "/account/register",
-          "Or you can sign in immediatley with Facebook at " . constant('BASE_URL') . "/account/sign-in"
+          "Create your account at " . constant('BASE_URL') . "/account/register"
         ),
         "direct" => array(
           ""
