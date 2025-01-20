@@ -8,7 +8,7 @@
     <div class="invalid-feedback">
       You must enter a valid email address.
     </div>
-    <div class="g-recaptcha" data-sitekey="6LcV-kolAAAAAFJHHRYPvwEEZ2nSpNKdDW2pW8JW"></div>
+    <div class="g-recaptcha" data-sitekey="<?php echo constant("GOOGLE_RECAPTCHA_SITEKEY"); ?>"></div>
     <div class="d-grid gap-2 my-4">
       <button type="submit" name="action" value="forgot" class="btn btn-success">Reset password</button>
     </div>

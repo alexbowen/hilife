@@ -104,7 +104,7 @@
     </div>
   </div>
 
-  <div class="g-recaptcha" data-sitekey="6LcV-kolAAAAAFJHHRYPvwEEZ2nSpNKdDW2pW8JW"></div>
+  <div class="g-recaptcha" data-sitekey="<?php echo constant("GOOGLE_RECAPTCHA_SITEKEY"); ?>"></div>
 
   <div class="row text-end">
     <div class="d-grid gap-2 d-md-block">
