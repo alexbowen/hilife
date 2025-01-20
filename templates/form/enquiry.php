@@ -1,7 +1,10 @@
 <form name="enquiry-form" action="/actions/event" method="post" class="needs-validation needs-validation-time" novalidate>
   <div class="form-floating mb-3">
-    <input type="text" name="event[primary_contact]" id="enquiry-contact" class="form-control form-control-sm" placeholder="your name" required maxlength="60" pattern="[a-zA-Z\-]+" />
+    <input type="text" name="event[primary_contact]" id="enquiry-contact" class="form-control form-control-sm" placeholder="your name" required maxlength="60" pattern="[ a-zA-Z\-]+" />
     <label for="enquiry-contact">Name <span class="form-optional">(required)</span></label>
+    <div class="invalid-feedback">
+      Contains invalid charaters
+    </div>
   </div>
 
   <div class="form-floating mb-3">
@@ -47,14 +50,20 @@
   <div class="row">
     <label for="event-venue-name" class="col-form-label col-form-label-sm col-md-4">Venue name</label>
     <div class="col-md-8 mb-3">
-      <input type="text" name="event[venue_name]" id="event-venue-name" class="form-control" aria-label="venue name" maxlength="60" pattern="[a-zA-Z0-9\-]+" />
+      <input type="text" name="event[venue_name]" id="event-venue-name" class="form-control" aria-label="venue name" maxlength="60" pattern="[ a-zA-Z0-9\-]+" />
+      <div class="invalid-feedback">
+        Contains invalid charaters
+      </div>
     </div>
   </div>
 
   <div class="row">
     <label for="event-venue-address" class="col-form-label col-form-label-sm col-md-4">Venue address</label>
     <div class="col-md-8 mb-3">
-      <input type="text" name="event[venue_address]" id="event-venue-address" class="form-control" aria-label="venue address" maxlength="100" pattern="[a-zA-Z0-9,.\-]+" />
+      <input type="text" name="event[venue_address]" id="event-venue-address" class="form-control" aria-label="venue address" maxlength="100" pattern="[ a-zA-Z0-9,.\-]+" />
+      <div class="invalid-feedback">
+        Contains invalid charaters
+      </div>
     </div>
   </div>
 
