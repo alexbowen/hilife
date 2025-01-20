@@ -5,14 +5,14 @@
     const parts = [];
     Array.from(form.querySelectorAll('.event-time-input')).forEach(function (timeInput) {
       let time = '';
-      Array.from(timeInput.getElementsByTagName('select')).forEach(function(select) {
+      Array.from(timeInput.getElementsByTagName('select')).forEach(function (select) {
         if (select.value) {
           if (select.value == 0) {
             time += '00';
           } else {
             time += select.value;
           }
-      
+
           parts[timeInput.dataset.order] = parseInt(time, 10);
         }
       });
@@ -26,7 +26,7 @@
       return el != null;
     });
 
-    return parts_filtered.slice(1).map((e,i) => e > parts_filtered[i]).every(x => x);
+    return parts_filtered.slice(1).map((e, i) => e > parts_filtered[i]).every(x => x);
   }
 
   function setValidity(form) {
@@ -42,7 +42,7 @@
     }
 
     Array.from(form.querySelectorAll('.event-time-input')).forEach(function (timeInput) {
-      Array.from(timeInput.getElementsByTagName('select')).forEach(function(select) {
+      Array.from(timeInput.getElementsByTagName('select')).forEach(function (select) {
         select.classList[classFn](invalidClass);
         select.setCustomValidity(validity);
       });
@@ -55,7 +55,7 @@
     .forEach(function (form) {
 
       Array.from(form.querySelectorAll('.event-time-input')).forEach(function (timeInput) {
-        Array.from(timeInput.getElementsByTagName('select')).forEach(function(select) {
+        Array.from(timeInput.getElementsByTagName('select')).forEach(function (select) {
           select.addEventListener('change', function () {
             setValidity(form);
           });
@@ -65,7 +65,7 @@
       form.addEventListener('submit', function (event) {
 
         setValidity(form);
-    
+
         if (!form.checkValidity()) {
           event.preventDefault();
           event.stopPropagation();
@@ -75,19 +75,20 @@
       }, false);
     });
 
-    const password = document.getElementById("password");
-    const confirm_password = document.getElementById("password-match");
-  
-    function validatePassword(){
-      if(password.value != confirm_password.value) {
-        confirm_password.setCustomValidity("Passwords Don't Match");
-      } else {
-        confirm_password.setCustomValidity('');
-      }
+
+  const password = document.getElementById("password");
+  const confirm_password = document.getElementById("password-match");
+
+  function validatePassword() {
+    if (password.value != confirm_password.value) {
+      confirm_password.setCustomValidity("Passwords Don't Match");
+    } else {
+      confirm_password.setCustomValidity('');
     }
-    
-    if (password && confirm_password) {
-      password.onchange = validatePassword;
-      confirm_password.onkeyup = validatePassword;
-    }
+  }
+
+  if (password && confirm_password) {
+    password.onchange = validatePassword;
+    confirm_password.onkeyup = validatePassword;
+  }
 })();

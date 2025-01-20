@@ -1,10 +1,7 @@
 <form name="enquiry-form" action="/actions/event" method="post" class="needs-validation needs-validation-time" novalidate>
   <div class="form-floating mb-3">
-    <input type="text" name="event[primary_contact]" id="enquiry-contact" class="form-control form-control-sm" placeholder="your name" required />
+    <input type="text" name="event[primary_contact]" id="enquiry-contact" class="form-control form-control-sm" placeholder="your name" required maxlength="60" pattern="[a-zA-Z\-]+" />
     <label for="enquiry-contact">Name <span class="form-optional">(required)</span></label>
-    <div class="invalid-feedback">
-      This field is required
-    </div>
   </div>
 
   <div class="form-floating mb-3">
@@ -18,7 +15,7 @@
   <div class="row">
     <label for="enquiry-telephone" class="col-form-label col-form-label-sm col-md-4">Telephone number</label>
     <div class="col-md-8 mb-3">
-      <input type="tel" id="enquiry-telephone" name="event[client_telephone]" class="form-control form-control-sm" pattern="(\+)?([ 0-9]){10,16}" />
+      <input type="tel" id="enquiry-telephone" name="event[client_telephone]" class="form-control form-control-sm" pattern="(\+)?([0-9]){10,16}" />
       <div class="invalid-feedback">
         Invalid phone number
       </div>
@@ -50,14 +47,14 @@
   <div class="row">
     <label for="event-venue-name" class="col-form-label col-form-label-sm col-md-4">Venue name</label>
     <div class="col-md-8 mb-3">
-      <input type="text" name="event[venue_name]" id="event-venue-name" class="form-control" aria-label="venue name" />
+      <input type="text" name="event[venue_name]" id="event-venue-name" class="form-control" aria-label="venue name" maxlength="60" pattern="[a-zA-Z0-9\-]+" />
     </div>
   </div>
 
   <div class="row">
     <label for="event-venue-address" class="col-form-label col-form-label-sm col-md-4">Venue address</label>
     <div class="col-md-8 mb-3">
-      <input type="text" name="event[venue_address]" id="event-venue-address" class="form-control" aria-label="venue address" />
+      <input type="text" name="event[venue_address]" id="event-venue-address" class="form-control" aria-label="venue address" maxlength="100" pattern="[a-zA-Z0-9,.\-]+" />
     </div>
   </div>
 
@@ -94,7 +91,7 @@
   <div class="row">
     <label for="enquiry-notes" class="col-form-label col-form-label-sm col-md-4">Additional information</label>
     <div class="col-md-8 mb-3">
-      <textarea name="admin[notes]" class="form-control" id="enquiry-notes"></textarea>
+      <textarea name="admin[notes]" class="form-control" id="enquiry-notes" maxlength="300"></textarea>
     </div>
   </div>
 

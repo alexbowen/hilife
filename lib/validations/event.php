@@ -37,19 +37,23 @@ function eventIsSpam($event) {
   $error = false;
 
   foreach($event as $key => $value) {
-    if (preg_match(constant("URL_PATTERN"), $value) > 0) {
-      $error = 'Enquiries cannot contain any URL';
+    if (preg_match(constant("URL_PATTERN"), $value)) {
+      $error = 'Enquiry cannot contain any URL';
+    }
+
+    foreach (constant("BANNED_EMAIL") as $key => $banned_email) {
+      if (stripos($value, $banned_email) !== false) {
+        $error = 'Enquiry cannot be sent';
+      }
     }
 
     foreach (constant("BANNED_WORDS") as $key => $banned_word) {
       if (stripos($value, $banned_word) !== false) {
-        // echo 'Enquiries cannot contain banned words' . $banned_word . ' ' . $value . "\n\n";
-        $error = 'Enquiries cannot contain banned words';
+        $error = 'Enquiry cannot contain banned words';
       }
     }
   }
 
   return $error;
 }
-
 ?>
