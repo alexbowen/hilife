@@ -192,7 +192,12 @@ if ($_POST['action'] == 'cancel') {
 }
 
 if ($_POST['action'] == 'delete') {
-  $sql = "DELETE FROM events WHERE id IN (" . implode(",", $_POST['delete-events']) . ")";
+  $event_ids = implode(",", $_POST['delete-events']);
+  $sql = "DELETE FROM events WHERE id IN (" . $event_ids . ")";
+  $query = $database->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
+  $query->execute();
+
+  $sql = "DELETE FROM events_admin WHERE event_id IN (" . $event_ids . ")";
   $query = $database->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
   $query->execute();
   header('Location: /admin/events');
