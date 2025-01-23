@@ -57,7 +57,7 @@ $section = 'playlists';
       <div class="row">
         <?php for ($x = 1; $x <= 25; $x++) { ?>
         <div class="col-md-4 mb-2">
-          <input type="text" class="form-control" name="tracks[]" value="<?php echo $event->top_25['t' . $x]; ?>" placeholder="<?php echo $x; ?>." />
+          <input type="text" class="form-control" name="tracks[]" value="<?php echo $event->top_25 ? $event->top_25['t' . $x] : ''; ?>" placeholder="<?php echo $x; ?>." />
         </div>
         <?php } ?>
       </div>

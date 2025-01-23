@@ -1,4 +1,5 @@
 <?php
+session_start();
 include($_SERVER['DOCUMENT_ROOT'] . '/lib/common.php');
 
 if (isset($_POST['action']) && $_POST['action'] == 'update') {
