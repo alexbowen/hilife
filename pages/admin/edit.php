@@ -25,14 +25,10 @@ $event = EventFactory::create(array(
               <input type="hidden" name="event[primary_contact]" value="<?php echo $event->primary_contact; ?>" />
 
               <div class="d-grid gap-2 d-md-flex my-2 my-md-0">
-                <?php if ($event->status == 'pending') { ?>
-                  <input type="hidden" name="admin[status]" value="confirmed" />
-                  <button type="submit" name="action" value="update" class="btn btn-success btn-sm flex-fill">Confirm</button>
-                <?php } ?>
 
                 <?php if ($event->status == 'enquiry') { ?>
-                  <input type="hidden" name="admin[status]" value="pending" />
-                  <button type="submit" name="action" value="update" class="btn btn-success btn-sm flex-fill">Accept</button>
+                  <input type="hidden" name="admin[status]" value="confirmed" />
+                  <button type="submit" name="action" value="update" class="btn btn-success btn-sm flex-fill">Confirm</button>
                 <?php } ?>
 
                 <button type="submit" name="action" value="cancel" class="btn btn-danger btn-sm confirm-action flex-fill" data-confirm-message="Are you sure you want to cancel this event?">Cancel</button>
@@ -55,10 +51,9 @@ $event = EventFactory::create(array(
               <button type="submit" name="action" value="update" class="btn btn-primary btn-sm">Update event</button>
 
               <?php if ($event->booking_type == 'direct') { ?>
-                            <button type="button" class="btn btn-link btn-sm" data-bs-toggle="modal" data-bs-target="#select-package-<?php echo $event->id; ?>">
-                convert to package
-              </button>
-
+                <button type="button" class="btn btn-link btn-sm" data-bs-toggle="modal" data-bs-target="#select-package-<?php echo $event->id; ?>">
+                  convert to package
+                </button>
 
                 <input type="hidden" name="admin[booking_type]" value="package" />
                 <div class="modal fade" id="select-package-<?php echo $event->id; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

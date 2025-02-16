@@ -84,19 +84,15 @@ $adminPage = "events";
     <div class="filter-panel">
       <form name="events-sort" action="<?php echo $_SERVER['REQUEST_URI'] ?>" method="get">
         <div class="row mb-1 mb-md-3">
-          <div class="col-md-3 d-grid d-block mb-1 my-md-0">
+          <div class="col-md-4 d-grid d-block mb-1 my-md-0">
             <button class="btn <?php if($_SESSION['admin'] == 'enquiry') { ?>btn-secondary<?php } else { ?>btn-outline-secondary<?php } ?> btn-sm" type="submit" name="status" value="enquiry">Enquiries<?php if ($new_enquiry_count > 0) { echo " (" . $new_enquiry_count . " new)"; } ?></button>
           </div>
 
-          <div class="col-md-3 d-grid d-block mb-1 my-md-0">
-            <button class="btn <?php if($_SESSION['admin'] == 'pending') { ?>btn-secondary<?php } else { ?>btn-outline-secondary<?php } ?> btn-sm" type="submit" name="status" value="pending">Pending events<?php if ($pending_count > 0) { echo " (" . $pending_count . ")"; } ?></button>
-          </div>
-
-          <div class="col-md-3 d-grid d-block mb-1 my-md-0">
+          <div class="col-md-4 d-grid d-block mb-1 my-md-0">
             <button class="btn <?php if($_SESSION['admin'] == 'confirmed') { ?>btn-secondary<?php } else { ?>btn-outline-secondary<?php } ?> btn-sm" type="submit" name="status" value="confirmed">Confirmed events<?php if ($confirmed_count > 0) { echo " (" . $confirmed_count . ")"; } ?></button>
           </div>
 
-          <div class="col-md-3 d-grid d-block mb-1 my-md-0">
+          <div class="col-md-4 d-grid d-block mb-1 my-md-0">
             <button class="btn <?php if($_SESSION['admin'] == 'cancelled') { ?>btn-secondary<?php } else { ?>btn-outline-secondary<?php } ?> btn-sm" type="submit" name="status" value="cancelled">Cancelled events</button>
           </div>
         </div>
