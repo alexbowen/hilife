@@ -118,23 +118,6 @@ if ($user->isAdmin() || (isset($_POST['g-recaptcha-response']) && !empty($_POST[
 }
 
 if ($_POST['action'] == 'update') {
-  if (isset($_POST['event']) && count($_POST['event']) > 0) {
-
-    $updateFields = '';
-
-    foreach ($_POST['event'] as $key => $value) {
-      $updateFields .= $key . "=:" . $key . ", ";
-    }
-
-    foreach ($event_timings as $key => $value) {
-      $updateFields .= $key . "=:" . $key . ", ";
-    }
-    
-    $sql = "UPDATE events SET " . rtrim($updateFields, ", ") . " WHERE id = :event_id";
-    $query = $database->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
-    $query->execute(array_merge(array(':event_id' => $_POST['id']), $_POST['event'], $event_timings));
-  }
-
   if (isset($_POST['admin']) && count($_POST['admin']) > 0) {
 
     $updateFields = '';
