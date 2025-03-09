@@ -136,6 +136,7 @@ if ($_POST['action'] == 'update') {
     $query->execute(array_merge(array(':event_id' => $_POST['id']), $_POST['event'], $event_timings));
   }
 
+
   if (isset($_POST['admin']) && count($_POST['admin']) > 0) {
     $updateFields = '';
 
@@ -170,7 +171,9 @@ if ($_POST['action'] == 'update') {
 
   Notify::add('message', 'Event updated for ' . $event_updated->email);
 
-  header('Location: ' . $_SERVER['HTTP_REFERER']);
+  $referrer = isset($_POST['referrer']) ? $_POST['referrer'] : $_SERVER['HTTP_REFERER'];
+
+  header('Location: ' . $referrer);
 }
 
 if ($_POST['action'] == 'cancel') {
