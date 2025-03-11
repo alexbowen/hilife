@@ -55,7 +55,6 @@ $package_clients = $database->query($query)->fetchAll();
       <div class="col-md-9">
         <select name="admin[status]" id="event-status" class="form-select form-select-sm">
           <option value="enquiry" <?php if ($event->status == 'enquiry') { ?>selected<?php } ?>>enquiry</option>
-          <option value="pending" <?php if ($event->status == 'pending') { ?>selected<?php } ?>>pending</option>
           <option value="confirmed" <?php if ($event->status == 'confirmed') { ?>selected<?php } ?>>confirmed</option>
         </select>
       </div>
