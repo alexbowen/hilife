@@ -9,7 +9,7 @@ ErrorDocument 404 /index.php?page_name=error-404
 # RewriteRule ^signin.php$ /account/sign-in [L]
 # RewriteRule ^newplanner(.*)?$ /account/sign-in [L]
 RewriteRule ^bookings/csv$ /lib/csv.php [L]
-RewriteRule ^blog$ https://staging.thehi-life.co.uk/wordpress/blog/ [L]
+RewriteRule ^blog$ /wordpress/blog/ [L]
 RewriteRule ^/?$ /index.php?region=leeds&page_name=home [L]
 RewriteRule ^google/callback$ /lib/auth/google/callback.php [L,QSA]
 RewriteRule ^spotify/auth$ /lib/auth/spotify/auth.php [L]
