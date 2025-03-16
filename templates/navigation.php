@@ -14,6 +14,9 @@
       <li class="nav-item<?php if ($_SERVER['REQUEST_URI'] === '/') { ?> active<?php } ?>">
         <a class="nav-link" href="<?php echo $region_url_prefix; ?>/">Home</a>
       </li>
+      <li class="nav-item<?php if ($_SERVER['REQUEST_URI'] === '/blog') { ?> active<?php } ?>">
+        <a class="nav-link" href="<?php echo $region_url_prefix; ?>/blog">Blog</a>
+      </li>
       <li class="nav-item<?php if (str_contains($_SERVER['REQUEST_URI'], 'djs')) { ?> active<?php } ?>">
         <a class="nav-link" rel="canonical" href="<?php echo $region_url_prefix; ?>/djs">DJs</a>
       </li>
